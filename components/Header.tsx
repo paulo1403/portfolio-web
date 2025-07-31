@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
 import { Menu, X, MessageCircle } from "lucide-react";
 
 const navigation = [
@@ -10,7 +9,6 @@ const navigation = [
   { name: "Sobre mí", href: "#about" },
   { name: "Proyectos", href: "#projects" },
   { name: "Experiencia", href: "#experience" },
-  { name: "Contacto", href: "#contact" },
 ];
 
 const scrollToSection = (sectionId: string) => {

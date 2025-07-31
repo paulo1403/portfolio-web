@@ -13,23 +13,48 @@ import {
   Zap,
   Trophy,
   GraduationCap,
-  CheckCircle
+  CheckCircle,
 } from "lucide-react";
 
 export default function ExperienceSection() {
   const experiences = [
     {
+      company: "Belcorp",
+      position: "Software Developer",
+      period: "Abr 2025 - Presente",
+      duration: "Actual",
+      achievements: [
+        "Desarrollo de automatizaciones con UnifyApps para notificaciones en 12 países.",
+        "Creación y mantenimiento de Store Procedures para optimización de datos.",
+        "Desarrollo frontend para uneteabelcorp.com con React y GraphQL.",
+        "Soporte y mantenimiento para la plataforma SoporteBelcorp en .NET Framework.",
+      ],
+      technologies: [
+        "UnifyApps",
+        "React",
+        "GraphQL",
+        ".NET Framework",
+        "SQL Server",
+      ],
+    },
+    {
       company: "Rimac Seguros",
       position: "Especialista Frontend",
-      period: "Nov 2023 - Presente",
-      duration: "1+ año",
+      period: "Nov 2023 - Abr 2025",
+      duration: "1 año 6 meses",
       achievements: [
         "Lideré migración de Redux a Zustand mejorando rendimiento",
         "Implementé soluciones geoespaciales con React-Leaflet y Geoserver",
         "Actualicé Node.js (14→18) y Ant Design (v3→v5)",
-        "Desarrollé componentes modulares y hooks personalizados"
+        "Desarrollé componentes modulares y hooks personalizados",
       ],
-      technologies: ["React", "TypeScript", "Zustand", "React-Leaflet", "Ant Design"]
+      technologies: [
+        "React",
+        "TypeScript",
+        "Zustand",
+        "React-Leaflet",
+        "Ant Design",
+      ],
     },
     {
       company: "CRD",
@@ -40,9 +65,9 @@ export default function ExperienceSection() {
         "Migración compleja de Create React App a Vite mejorando build time 60%",
         "Implementé API serverless en AWS Lambda con autenticación segura",
         "Desarrollé plataforma de mapeo con características completas",
-        "Mejoré validación de datos con Yup, Formik y JOI"
+        "Mejoré validación de datos con Yup, Formik y JOI",
       ],
-      technologies: ["React", "Vite", "AWS Lambda", "AWS Amplify", "MongoDB"]
+      technologies: ["React", "Vite", "AWS Lambda", "AWS Amplify", "MongoDB"],
     },
     {
       company: "Fractal",
@@ -53,9 +78,9 @@ export default function ExperienceSection() {
         "Diseñé API escalables con .NET Core y integración AJAX",
         "Implementé comunicación en tiempo real con Slack API y WebSockets",
         "Desarrollé vistas dinámicas con tecnología Razor",
-        "Colaboré en equipo multidisciplinario para soluciones de alta calidad"
+        "Colaboré en equipo multidisciplinario para soluciones de alta calidad",
       ],
-      technologies: [".NET Core", "C#", "Razor", "WebSockets", "Slack API"]
+      technologies: [".NET Core", "C#", "Razor", "WebSockets", "Slack API"],
     },
     {
       company: "Transforma Digital Perú",
@@ -66,33 +91,40 @@ export default function ExperienceSection() {
         "Lideré desarrollo de 'Lucy', sistema web robusto con Django",
         "Diseñé sitio personalizado para Unicon con WordPress y PHP",
         "Pionero en sistemas de comunicación en tiempo real con WebSockets",
-        "Fortalecí colaboración del equipo garantizando entregas de calidad"
+        "Fortalecí colaboración del equipo garantizando entregas de calidad",
       ],
-      technologies: ["Django", "Python", "WordPress", "PHP", "WebSockets"]
-    }
+      technologies: ["Django", "Python", "WordPress", "PHP", "WebSockets"],
+    },
   ];
 
   const technicalSkills = {
-    "Frontend": {
+    Frontend: {
       icon: <Code className="w-5 h-5" />,
-      skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "React-Leaflet", "Ant Design"],
-      color: "blue"
+      skills: [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "React-Leaflet",
+        "Ant Design",
+      ],
+      color: "blue",
     },
-    "Backend": {
+    Backend: {
       icon: <Database className="w-5 h-5" />,
       skills: ["Node.js", "Python", "Django", ".NET Core", "Express.js", "Bun"],
-      color: "green"
+      color: "green",
     },
     "Cloud & DevOps": {
       icon: <Cloud className="w-5 h-5" />,
       skills: ["AWS Lambda", "AWS Amplify", "Docker", "Vercel", "Firebase"],
-      color: "purple"
+      color: "purple",
     },
-    "Herramientas": {
+    Herramientas: {
       icon: <Wrench className="w-5 h-5" />,
       skills: ["Git", "Jest", "Vite", "Webpack", "Formik", "Zustand"],
-      color: "orange"
-    }
+      color: "orange",
+    },
   };
 
   const achievements = [
@@ -100,26 +132,26 @@ export default function ExperienceSection() {
       icon: <Trophy className="w-6 h-6" />,
       title: "1er Lugar ERPsim Game",
       description: "Iberoamérica 2020 - Liderazgo de equipo virtual",
-      color: "yellow"
+      color: "yellow",
     },
     {
       icon: <GraduationCap className="w-6 h-6" />,
       title: "Publicación Científica Q2",
       description: "Blockchain & FHIR HL7 - DOI: 10.3991/ijoe.v20i03.44507",
-      color: "blue"
+      color: "blue",
     },
     {
       icon: <Zap className="w-6 h-6" />,
       title: "Migración CRA → Vite",
       description: "Mejora del 60% en tiempo de build y desarrollo",
-      color: "green"
+      color: "green",
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Soluciones Geoespaciales",
       description: "React-Leaflet + Geoserver con capas múltiples",
-      color: "red"
-    }
+      color: "red",
+    },
   ];
 
   const containerVariants = {
@@ -127,9 +159,9 @@ export default function ExperienceSection() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
@@ -138,19 +170,23 @@ export default function ExperienceSection() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6
-      }
-    }
+        duration: 0.6,
+      },
+    },
   };
 
   const getColorClasses = (color: string) => {
     const colors = {
       blue: "bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 border-blue-200 dark:border-blue-800",
-      green: "bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 border-green-200 dark:border-green-800",
-      purple: "bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 border-purple-200 dark:border-purple-800",
-      orange: "bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 border-orange-200 dark:border-orange-800",
-      yellow: "bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400 border-yellow-200 dark:border-yellow-800",
-      red: "bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 border-red-200 dark:border-red-800"
+      green:
+        "bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 border-green-200 dark:border-green-800",
+      purple:
+        "bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 border-purple-200 dark:border-purple-800",
+      orange:
+        "bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 border-orange-200 dark:border-orange-800",
+      yellow:
+        "bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400 border-yellow-200 dark:border-yellow-800",
+      red: "bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 border-red-200 dark:border-red-800",
     };
     return colors[color as keyof typeof colors] || colors.blue;
   };
@@ -169,7 +205,10 @@ export default function ExperienceSection() {
             variants={itemVariants}
             className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-white mb-6"
           >
-            Experiencia & <span className="text-blue-600 dark:text-blue-400">Habilidades</span>
+            Experiencia &{" "}
+            <span className="text-blue-600 dark:text-blue-400">
+              Habilidades
+            </span>
           </motion.h2>
           <motion.div
             variants={itemVariants}
@@ -180,7 +219,8 @@ export default function ExperienceSection() {
             className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto"
           >
             Más de 4 años de experiencia desarrollando soluciones innovadoras,
-            liderando migraciones complejas y implementando tecnologías de vanguardia.
+            liderando migraciones complejas y implementando tecnologías de
+            vanguardia.
           </motion.p>
         </motion.div>
 
@@ -228,7 +268,9 @@ export default function ExperienceSection() {
                     </div>
                     <div className="flex items-center text-slate-600 dark:text-slate-400 mt-2 md:mt-0">
                       <Calendar className="w-4 h-4 mr-2" />
-                      <span className="text-sm">{exp.period} • {exp.duration}</span>
+                      <span className="text-sm">
+                        {exp.period} • {exp.duration}
+                      </span>
                     </div>
                   </div>
 

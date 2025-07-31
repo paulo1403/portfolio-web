@@ -1,67 +1,105 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Github, Briefcase, User, Monitor, Palette, Download, Database, Code } from "lucide-react";
+import {
+  ExternalLink,
+  Github,
+  Briefcase,
+  User,
+  Monitor,
+  Palette,
+  Download,
+  Database,
+  Code,
+} from "lucide-react";
 
 export default function ProjectsSection() {
   const professionalProjects = [
     {
+      title: "Unete a Belcorp",
+      company: "Belcorp",
+      description:
+        "Desarrollo y mantenimiento de la plataforma de inscripción para consultoras, utilizando React y GraphQL para una experiencia de usuario fluida y moderna.",
+      technologies: ["React", "GraphQL", "TypeScript", "Styled-Components"],
+      link: "https://uneteabelcorp.com/pe",
+      type: "web",
+      year: "2025",
+    },
+    {
       title: "Centro de Monitoreo Rimac",
       company: "Rimac Seguros",
-      description: "Plataforma de monitoreo en tiempo real para seguros con interfaces responsivas y soluciones geoespaciales avanzadas con React-Leaflet.",
-      technologies: ["React", "TypeScript", "React-Leaflet", "Zustand", "Ant Design"],
+      description:
+        "Plataforma de monitoreo en tiempo real para seguros con interfaces responsivas y soluciones geoespaciales avanzadas con React-Leaflet.",
+      technologies: [
+        "React",
+        "TypeScript",
+        "React-Leaflet",
+        "Zustand",
+        "Ant Design",
+      ],
       link: "https://centrodemonitoreo.rimac.com/",
       type: "web",
-      year: "2024"
+      year: "2024",
     },
     {
       title: "HolaLink",
       company: "CRD",
-      description: "Plataforma web innovadora con API serverless en AWS Lambda, autenticación segura con AWS Amplify y diseños móvil-first.",
-      technologies: ["React", "AWS Lambda", "AWS Amplify", "Node.js", "MongoDB"],
+      description:
+        "Plataforma web innovadora con API serverless en AWS Lambda, autenticación segura con AWS Amplify y diseños móvil-first.",
+      technologies: [
+        "React",
+        "AWS Lambda",
+        "AWS Amplify",
+        "Node.js",
+        "MongoDB",
+      ],
       link: "https://hola.link",
       type: "web",
-      year: "2023"
-    }
+      year: "2023",
+    },
   ];
 
   const personalProjects = [
     {
       title: "MCA Makeup",
-      description: "Sitio web profesional para maquilladora con galería interactiva, sistema de citas y diseño responsive optimizado para móviles.",
+      description:
+        "Sitio web profesional para maquilladora con galería interactiva, sistema de citas y diseño responsive optimizado para móviles.",
       technologies: ["Next.js", "React", "Tailwind CSS", "Vercel"],
       link: "https://mca-makeup.vercel.app/",
       github: null,
       type: "web",
-      year: "2024"
+      year: "2024",
     },
     {
       title: "YT-DLP GUI Electron",
-      description: "Aplicación de escritorio con interfaz gráfica para descargar videos de YouTube usando yt-dlp. Interface intuitiva construida con Electron.",
+      description:
+        "Aplicación de escritorio con interfaz gráfica para descargar videos de YouTube usando yt-dlp. Interface intuitiva construida con Electron.",
       technologies: ["Electron", "JavaScript", "Node.js", "HTML/CSS"],
       link: null,
       github: "https://github.com/paulo1403/yt-dlp-gui-electron",
       type: "desktop",
-      year: "2024"
+      year: "2024",
     },
     {
       title: "Bun Auth CRUD",
-      description: "Sistema de autenticación y CRUD moderno construido con Bun runtime. Implementación de JWT, validación de datos y operaciones completas de base de datos.",
+      description:
+        "Sistema de autenticación y CRUD moderno construido con Bun runtime. Implementación de JWT, validación de datos y operaciones completas de base de datos.",
       technologies: ["Bun", "TypeScript", "JWT", "SQLite"],
       link: null,
       github: "https://github.com/paulo1403/bun-auth-crud",
       type: "api",
-      year: "2024"
+      year: "2024",
     },
     {
       title: "Django API Book",
-      description: "API REST completa para gestión de libros desarrollada con Django REST Framework. Incluye autenticación, paginación y documentación automática.",
+      description:
+        "API REST completa para gestión de libros desarrollada con Django REST Framework. Incluye autenticación, paginación y documentación automática.",
       technologies: ["Django", "Python", "DRF", "PostgreSQL"],
       link: null,
       github: "https://github.com/paulo1403/django-api-book",
       type: "api",
-      year: "2024"
-    }
+      year: "2024",
+    },
   ];
 
   const getProjectIcon = (type: string) => {
@@ -82,9 +120,9 @@ export default function ProjectsSection() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
@@ -93,9 +131,9 @@ export default function ProjectsSection() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6
-      }
-    }
+        duration: 0.6,
+      },
+    },
   };
 
   return (
@@ -112,7 +150,8 @@ export default function ProjectsSection() {
             variants={itemVariants}
             className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-white mb-6"
           >
-            Mis <span className="text-blue-600 dark:text-blue-400">Proyectos</span>
+            Mis{" "}
+            <span className="text-blue-600 dark:text-blue-400">Proyectos</span>
           </motion.h2>
           <motion.div
             variants={itemVariants}
@@ -122,8 +161,9 @@ export default function ProjectsSection() {
             variants={itemVariants}
             className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto"
           >
-            Una selección de proyectos profesionales y personales que demuestran mi experiencia
-            en desarrollo web, aplicaciones de escritorio y APIs modernas.
+            Una selección de proyectos profesionales y personales que demuestran
+            mi experiencia en desarrollo web, aplicaciones de escritorio y APIs
+            modernas.
           </motion.p>
         </motion.div>
 

@@ -10,29 +10,30 @@ import { getDictionary } from "../dictionaries";
 export default async function Home({
   params,
 }: {
-  params: { lang: "en" | "es" };
+  params: Promise<{ lang: "en" | "es" }>;
 }) {
-  const dict = await getDictionary(params.lang);
+  const { lang } = await params;
+  const dict = await getDictionary(lang);
 
   return (
     <main className="relative">
-      <Header dict={dict} lang={params.lang} />
+      <Header dict={dict} lang={lang} />
       <section id="home">
-        <HeroSection dict={dict} lang={params.lang} />
+        <HeroSection dict={dict} lang={lang} />
       </section>
       <section id="about">
-        <AboutSection dict={dict} lang={params.lang} />
+        <AboutSection dict={dict} lang={lang} />
       </section>
       <section id="projects">
-        <ProjectsSection dict={dict} lang={params.lang} />
+        <ProjectsSection dict={dict} lang={lang} />
       </section>
       <section id="experience">
-        <ExperienceSection dict={dict} lang={params.lang} />
+        <ExperienceSection dict={dict} lang={lang} />
       </section>
       <section id="contact">
-        <ContactSection dict={dict} lang={params.lang} />
+        <ContactSection dict={dict} lang={lang} />
       </section>
-      <Footer lang={params.lang} />
+      <Footer lang={lang} />
     </main>
   );
 }

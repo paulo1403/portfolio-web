@@ -103,15 +103,17 @@ export async function generateStaticParams() {
   return [{ lang: "en" }, { lang: "es" }];
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: { lang: "en" | "es" };
+  params: Promise<{ lang: "en" | "es" }>;
 }) {
+  const { lang } = await params;
+
   return (
-    <html lang={params.lang} className="scroll-smooth">
+    <html lang={lang} className="scroll-smooth">
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} ${spaceGrotesk.variable} font-sans antialiased bg-background text-foreground`}
       >

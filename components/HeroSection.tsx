@@ -4,7 +4,14 @@ import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
-import { Github, Linkedin, Mail, Code2, MessageCircle } from "lucide-react";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Code2,
+  MessageCircle,
+  Download,
+} from "lucide-react";
 
 const skills = [
   "React",
@@ -306,13 +313,15 @@ export default function HeroSection() {
             Ver mis proyectos
           </motion.button>
 
-          <motion.button
+          <motion.a
+            href="/cv-es.pdf"
+            download="CV_Paulo_Llanos_ES.pdf"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-slate-900 px-8 py-3 text-lg font-medium rounded-lg transition-all duration-300"
           >
             Descargar CV
-          </motion.button>
+          </motion.a>
         </motion.div>
 
         {/* Skills Cloud */}

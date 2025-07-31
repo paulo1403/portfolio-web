@@ -90,7 +90,7 @@ type ProjectsSectionProps = {
   lang: string;
 };
 
-export default function ProjectsSection({ dict }: ProjectsSectionProps) {
+export default function ProjectsSection({ dict, lang }: ProjectsSectionProps) {
   const professionalProjects: ProfessionalProject[] =
     dict.projects.professional || [];
   const personalProjects: PersonalProject[] = dict.projects.personal || [];
@@ -227,7 +227,7 @@ export default function ProjectsSection({ dict }: ProjectsSectionProps) {
                       className="flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors"
                     >
                       <ExternalLink className="w-4 h-4 mr-1" />
-                      {dict.lang === "en" ? "View Project" : "Ver Proyecto"}
+                      {lang === "en" ? "View Project" : "Ver Proyecto"}
                     </a>
                   </div>
                 </motion.div>
@@ -312,7 +312,7 @@ export default function ProjectsSection({ dict }: ProjectsSectionProps) {
                         className="flex items-center text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-medium transition-colors"
                       >
                         <ExternalLink className="w-4 h-4 mr-1" />
-                        {dict.lang === "en" ? "View Demo" : "Ver Demo"}
+                        {lang === "en" ? "View Demo" : "Ver Demo"}
                       </a>
                     )}
                     {project.github && (
@@ -323,7 +323,7 @@ export default function ProjectsSection({ dict }: ProjectsSectionProps) {
                         className="flex items-center text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 font-medium transition-colors"
                       >
                         <Github className="w-5 h-5 mr-2" />
-                        {dict.lang === "en" ? "Code" : "Código"}
+                        {lang === "en" ? "Code" : "Código"}
                       </a>
                     )}
                   </div>

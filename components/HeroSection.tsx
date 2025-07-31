@@ -38,8 +38,7 @@ export default function HeroSection() {
   const [currentTime, setCurrentTime] = useState(new Date());
   const { scrollY } = useScroll();
 
-  const y = useTransform(scrollY, [0, 500], [0, 150]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+  const opacity = useTransform(scrollY, [0, 300], [1, 0.7]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -125,7 +124,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 pt-20"
+      className="relative min-h-screen min-h-[100dvh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 pt-20"
     >
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
@@ -200,127 +199,133 @@ export default function HeroSection() {
       </div>
 
       {/* Main Content */}
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        style={{ y, opacity }}
-        className="relative z-10 container mx-auto container-padding text-center"
-      >
-        {/* Status Badge */}
+      <div className="relative z-10 container mx-auto container-padding text-center">
+        {/* Bloque principal animado */}
         <motion.div
-          variants={itemVariants}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-primary/20 mb-8"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          style={{ opacity }}
+          className="mb-24 sm:mb-32"
         >
-          <div className="w-2 h-2 bg-success rounded-full animate-pulse" />
-          <span className="text-sm text-surface-foreground">
-            Disponible para proyectos •{" "}
-            {format(currentTime, "HH:mm", { locale: es })}
-          </span>
-        </motion.div>
-
-        {/* Profile Photo */}
-        <motion.div variants={itemVariants} className="mb-8">
+          {/* Status Badge */}
           <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="relative mx-auto w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 mb-8"
+            variants={itemVariants}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-primary/20 mb-8"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full p-1">
-              <Image
-                src="/avatar.jpeg"
-                alt="Paulo Llanos"
-                width={400}
-                height={400}
-                className="w-full h-full rounded-full object-cover bg-white"
-                priority
-              />
-            </div>
-            <motion.div
-              className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-full blur-xl"
-              animate={{
-                scale: [1, 1.1, 1],
-                opacity: [0.5, 0.8, 0.5],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
+            <div className="w-2 h-2 bg-success rounded-full animate-pulse" />
+            <span className="text-sm text-surface-foreground">
+              Disponible para proyectos •{" "}
+              {format(currentTime, "HH:mm", { locale: es })}
+            </span>
           </motion.div>
-        </motion.div>
 
-        {/* Main Title */}
-        <motion.div variants={titleVariants} className="mb-8">
-          <h1 className="text-4xl sm:text-6xl lg:text-8xl font-bold mb-4">
-            <span className="block text-slate-800 dark:text-white">
-              Hola, soy
-            </span>
-            <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Paulo Llanos
-            </span>
-          </h1>
-
-          <div className="text-xl sm:text-2xl lg:text-3xl text-slate-600 dark:text-slate-300 font-medium flex items-center justify-center gap-3">
-            <span>Full Stack Developer</span>
+          {/* Profile Photo */}
+          <motion.div variants={itemVariants} className="mb-8">
             <motion.div
-              className="text-blue-600 dark:text-blue-400"
-              animate={{ rotate: [0, 10, -10, 0] }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
+              whileHover={{ scale: 1.05 }}
+              className="relative mx-auto w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 mb-8"
             >
-              <Code2 className="w-6 h-6 sm:w-8 sm:h-8" />
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full p-1">
+                <Image
+                  src="/avatar.jpeg"
+                  alt="Paulo Llanos"
+                  width={400}
+                  height={400}
+                  className="w-full h-full rounded-full object-cover bg-white"
+                  priority
+                />
+              </div>
+              <motion.div
+                className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-full blur-xl"
+                animate={{
+                  scale: [1, 1.1, 1],
+                  opacity: [0.5, 0.8, 0.5],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
             </motion.div>
-          </div>
+          </motion.div>
+
+          {/* Main Title */}
+          <motion.div variants={titleVariants} className="mb-8">
+            <h1 className="text-4xl sm:text-6xl lg:text-8xl font-bold mb-4">
+              <span className="block text-slate-800 dark:text-white">
+                Hola, soy
+              </span>
+              <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Paulo Llanos
+              </span>
+            </h1>
+
+            <div className="text-xl sm:text-2xl lg:text-3xl text-slate-600 dark:text-slate-300 font-medium flex items-center justify-center gap-3">
+              <span>Full Stack Developer</span>
+              <motion.div
+                className="text-blue-600 dark:text-blue-400"
+                animate={{ rotate: [0, 10, -10, 0] }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <Code2 className="w-6 h-6 sm:w-8 sm:h-8" />
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Description */}
+          <motion.p
+            variants={itemVariants}
+            className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed"
+          >
+            Con{" "}
+            <span className="text-blue-600 dark:text-blue-400 font-semibold">
+              4+ años de experiencia
+            </span>{" "}
+            creando aplicaciones web modernas y escalables. Especializado en
+            React, Next.js, Node.js y tecnologías cloud que impulsan el futuro
+            digital.
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+          >
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                const element = document.getElementById("projects");
+                if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 text-lg font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              Ver mis proyectos
+            </motion.button>
+
+            <motion.a
+              href="/cv-es.pdf"
+              download="CV_Paulo_Llanos_ES.pdf"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-slate-900 px-8 py-3 text-lg font-medium rounded-lg transition-all duration-300"
+            >
+              Descargar CV
+            </motion.a>
+          </motion.div>
+
+          {/* Skills Cloud */}
         </motion.div>
 
-        {/* Description */}
-        <motion.p
-          variants={itemVariants}
-          className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed"
-        >
-          Con{" "}
-          <span className="text-blue-600 dark:text-blue-400 font-semibold">
-            4+ años de experiencia
-          </span>{" "}
-          creando aplicaciones web modernas y escalables. Especializado en
-          React, Next.js, Node.js y tecnologías cloud que impulsan el futuro
-          digital.
-        </motion.p>
-
-        {/* CTA Buttons */}
-        <motion.div
-          variants={itemVariants}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
-        >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => {
-              const element = document.getElementById("projects");
-              if (element) {
-                element.scrollIntoView({ behavior: "smooth" });
-              }
-            }}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 text-lg font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            Ver mis proyectos
-          </motion.button>
-
-          <motion.a
-            href="/cv-es.pdf"
-            download="CV_Paulo_Llanos_ES.pdf"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-slate-900 px-8 py-3 text-lg font-medium rounded-lg transition-all duration-300"
-          >
-            Descargar CV
-          </motion.a>
-        </motion.div>
-
+        {/* Skills Cloud */}
         {/* Skills Cloud */}
         <motion.div variants={itemVariants} className="mb-16">
           <h3 className="text-sm uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-6 font-medium">
@@ -352,7 +357,7 @@ export default function HeroSection() {
         {/* Social Links */}
         <motion.div
           variants={itemVariants}
-          className="flex justify-center gap-6"
+          className="flex justify-center gap-6 mb-8"
         >
           {socialLinks.map((social, index) => (
             <motion.a
@@ -376,26 +381,7 @@ export default function HeroSection() {
             </motion.a>
           ))}
         </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          variants={itemVariants}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="flex flex-col items-center gap-2 text-muted-foreground"
-          >
-            <span className="text-xs uppercase tracking-wider">Scroll</span>
-            <div className="w-px h-8 bg-gradient-to-b from-primary to-transparent" />
-          </motion.div>
-        </motion.div>
-      </motion.div>
+      </div>
 
       {/* Decorative Elements */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />

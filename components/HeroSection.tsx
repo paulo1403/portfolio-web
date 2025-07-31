@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
-import { Github, Linkedin, Twitter, Mail, Code2 } from "lucide-react";
+import { Github, Linkedin, Mail, Code2, MessageCircle } from "lucide-react";
 
 const skills = [
   "React",
@@ -23,9 +23,13 @@ const skills = [
 
 const socialLinks = [
   { name: "GitHub", href: "https://github.com/paulo1403", icon: Github },
-  { name: "LinkedIn", href: "#", icon: Linkedin },
-  { name: "Twitter", href: "#", icon: Twitter },
-  { name: "Email", href: "#", icon: Mail },
+  {
+    name: "LinkedIn",
+    href: "https://linkedin.com/in/paulollanoscolchado",
+    icon: Linkedin,
+  },
+  { name: "WhatsApp", href: "https://wa.me/51999195557", icon: MessageCircle },
+  { name: "Email", href: "mailto:paulollanosc@gmail.com", icon: Mail },
 ];
 
 export default function HeroSection() {
@@ -120,7 +124,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-surface"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 pt-20"
     >
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
@@ -214,19 +218,49 @@ export default function HeroSection() {
           </span>
         </motion.div>
 
+        {/* Profile Photo */}
+        <motion.div variants={itemVariants} className="mb-8">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="relative mx-auto w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 mb-8"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full p-1">
+              <img
+                src="https://avatars.githubusercontent.com/u/37987149?v=4"
+                alt="Paulo Llanos"
+                className="w-full h-full rounded-full object-cover bg-white"
+              />
+            </div>
+            <motion.div
+              className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-full blur-xl"
+              animate={{
+                scale: [1, 1.1, 1],
+                opacity: [0.5, 0.8, 0.5],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          </motion.div>
+        </motion.div>
+
         {/* Main Title */}
         <motion.div variants={titleVariants} className="mb-8">
-          <h1 className="text-4xl sm:text-6xl lg:text-8xl font-display font-bold mb-4">
-            <span className="block text-foreground">Hola, soy</span>
-            <span className="block text-gradient animate-glow">
+          <h1 className="text-4xl sm:text-6xl lg:text-8xl font-bold mb-4">
+            <span className="block text-slate-800 dark:text-white">
+              Hola, soy
+            </span>
+            <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Paulo Llanos
             </span>
           </h1>
 
-          <div className="text-xl sm:text-2xl lg:text-3xl text-surface-foreground font-medium flex items-center justify-center gap-3">
+          <div className="text-xl sm:text-2xl lg:text-3xl text-slate-600 dark:text-slate-300 font-medium flex items-center justify-center gap-3">
             <span>Full Stack Developer</span>
             <motion.div
-              className="text-accent"
+              className="text-blue-600 dark:text-blue-400"
               animate={{ rotate: [0, 10, -10, 0] }}
               transition={{
                 duration: 2,
@@ -242,11 +276,11 @@ export default function HeroSection() {
         {/* Description */}
         <motion.p
           variants={itemVariants}
-          className="text-lg sm:text-xl text-surface-foreground max-w-3xl mx-auto mb-12 leading-relaxed"
+          className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed"
         >
           Con{" "}
-          <span className="text-primary font-semibold">
-            5 años de experiencia
+          <span className="text-blue-600 dark:text-blue-400 font-semibold">
+            4+ años de experiencia
           </span>{" "}
           creando aplicaciones web modernas y escalables. Especializado en
           React, Next.js, Node.js y tecnologías cloud que impulsan el futuro
@@ -259,9 +293,15 @@ export default function HeroSection() {
           className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
         >
           <motion.button
-            whileHover={{ scale: 1.05, boxShadow: "var(--shadow-glow)" }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="btn-primary px-8 py-3 text-lg font-medium shadow-lg"
+            onClick={() => {
+              const element = document.getElementById("projects");
+              if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 text-lg font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
           >
             Ver mis proyectos
           </motion.button>
@@ -269,7 +309,7 @@ export default function HeroSection() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="btn-outline px-8 py-3 text-lg font-medium"
+            className="border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-slate-900 px-8 py-3 text-lg font-medium rounded-lg transition-all duration-300"
           >
             Descargar CV
           </motion.button>
@@ -277,7 +317,7 @@ export default function HeroSection() {
 
         {/* Skills Cloud */}
         <motion.div variants={itemVariants} className="mb-16">
-          <h3 className="text-sm uppercase tracking-wider text-muted-foreground mb-6 font-medium">
+          <h3 className="text-sm uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-6 font-medium">
             Tecnologías que domino
           </h3>
           <div className="flex flex-wrap justify-center gap-3">
@@ -289,10 +329,10 @@ export default function HeroSection() {
                 variants={skillVariants}
                 whileHover={{
                   scale: 1.1,
-                  backgroundColor: "rgb(var(--primary) / 0.1)",
-                  color: "rgb(var(--primary))",
+                  backgroundColor: "rgb(59 130 246 / 0.1)",
+                  color: "rgb(59 130 246)",
                 }}
-                className="px-4 py-2 bg-surface/50 backdrop-blur-sm border border-border/30 rounded-full text-sm font-medium text-surface-foreground hover:shadow-md transition-all duration-200 cursor-default"
+                className="px-4 py-2 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200/30 dark:border-slate-700/30 rounded-full text-sm font-medium text-slate-700 dark:text-slate-300 hover:shadow-md transition-all duration-200 cursor-default"
                 style={{
                   animationDelay: `${index * 0.1}s`,
                 }}
@@ -312,14 +352,15 @@ export default function HeroSection() {
             <motion.a
               key={social.name}
               href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
               animate={floatingAnimation}
               whileHover={{
                 scale: 1.2,
                 y: -5,
-                boxShadow: "var(--shadow-glow)",
               }}
               whileTap={{ scale: 0.9 }}
-              className="w-12 h-12 bg-surface/50 backdrop-blur-sm border border-border/30 rounded-full flex items-center justify-center text-xl hover:bg-primary/10 hover:border-primary/30 transition-all duration-200"
+              className="w-12 h-12 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200/30 dark:border-slate-700/30 rounded-full flex items-center justify-center text-xl hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:border-blue-300 dark:hover:border-blue-700 transition-all duration-200 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400"
               style={{
                 animationDelay: `${index * 0.5}s`,
               }}

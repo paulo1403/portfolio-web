@@ -13,6 +13,19 @@ const navigation = [
   { name: "Contacto", href: "#contact" },
 ];
 
+const scrollToSection = (sectionId: string) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    const headerHeight = 80; // Height of fixed header
+    const elementPosition = element.offsetTop - headerHeight;
+
+    window.scrollTo({
+      top: elementPosition,
+      behavior: "smooth",
+    });
+  }
+};
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -130,11 +143,11 @@ export default function Header() {
       animate="visible"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-border/50 shadow-lg"
+          ? "bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-700/50 shadow-lg"
           : "bg-transparent"
       }`}
     >
-      <nav className="container mx-auto container-padding">
+      <nav className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <motion.div
@@ -142,12 +155,13 @@ export default function Header() {
             whileHover="hover"
             className="flex-shrink-0"
           >
-            <Link
-              href="#home"
-              className="text-2xl lg:text-3xl font-display font-bold text-gradient hover:opacity-80 transition-opacity duration-200"
+            <button
+              onClick={() => scrollToSection("home")}
+              className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:opacity-80 transition-opacity duration-200"
             >
-              Paulo Llanos<span className="text-accent">.</span>
-            </Link>
+              Paulo Llanos
+              <span className="text-blue-600 dark:text-blue-400">.</span>
+            </button>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -159,19 +173,22 @@ export default function Header() {
                   variants={navItemVariants}
                   whileHover="hover"
                 >
-                  <Link
-                    href={item.href}
+                  <button
+                    onClick={() => {
+                      const sectionId = item.href.substring(1);
+                      scrollToSection(sectionId);
+                      setActiveSection(sectionId);
+                    }}
                     className={`relative px-3 py-2 text-sm font-medium transition-all duration-200 ${
                       activeSection === item.href.substring(1)
-                        ? "text-primary"
-                        : "text-foreground hover:text-primary"
+                        ? "text-blue-600 dark:text-blue-400"
+                        : "text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400"
                     }`}
-                    onClick={() => setActiveSection(item.href.substring(1))}
                   >
                     {item.name}
                     {activeSection === item.href.substring(1) && (
                       <motion.div
-                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-primary"
+                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400"
                         layoutId="navbar-indicator"
                         initial={{ opacity: 0, scaleX: 0 }}
                         animate={{ opacity: 1, scaleX: 1 }}
@@ -182,7 +199,7 @@ export default function Header() {
                         }}
                       />
                     )}
-                  </Link>
+                  </button>
                 </motion.div>
               ))}
             </div>
@@ -193,7 +210,8 @@ export default function Header() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="btn-primary px-6 py-2.5 text-sm font-medium flex items-center gap-2"
+              onClick={() => scrollToSection("contact")}
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2.5 text-sm font-medium rounded-lg flex items-center gap-2 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               <MessageCircle className="w-4 h-4" />
               Hablemos
@@ -250,24 +268,31 @@ export default function Header() {
               <div className="px-2 pt-2 pb-3 space-y-1 bg-surface/95 backdrop-blur-md rounded-lg mt-2 border border-border/30">
                 {navigation.map((item) => (
                   <motion.div key={item.name} variants={menuItemVariants}>
-                    <Link
-                      href={item.href}
-                      className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
-                        activeSection === item.href.substring(1)
-                          ? "text-primary bg-primary/10"
-                          : "text-foreground hover:text-primary hover:bg-surface/50"
-                      }`}
+                    <button
                       onClick={() => {
+                        const sectionId = item.href.substring(1);
+                        scrollToSection(sectionId);
+                        setActiveSection(sectionId);
                         setIsOpen(false);
-                        setActiveSection(item.href.substring(1));
                       }}
+                      className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                        activeSection === item.href.substring(1)
+                          ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
+                          : "text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800"
+                      }`}
                     >
                       {item.name}
-                    </Link>
+                    </button>
                   </motion.div>
                 ))}
                 <motion.div variants={menuItemVariants} className="pt-2">
-                  <button className="w-full btn-primary px-4 py-2.5 text-sm font-medium flex items-center justify-center gap-2">
+                  <button
+                    onClick={() => {
+                      scrollToSection("contact");
+                      setIsOpen(false);
+                    }}
+                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-2.5 text-sm font-medium rounded-lg flex items-center justify-center gap-2 transition-all duration-300"
+                  >
                     <MessageCircle className="w-4 h-4" />
                     Hablemos
                   </button>

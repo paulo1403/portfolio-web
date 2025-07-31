@@ -26,7 +26,7 @@ const getNavigation = (dict: Dictionary) => [
   { name: dict.navigation.home, href: "#home" },
   { name: dict.navigation.about, href: "#about" },
   { name: dict.navigation.projects, href: "#projects" },
-  { name: dict.navigation.experience ?? "Experiencia", href: "#experience" },
+  { name: dict.navigation.experience, href: "#experience" },
 ];
 
 const scrollToSection = (sectionId: string) => {
@@ -194,8 +194,8 @@ export default function Header({ dict, lang }: HeaderProps) {
               <span className="text-blue-600 dark:text-blue-400">.</span>
             </button>
           </motion.div>
-          {/* Language Switcher */}
-          <div className="ml-4 flex items-center">
+          {/* Language Switcher (solo desktop) */}
+          <div className="ml-4 lg:hidden flex items-center">
             <a
               href={
                 typeof window !== "undefined"
@@ -213,7 +213,7 @@ export default function Header({ dict, lang }: HeaderProps) {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:block">
+          <div className="hidden lg:flex items-center">
             <div className="ml-10 flex items-baseline space-x-8">
               {navigation.map((item) => (
                 <motion.div
@@ -250,6 +250,21 @@ export default function Header({ dict, lang }: HeaderProps) {
                   </button>
                 </motion.div>
               ))}
+              {/* Language Switcher (desktop) */}
+              <a
+                href={
+                  typeof window !== "undefined"
+                    ? getSwitchLangHref()
+                    : `/${otherLang}`
+                }
+                className="ml-6 px-3 py-1 rounded-md border border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 bg-white dark:bg-slate-900 hover:bg-blue-50 dark:hover:bg-blue-800 transition-all duration-200 text-xs font-semibold uppercase"
+                aria-label={
+                  lang === "es" ? "Cambiar a inglés" : "Switch to Spanish"
+                }
+                style={{ letterSpacing: "0.05em" }}
+              >
+                {otherLang.toUpperCase()}
+              </a>
             </div>
           </div>
 

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { format } from "date-fns";
-import { es } from "date-fns/locale";
+import { es, enUS } from "date-fns/locale";
 import { Github, Linkedin, Mail, Code2, MessageCircle } from "lucide-react";
 import Image from "next/image";
 
@@ -33,7 +33,19 @@ const socialLinks = [
   { name: "Email", href: "mailto:paulollanosc@gmail.com", icon: Mail },
 ];
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  dict: {
+    hero: {
+      title: string;
+      subtitle: string;
+      cta: string;
+    };
+    // Puedes agregar más campos aquí si los usas en este componente
+  };
+  lang: string;
+}
+
+export default function HeroSection({ dict, lang }: HeroSectionProps) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [currentTime, setCurrentTime] = useState(new Date());
   const { scrollY } = useScroll();
@@ -215,8 +227,13 @@ export default function HeroSection() {
           >
             <div className="w-2 h-2 bg-success rounded-full animate-pulse" />
             <span className="text-sm text-surface-foreground">
-              Disponible para proyectos •{" "}
-              {format(currentTime, "HH:mm", { locale: es })}
+              {lang === "es"
+                ? "Disponible para proyectos"
+                : "Available for projects"}{" "}
+              •{" "}
+              {format(currentTime, "HH:mm", {
+                locale: lang === "es" ? es : enUS,
+              })}
             </span>
           </motion.div>
 
@@ -255,7 +272,7 @@ export default function HeroSection() {
           <motion.div variants={titleVariants} className="mb-8">
             <h1 className="text-4xl sm:text-6xl lg:text-8xl font-bold mb-4">
               <span className="block text-slate-800 dark:text-white">
-                Hola, soy
+                {dict.hero.title}
               </span>
               <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Paulo Llanos
@@ -263,7 +280,11 @@ export default function HeroSection() {
             </h1>
 
             <div className="text-xl sm:text-2xl lg:text-3xl text-slate-600 dark:text-slate-300 font-medium flex items-center justify-center gap-3">
-              <span>Full Stack Developer</span>
+              <span>
+                {lang === "es"
+                  ? "Full Stack Developer"
+                  : "Full Stack Developer"}
+              </span>
               <motion.div
                 className="text-blue-600 dark:text-blue-400"
                 animate={{ rotate: [0, 10, -10, 0] }}
@@ -283,13 +304,7 @@ export default function HeroSection() {
             variants={itemVariants}
             className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed"
           >
-            Con{" "}
-            <span className="text-blue-600 dark:text-blue-400 font-semibold">
-              4+ años de experiencia
-            </span>{" "}
-            creando aplicaciones web modernas y escalables. Especializado en
-            React, Next.js, Node.js y tecnologías cloud que impulsan el futuro
-            digital.
+            {dict.hero.subtitle}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -308,17 +323,21 @@ export default function HeroSection() {
               }}
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 text-lg font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              Ver mis proyectos
+              {dict.hero.cta}
             </motion.button>
 
             <motion.a
-              href="/cv-es.pdf"
-              download="CV_Paulo_Llanos_ES.pdf"
+              href={lang === "es" ? "/cv-es.pdf" : "/cv-en.pdf"}
+              download={
+                lang === "es"
+                  ? "CV_Paulo_Llanos_ES.pdf"
+                  : "CV_Paulo_Llanos_EN.pdf"
+              }
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-slate-900 px-8 py-3 text-lg font-medium rounded-lg transition-all duration-300"
             >
-              Descargar CV
+              {lang === "es" ? "Descargar CV" : "Download CV"}
             </motion.a>
           </motion.div>
 
@@ -329,7 +348,7 @@ export default function HeroSection() {
         {/* Skills Cloud */}
         <motion.div variants={itemVariants} className="mb-16">
           <h3 className="text-sm uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-6 font-medium">
-            Tecnologías que domino
+            {lang === "es" ? "Tecnologías que domino" : "Technologies I master"}
           </h3>
           <div className="flex flex-wrap justify-center gap-3">
             {skills.map((skill, index) => (

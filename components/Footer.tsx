@@ -3,28 +3,32 @@
 import { motion } from "framer-motion";
 import { Heart, Github, Linkedin, Mail, MessageCircle } from "lucide-react";
 
-export default function Footer() {
+interface FooterProps {
+  lang: string;
+}
+
+export default function Footer({ lang }: FooterProps) {
   const socialLinks = [
     {
       icon: <Github className="w-5 h-5" />,
       href: "https://github.com/paulo1403",
-      label: "GitHub"
+      label: "GitHub",
     },
     {
       icon: <Linkedin className="w-5 h-5" />,
       href: "https://linkedin.com/in/paulollanoscolchado",
-      label: "LinkedIn"
+      label: "LinkedIn",
     },
     {
       icon: <Mail className="w-5 h-5" />,
       href: "mailto:paulollanosc@gmail.com",
-      label: "Email"
+      label: "Email",
     },
     {
       icon: <MessageCircle className="w-5 h-5" />,
       href: "https://wa.me/51999195557",
-      label: "WhatsApp"
-    }
+      label: "WhatsApp",
+    },
   ];
 
   const containerVariants = {
@@ -32,9 +36,9 @@ export default function Footer() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
@@ -43,9 +47,9 @@ export default function Footer() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6
-      }
-    }
+        duration: 0.6,
+      },
+    },
   };
 
   return (
@@ -62,8 +66,9 @@ export default function Footer() {
           <motion.div variants={itemVariants} className="mb-8">
             <h3 className="text-2xl font-bold mb-4">Paulo Llanos</h3>
             <p className="text-slate-300 max-w-md mx-auto">
-              Desarrollador Full Stack especializado en crear experiencias web
-              excepcionales y soluciones innovadoras.
+              {lang === "en"
+                ? "Full Stack Developer specialized in creating exceptional web experiences and innovative solutions."
+                : "Desarrollador Full Stack especializado en crear experiencias web excepcionales y soluciones innovadoras."}
             </p>
           </motion.div>
 
@@ -93,10 +98,30 @@ export default function Footer() {
           >
             <div className="flex flex-col md:flex-row justify-between items-center text-slate-400 text-sm">
               <p className="mb-4 md:mb-0">
-                © {new Date().getFullYear()} Paulo Llanos. Todos los derechos reservados.
+                {lang === "en"
+                  ? `© ${new Date().getFullYear()} Paulo Llanos. All rights reserved.`
+                  : `© ${new Date().getFullYear()} Paulo Llanos. Todos los derechos reservados.`}
               </p>
               <p className="flex items-center">
-                Hecho con <Heart className="w-4 h-4 text-red-500 mx-1" fill="currentColor" /> desde Lima, Perú
+                {lang === "en" ? (
+                  <>
+                    Made with{" "}
+                    <Heart
+                      className="w-4 h-4 text-red-500 mx-1"
+                      fill="currentColor"
+                    />{" "}
+                    from Lima, Peru
+                  </>
+                ) : (
+                  <>
+                    Hecho con{" "}
+                    <Heart
+                      className="w-4 h-4 text-red-500 mx-1"
+                      fill="currentColor"
+                    />{" "}
+                    desde Lima, Perú
+                  </>
+                )}
               </p>
             </div>
           </motion.div>

@@ -15,7 +15,24 @@ import {
   AlertCircle,
 } from "lucide-react";
 
-export default function ContactSection() {
+interface ContactDictionary {
+  contact: {
+    title: string;
+    form: {
+      name: string;
+      email: string;
+      message: string;
+      submit: string;
+    };
+  };
+}
+
+interface ContactSectionProps {
+  dict: ContactDictionary;
+  lang: string;
+}
+
+export default function ContactSection({ dict, lang }: ContactSectionProps) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -30,21 +47,21 @@ export default function ContactSection() {
   const contactInfo = [
     {
       icon: <Mail className="w-5 h-5" />,
-      label: "Email",
+      label: dict.contact.form.email,
       value: "paulollanosc@gmail.com",
       href: "mailto:paulollanosc@gmail.com",
       color: "blue",
     },
     {
       icon: <Phone className="w-5 h-5" />,
-      label: "Teléfono",
+      label: lang === "es" ? "Teléfono" : "Phone",
       value: "+51 999-195-557",
       href: "tel:+51999195557",
       color: "green",
     },
     {
       icon: <MapPin className="w-5 h-5" />,
-      label: "Ubicación",
+      label: lang === "es" ? "Ubicación" : "Location",
       value: "Lima, Perú",
       href: null,
       color: "red",
@@ -164,20 +181,13 @@ export default function ContactSection() {
             variants={itemVariants}
             className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-white mb-6"
           >
-            Hablemos de tu{" "}
-            <span className="text-blue-600 dark:text-blue-400">Proyecto</span>
+            {dict.contact.title}
           </motion.h2>
           <motion.div
             variants={itemVariants}
             className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-8"
           />
-          <motion.p
-            variants={itemVariants}
-            className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto"
-          >
-            ¿Tienes un proyecto en mente? Me encantaría conocer más sobre tu
-            idea y cómo puedo ayudarte a hacerla realidad. ¡Conversemos!
-          </motion.p>
+          {/* Puedes agregar una descripción traducida aquí si la agregas al diccionario */}
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12">
@@ -189,9 +199,7 @@ export default function ContactSection() {
             variants={itemVariants}
             className="bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-800 dark:to-slate-700 rounded-2xl p-8 shadow-lg"
           >
-            <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-6">
-              Envíame un Mensaje
-            </h3>
+            {/* Título eliminado para evitar duplicado */}
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
@@ -200,7 +208,7 @@ export default function ContactSection() {
                     htmlFor="name"
                     className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
                   >
-                    Nombre *
+                    {dict.contact.form.name} *
                   </label>
                   <input
                     type="text"
@@ -210,7 +218,7 @@ export default function ContactSection() {
                     onChange={handleInputChange}
                     required
                     className="w-full px-4 py-3 bg-white dark:bg-slate-600 border border-slate-200 dark:border-slate-500 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-300"
-                    placeholder="Tu nombre"
+                    placeholder={dict.contact.form.name}
                   />
                 </div>
                 <div>
@@ -218,7 +226,7 @@ export default function ContactSection() {
                     htmlFor="email"
                     className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
                   >
-                    Email *
+                    {dict.contact.form.email} *
                   </label>
                   <input
                     type="email"
@@ -228,7 +236,7 @@ export default function ContactSection() {
                     onChange={handleInputChange}
                     required
                     className="w-full px-4 py-3 bg-white dark:bg-slate-600 border border-slate-200 dark:border-slate-500 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-300"
-                    placeholder="tu@email.com"
+                    placeholder={dict.contact.form.email}
                   />
                 </div>
               </div>
@@ -238,7 +246,7 @@ export default function ContactSection() {
                   htmlFor="subject"
                   className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
                 >
-                  Asunto *
+                  {lang === "es" ? "Asunto" : "Subject"} *
                 </label>
                 <input
                   type="text"
@@ -248,7 +256,11 @@ export default function ContactSection() {
                   onChange={handleInputChange}
                   required
                   className="w-full px-4 py-3 bg-white dark:bg-slate-600 border border-slate-200 dark:border-slate-500 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-300"
-                  placeholder="¿En qué puedo ayudarte?"
+                  placeholder={
+                    lang === "es"
+                      ? "¿En qué puedo ayudarte?"
+                      : "How can I help you?"
+                  }
                 />
               </div>
 
@@ -257,7 +269,7 @@ export default function ContactSection() {
                   htmlFor="message"
                   className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
                 >
-                  Mensaje *
+                  {dict.contact.form.message} *
                 </label>
                 <textarea
                   id="message"
@@ -267,7 +279,7 @@ export default function ContactSection() {
                   required
                   rows={5}
                   className="w-full px-4 py-3 bg-white dark:bg-slate-600 border border-slate-200 dark:border-slate-500 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-300 resize-none"
-                  placeholder="Cuéntame sobre tu proyecto..."
+                  placeholder={dict.contact.form.message}
                 />
               </div>
 
@@ -276,7 +288,9 @@ export default function ContactSection() {
                 <div className="flex items-center text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20 p-3 rounded-lg">
                   <CheckCircle className="w-5 h-5 mr-2" />
                   <span>
-                    ¡Mensaje enviado exitosamente! Te responderé pronto.
+                    {lang === "es"
+                      ? "¡Mensaje enviado exitosamente! Te responderé pronto."
+                      : "Message sent successfully! I'll get back to you soon."}
                   </span>
                 </div>
               )}
@@ -285,7 +299,9 @@ export default function ContactSection() {
                 <div className="flex items-center text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 p-3 rounded-lg">
                   <AlertCircle className="w-5 h-5 mr-2" />
                   <span>
-                    Error al enviar el mensaje. Por favor, intenta de nuevo.
+                    {lang === "es"
+                      ? "Error al enviar el mensaje. Por favor, intenta de nuevo."
+                      : "Error sending the message. Please try again."}
                   </span>
                 </div>
               )}
@@ -298,12 +314,12 @@ export default function ContactSection() {
                 {isSubmitting ? (
                   <>
                     <div className="animate-spin w-5 h-5 border-2 border-white border-t-transparent rounded-full mr-2" />
-                    Enviando...
+                    {lang === "es" ? "Enviando..." : "Sending..."}
                   </>
                 ) : (
                   <>
                     <Send className="w-5 h-5 mr-2" />
-                    Enviar Mensaje
+                    {dict.contact.form.submit}
                   </>
                 )}
               </button>
@@ -321,7 +337,9 @@ export default function ContactSection() {
             {/* Contact Information */}
             <div>
               <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-6">
-                Información de Contacto
+                {lang === "es"
+                  ? "Información de Contacto"
+                  : "Contact Information"}
               </h3>
               <div className="space-y-4">
                 {contactInfo.map((info, index) => (
@@ -346,7 +364,9 @@ export default function ContactSection() {
             {/* Social Links */}
             <div>
               <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-6">
-                Sígueme en Redes
+                {lang === "es"
+                  ? "Sígueme en Redes"
+                  : "Follow me on Social Media"}
               </h3>
               <div className="grid grid-cols-1 gap-4">
                 {socialLinks.map((social, index) => (
@@ -377,10 +397,13 @@ export default function ContactSection() {
               variants={itemVariants}
               className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-6 text-white"
             >
-              <h4 className="font-bold text-lg mb-2">Respuesta Rápida ⚡</h4>
+              <h4 className="font-bold text-lg mb-2">
+                {lang === "es" ? "Respuesta Rápida ⚡" : "Quick Response ⚡"}
+              </h4>
               <p className="opacity-90">
-                Normalmente respondo en menos de 24 horas. Para consultas
-                urgentes, puedes contactarme directamente por WhatsApp.
+                {lang === "es"
+                  ? "Normalmente respondo en menos de 24 horas. Para consultas urgentes, puedes contactarme directamente por WhatsApp."
+                  : "I usually reply in less than 24 hours. For urgent inquiries, you can contact me directly via WhatsApp."}
               </p>
             </motion.div>
           </motion.div>

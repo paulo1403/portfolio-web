@@ -1,0 +1,133 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Hola, soy Paulo",
+    "subtitle": "Un apasionado desarrollador Full-Stack creando aplicaciones web modernas y responsivas.",
+    "cta": "Ver mis trabajos"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "subtitle": "Desarrollador de Software Full Stack",
+    "paragraph1": "Desarrollador de software altamente capacitado con más de 4 años de experiencia en desarrollo frontend y backend, especializado en la creación de aplicaciones web interactivas y escalables.",
+    "paragraph2": "Experto en tecnologías de vanguardia como React, Next.js, Node.js y Python, con un historial comprobado en la construcción de APIs robustas y la implementación de soluciones eficientes de gestión de estados.",
+    "paragraph3": "Apasionado por aprender y aplicar tecnologías emergentes para impulsar el éxito empresarial, con un compromiso con la colaboración y la excelencia.",
+    "technologies": [
+      "React",
+      "Next.js",
+      "Node.js",
+      "Python",
+      "TypeScript",
+      "AWS"
+    ],
+    "highlights": {
+      "exp": "4+ Años de Experiencia",
+      "expDesc": "Desarrollo Frontend y Backend",
+      "modern": "Tecnologías Modernas",
+      "modernDesc": "React, Next.js, Node.js, Python",
+      "lead": "Liderazgo Técnico",
+      "leadDesc": "Migraciones complejas y optimización",
+      "pub": "Publicación Q2",
+      "pubDesc": "Investigación en Blockchain & FHIR HL7"
+    },
+    "highlightTitle": "Logro Destacado",
+    "highlightDesc": "Mi investigación en Blockchain y FHIR HL7 para la interoperabilidad de registros médicos electrónicos fue publicada en una revista internacional Q2, demostrando mi capacidad para combinar tecnología e innovación en soluciones de impacto real."
+  },
+  "projects": {
+    "title": "Mis Proyectos",
+    "professionalTitle": "Proyectos Profesionales",
+    "personalTitle": "Proyectos Personales",
+    "professional": [
+      {
+        "title": "Únete a Belcorp",
+        "company": "Belcorp",
+        "description": "Desarrollo y mantenimiento de la plataforma de inscripción para consultoras, utilizando React y GraphQL para una experiencia de usuario fluida y moderna.",
+        "technologies": ["React", "GraphQL", "TypeScript", "Styled-Components"],
+        "link": "https://uneteabelcorp.com/pe",
+        "type": "web",
+        "year": "2025"
+      },
+      {
+        "title": "Centro de Monitoreo Rimac",
+        "company": "Rimac Seguros",
+        "description": "Plataforma de monitoreo en tiempo real para seguros con interfaces responsivas y soluciones geoespaciales avanzadas con React-Leaflet.",
+        "technologies": [
+          "React",
+          "TypeScript",
+          "React-Leaflet",
+          "Zustand",
+          "Ant Design"
+        ],
+        "link": "https://centrodemonitoreo.rimac.com/",
+        "type": "web",
+        "year": "2024"
+      },
+      {
+        "title": "HolaLink",
+        "company": "CRD",
+        "description": "Plataforma web innovadora con API serverless en AWS Lambda, autenticación segura con AWS Amplify y diseños móvil-first.",
+        "technologies": [
+          "React",
+          "AWS Lambda",
+          "AWS Amplify",
+          "Node.js",
+          "MongoDB"
+        ],
+        "link": "https://hola.link",
+        "type": "web",
+        "year": "2023"
+      }
+    ],
+    "personal": [
+      {
+        "title": "MCA Makeup",
+        "description": "Sitio web profesional para maquilladora con galería interactiva, sistema de citas y diseño responsive optimizado para móviles.",
+        "technologies": ["Next.js", "React", "Tailwind CSS", "Vercel"],
+        "link": "https://mca-makeup.vercel.app/",
+        "github": null,
+        "type": "web",
+        "year": "2024"
+      },
+      {
+        "title": "YT-DLP GUI Electron",
+        "description": "Aplicación de escritorio con interfaz gráfica para descargar videos de YouTube usando yt-dlp. Interface intuitiva construida con Electron.",
+        "technologies": ["Electron", "JavaScript", "Node.js", "HTML/CSS"],
+        "link": null,
+        "github": "https://github.com/paulo1403/yt-dlp-gui-electron",
+        "type": "desktop",
+        "year": "2024"
+      },
+      {
+        "title": "Bun Auth CRUD",
+        "description": "Sistema de autenticación y CRUD moderno construido con Bun runtime. Implementación de JWT, validación de datos y operaciones completas de base de datos.",
+        "technologies": ["Bun", "TypeScript", "JWT", "SQLite"],
+        "link": null,
+        "github": "https://github.com/paulo1403/bun-auth-crud",
+        "type": "api",
+        "year": "2024"
+      },
+      {
+        "title": "Django API Book",
+        "description": "API REST completa para gestión de libros desarrollada con Django REST Framework. Incluye autenticación, paginación y documentación automática.",
+        "technologies": ["Django", "Python", "DRF", "PostgreSQL"],
+        "link": null,
+        "github": "https://github.com/paulo1403/django-api-book",
+        "type": "api",
+        "year": "2024"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Ponte en Contacto",
+    "form": {
+      "name": "Nombre",
+      "email": "Correo Electrónico",
+      "message": "Mensaje",
+      "submit": "Enviar Mensaje"
+    }
+  }
+}

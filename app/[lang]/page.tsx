@@ -5,27 +5,34 @@ import ProjectsSection from "@/components/ProjectsSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import { getDictionary } from "../dictionaries";
 
-export default function Home() {
+export default async function Home({
+  params,
+}: {
+  params: { lang: "en" | "es" };
+}) {
+  const dict = await getDictionary(params.lang);
+
   return (
     <main className="relative">
-      <Header />
+      <Header dict={dict} lang={params.lang} />
       <section id="home">
-        <HeroSection />
+        <HeroSection dict={dict} lang={params.lang} />
       </section>
       <section id="about">
-        <AboutSection />
+        <AboutSection dict={dict} lang={params.lang} />
       </section>
       <section id="projects">
-        <ProjectsSection />
+        <ProjectsSection dict={dict} lang={params.lang} />
       </section>
       <section id="experience">
-        <ExperienceSection />
+        <ExperienceSection dict={dict} lang={params.lang} />
       </section>
       <section id="contact">
-        <ContactSection />
+        <ContactSection dict={dict} lang={params.lang} />
       </section>
-      <Footer />
+      <Footer lang={params.lang} />
     </main>
   );
 }

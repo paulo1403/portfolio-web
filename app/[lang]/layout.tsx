@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import Providers from "@/components/Providers";
 
 const inter = Inter({
@@ -99,13 +99,19 @@ export const metadata: Metadata = {
   },
 };
 
+export async function generateStaticParams() {
+  return [{ lang: "en" }, { lang: "es" }];
+}
+
 export default function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: { lang: "en" | "es" };
 }) {
   return (
-    <html lang="es" className="scroll-smooth">
+    <html lang={params.lang} className="scroll-smooth">
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} ${spaceGrotesk.variable} font-sans antialiased bg-background text-foreground`}
       >

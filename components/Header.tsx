@@ -4,11 +4,29 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, MessageCircle } from "lucide-react";
 
-const navigation = [
-  { name: "Inicio", href: "#home" },
-  { name: "Sobre mí", href: "#about" },
-  { name: "Proyectos", href: "#projects" },
-  { name: "Experiencia", href: "#experience" },
+interface Dictionary {
+  navigation: {
+    home: string;
+    about: string;
+    projects: string;
+    contact: string;
+    experience?: string;
+  };
+  hero: {
+    cta: string;
+  };
+}
+
+type HeaderProps = {
+  dict: Dictionary;
+  lang: "en" | "es";
+};
+
+const getNavigation = (dict: Dictionary) => [
+  { name: dict.navigation.home, href: "#home" },
+  { name: dict.navigation.about, href: "#about" },
+  { name: dict.navigation.projects, href: "#projects" },
+  { name: dict.navigation.experience ?? "Experiencia", href: "#experience" },
 ];
 
 const scrollToSection = (sectionId: string) => {
@@ -24,10 +42,22 @@ const scrollToSection = (sectionId: string) => {
   }
 };
 
-export default function Header() {
+export default function Header({ dict, lang }: HeaderProps) {
+  const navigation = getNavigation(dict);
+
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+
+  // Idioma switcher
+  const otherLang = lang === "es" ? "en" : "es";
+  // Calcula la URL actual pero cambiando el prefijo de idioma
+  const getSwitchLangHref = () => {
+    if (typeof window === "undefined") return `/${otherLang}`;
+    const path = window.location.pathname;
+    const newPath = path.replace(/^\/(en|es)/, `/${otherLang}`);
+    return newPath === path ? `/${otherLang}${path}` : newPath;
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,7 +90,7 @@ export default function Header() {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("scroll", handleSectionChange);
     };
-  }, []);
+  }, [navigation]);
 
   const headerVariants = {
     hidden: { y: -100, opacity: 0 },
@@ -134,6 +164,9 @@ export default function Header() {
     },
   };
 
+  // Idioma switcher (opcional)
+  // const otherLang = lang === "es" ? "en" : "es";
+
   return (
     <motion.header
       variants={headerVariants}
@@ -161,6 +194,23 @@ export default function Header() {
               <span className="text-blue-600 dark:text-blue-400">.</span>
             </button>
           </motion.div>
+          {/* Language Switcher */}
+          <div className="ml-4 flex items-center">
+            <a
+              href={
+                typeof window !== "undefined"
+                  ? getSwitchLangHref()
+                  : `/${otherLang}`
+              }
+              className="px-3 py-1 rounded-md border border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 bg-white dark:bg-slate-900 hover:bg-blue-50 dark:hover:bg-blue-800 transition-all duration-200 text-xs font-semibold uppercase"
+              aria-label={
+                lang === "es" ? "Cambiar a inglés" : "Switch to Spanish"
+              }
+              style={{ letterSpacing: "0.05em" }}
+            >
+              {otherLang.toUpperCase()}
+            </a>
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:block">
@@ -212,7 +262,7 @@ export default function Header() {
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2.5 text-sm font-medium rounded-lg flex items-center gap-2 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               <MessageCircle className="w-4 h-4" />
-              Hablemos
+              {dict.hero.cta}
             </motion.button>
           </div>
 
@@ -225,7 +275,9 @@ export default function Header() {
               className="inline-flex items-center justify-center p-2 rounded-md text-foreground hover:text-primary hover:bg-surface/50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all duration-200"
               aria-expanded="false"
             >
-              <span className="sr-only">Abrir menú principal</span>
+              <span className="sr-only">
+                {lang === "en" ? "Open main menu" : "Abrir menú principal"}
+              </span>
               <motion.div
                 animate={isOpen ? "open" : "closed"}
                 className="w-6 h-6"
@@ -292,7 +344,7 @@ export default function Header() {
                     className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-2.5 text-sm font-medium rounded-lg flex items-center justify-center gap-2 transition-all duration-300"
                   >
                     <MessageCircle className="w-4 h-4" />
-                    Hablemos
+                    {dict.hero.cta}
                   </button>
                 </motion.div>
               </div>

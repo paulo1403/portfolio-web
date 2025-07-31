@@ -1,0 +1,115 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Hi, I'm Paulo",
+    "subtitle": "A passionate Full-Stack Developer creating modern and responsive web applications.",
+    "cta": "View My Work"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Full Stack Software Developer",
+    "paragraph1": "I am a software developer with a passion for building beautiful and functional applications. I have experience with a variety of technologies, including React, Next.js, Node.js, and more.",
+    "paragraph2": "I am always looking to learn new things and improve my skills. I am a team player and I am excited to work on new and challenging projects."
+  },
+  "projects": {
+    "title": "My Projects",
+    "professionalTitle": "Professional Projects",
+    "personalTitle": "Personal Projects",
+    "githubCtaTitle": "Want to see more?",
+    "githubCtaText": "Find more projects and contributions on my GitHub profile. I'm always working on something new and interesting.",
+    "githubCtaButton": "View GitHub",
+    "professional": [
+      {
+        "title": "Join Belcorp",
+        "company": "Belcorp",
+        "description": "Development and maintenance of the consultant registration platform, using React and GraphQL for a smooth and modern user experience.",
+        "technologies": ["React", "GraphQL", "TypeScript", "Styled-Components"],
+        "link": "https://uneteabelcorp.com/pe",
+        "type": "web",
+        "year": "2025"
+      },
+      {
+        "title": "Rimac Monitoring Center",
+        "company": "Rimac Seguros",
+        "description": "Real-time monitoring platform for insurance with responsive interfaces and advanced geospatial solutions using React-Leaflet.",
+        "technologies": [
+          "React",
+          "TypeScript",
+          "React-Leaflet",
+          "Zustand",
+          "Ant Design"
+        ],
+        "link": "https://centrodemonitoreo.rimac.com/",
+        "type": "web",
+        "year": "2024"
+      },
+      {
+        "title": "HolaLink",
+        "company": "CRD",
+        "description": "Innovative web platform with serverless API on AWS Lambda, secure authentication with AWS Amplify, and mobile-first designs.",
+        "technologies": [
+          "React",
+          "AWS Lambda",
+          "AWS Amplify",
+          "Node.js",
+          "MongoDB"
+        ],
+        "link": "https://hola.link",
+        "type": "web",
+        "year": "2023"
+      }
+    ],
+    "personal": [
+      {
+        "title": "MCA Makeup",
+        "description": "Professional website for a makeup artist with interactive gallery, appointment system, and responsive design optimized for mobile.",
+        "technologies": ["Next.js", "React", "Tailwind CSS", "Vercel"],
+        "link": "https://mca-makeup.vercel.app/",
+        "github": null,
+        "type": "web",
+        "year": "2024"
+      },
+      {
+        "title": "YT-DLP GUI Electron",
+        "description": "Desktop application with graphical interface to download YouTube videos using yt-dlp. Intuitive interface built with Electron.",
+        "technologies": ["Electron", "JavaScript", "Node.js", "HTML/CSS"],
+        "link": null,
+        "github": "https://github.com/paulo1403/yt-dlp-gui-electron",
+        "type": "desktop",
+        "year": "2024"
+      },
+      {
+        "title": "Bun Auth CRUD",
+        "description": "Modern authentication and CRUD system built with Bun runtime. JWT implementation, data validation, and full database operations.",
+        "technologies": ["Bun", "TypeScript", "JWT", "SQLite"],
+        "link": null,
+        "github": "https://github.com/paulo1403/bun-auth-crud",
+        "type": "api",
+        "year": "2024"
+      },
+      {
+        "title": "Django API Book",
+        "description": "Complete REST API for book management developed with Django REST Framework. Includes authentication, pagination, and automatic documentation.",
+        "technologies": ["Django", "Python", "DRF", "PostgreSQL"],
+        "link": null,
+        "github": "https://github.com/paulo1403/django-api-book",
+        "type": "api",
+        "year": "2024"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send Message"
+    }
+  }
+}

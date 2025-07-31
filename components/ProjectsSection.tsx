@@ -7,7 +7,6 @@ import {
   Briefcase,
   User,
   Monitor,
-  Palette,
   Download,
   Database,
   Code,

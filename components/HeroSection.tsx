@@ -4,14 +4,8 @@ import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
-import {
-  Github,
-  Linkedin,
-  Mail,
-  Code2,
-  MessageCircle,
-  Download,
-} from "lucide-react";
+import { Github, Linkedin, Mail, Code2, MessageCircle } from "lucide-react";
+import Image from "next/image";
 
 const skills = [
   "React",
@@ -232,10 +226,13 @@ export default function HeroSection() {
             className="relative mx-auto w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 mb-8"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full p-1">
-              <img
+              <Image
                 src="https://avatars.githubusercontent.com/u/37987149?v=4"
                 alt="Paulo Llanos"
+                width={400}
+                height={400}
                 className="w-full h-full rounded-full object-cover bg-white"
+                priority
               />
             </div>
             <motion.div

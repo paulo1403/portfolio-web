@@ -227,7 +227,7 @@ export default function HeroSection() {
           >
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full p-1">
               <Image
-                src="https://avatars.githubusercontent.com/u/37987149?v=4"
+                src="/avatar.jpeg"
                 alt="Paulo Llanos"
                 width={400}
                 height={400}

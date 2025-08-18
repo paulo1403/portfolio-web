@@ -7,36 +7,39 @@
     "contact": "Contacto"
   },
   "hero": {
-    "title": "Hola, soy Paulo",
-    "subtitle": "Un apasionado desarrollador Full-Stack creando aplicaciones web modernas y responsivas.",
+    "title": "Desarrollador Full-Stack",
+    "subtitle": "Creando aplicaciones web modernas y escalables con más de 4 años de experiencia en React, Next.js, Node.js y Python.",
     "cta": "Ver mis trabajos"
   },
   "about": {
     "title": "Sobre Mí",
     "subtitle": "Desarrollador de Software Full Stack",
-    "paragraph1": "Desarrollador de software altamente capacitado con más de 4 años de experiencia en desarrollo frontend y backend, especializado en la creación de aplicaciones web interactivas y escalables.",
-    "paragraph2": "Experto en tecnologías de vanguardia como React, Next.js, Node.js y Python, con un historial comprobado en la construcción de APIs robustas y la implementación de soluciones eficientes de gestión de estados.",
-    "paragraph3": "Apasionado por aprender y aplicar tecnologías emergentes para impulsar el éxito empresarial, con un compromiso con la colaboración y la excelencia.",
+    "paragraph1": "Desarrollador de Software con más de 4 años de experiencia en desarrollo frontend y backend, especializado en la creación de aplicaciones web interactivas, escalables y de alto rendimiento. Experto en React, Next.js, Node.js y Python, con historial en migraciones complejas, optimización de rendimiento, diseño modular y arquitectura de microfrontends.",
+    "paragraph2": "Apasionado por tecnologías modernas (Zustand, React Query, Tailwind, ShadCN/UI) y IA Generativa, con experiencia en la construcción de APIs robustas y soluciones geoespaciales. Reconocido por entregar soluciones de alto impacto y liderar proyectos de innovación tecnológica.",
+    "paragraph3": "Con experiencia en automatizaciones empresariales, migraciones críticas de tecnología y modernización de sistemas heredados, siempre enfocado en mejorar la escalabilidad y experiencia de usuario.",
     "technologies": [
       "React",
       "Next.js",
       "Node.js",
       "Python",
       "TypeScript",
-      "AWS"
+      "Zustand",
+      "GraphQL",
+      "AWS",
+      "React-Leaflet"
     ],
     "highlights": {
       "exp": "4+ Años de Experiencia",
       "expDesc": "Desarrollo Frontend y Backend",
       "modern": "Tecnologías Modernas",
-      "modernDesc": "React, Next.js, Node.js, Python",
+      "modernDesc": "Zustand, React Query, Tailwind, IA Generativa",
       "lead": "Liderazgo Técnico",
-      "leadDesc": "Migraciones complejas y optimización",
+      "leadDesc": "Migraciones complejas y arquitectura de microfrontends",
       "pub": "Publicación Q2",
       "pubDesc": "Investigación en Blockchain & FHIR HL7"
     },
     "highlightTitle": "Logro Destacado",
-    "highlightDesc": "Mi investigación en Blockchain y FHIR HL7 para la interoperabilidad de registros médicos electrónicos fue publicada en una revista internacional Q2, demostrando mi capacidad para combinar tecnología e innovación en soluciones de impacto real."
+    "highlightDesc": "Mi investigación en Blockchain y FHIR HL7 para la interoperabilidad de registros médicos electrónicos fue publicada en una revista internacional Q2 (DOI: 10.3991/ijoe.v20i03.44507), demostrando mi capacidad para combinar tecnología e innovación en soluciones de impacto real."
   },
   "projects": {
     "title": "Mis Proyectos",
@@ -46,8 +49,8 @@
       {
         "title": "Únete a Belcorp",
         "company": "Belcorp",
-        "description": "Desarrollo y mantenimiento de la plataforma de inscripción para consultoras, utilizando React y GraphQL para una experiencia de usuario fluida y moderna.",
-        "technologies": ["React", "GraphQL", "TypeScript", "Styled-Components"],
+        "description": "Desarrollo y mantenimiento de la plataforma de inscripción para consultoras (uneteabelcorp.com), implementando automatizaciones con UnifyApps para notificaciones en 12 países y optimizando Store Procedures en SQL Server.",
+        "technologies": ["React", "GraphQL", "TypeScript", "UnifyApps", "SQL Server", ".NET Framework"],
         "link": "https://uneteabelcorp.com/pe",
         "type": "web",
         "year": "2025"
@@ -55,13 +58,15 @@
       {
         "title": "Centro de Monitoreo Rimac",
         "company": "Rimac Seguros",
-        "description": "Plataforma de monitoreo en tiempo real para seguros con interfaces responsivas y soluciones geoespaciales avanzadas con React-Leaflet.",
+        "description": "Plataforma de monitoreo en tiempo real para seguros con interfaces responsivas mobile-first. Lideré migración de Redux a Zustand y actualización de Node.js (14→18) y Ant Design (v3→v5). Desarrollé soluciones geoespaciales avanzadas con React-Leaflet y TimeDimension.",
         "technologies": [
           "React",
           "TypeScript",
           "React-Leaflet",
           "Zustand",
-          "Ant Design"
+          "Ant Design",
+          "Geoserver",
+          "TimeDimension"
         ],
         "link": "https://centrodemonitoreo.rimac.com/",
         "type": "web",
@@ -70,17 +75,51 @@
       {
         "title": "HolaLink",
         "company": "CRD",
-        "description": "Plataforma web innovadora con API serverless en AWS Lambda, autenticación segura con AWS Amplify y diseños móvil-first.",
+        "description": "Plataforma web innovadora con API serverless en AWS Lambda, autenticación segura con AWS Amplify y diseños móvil-first. Fortalecí validación con Yup, Formik y JOI, aumentando cobertura de pruebas con Jest.",
         "technologies": [
           "React",
           "AWS Lambda",
           "AWS Amplify",
           "Node.js",
-          "MongoDB"
+          "MongoDB",
+          "Jest",
+          "Yup",
+          "Formik"
         ],
         "link": "https://hola.link",
         "type": "web",
         "year": "2023"
+      },
+      {
+        "title": "Sistema Lucy",
+        "company": "Transforma Digital Perú",
+        "description": "Sistema web robusto desarrollado con Django para gestión empresarial. Lideré el desarrollo completo del backend y frontend, implementando comunicación en tiempo real con WebSockets.",
+        "technologies": [
+          "Django",
+          "Python",
+          "WebSockets",
+          "PostgreSQL",
+          "JavaScript"
+        ],
+        "link": null,
+        "type": "web",
+        "year": "2021"
+      },
+      {
+        "title": "Plataforma Fractal",
+        "company": "Fractal",
+        "description": "Desarrollo de API escalables con .NET Core y vistas dinámicas con Razor (SSR). Implementé funciones de comunicación en tiempo real con Slack API y WebSockets para colaboración empresarial.",
+        "technologies": [
+          ".NET Core",
+          "C#",
+          "Razor",
+          "WebSockets",
+          "Slack API",
+          "AJAX"
+        ],
+        "link": null,
+        "type": "web",
+        "year": "2022"
       }
     ],
     "personal": [
@@ -121,6 +160,187 @@
         "year": "2024"
       }
     ]
+  },
+  "experience": {
+    "title": "Experiencia Profesional",
+    "subtitle": "Más de 4 años construyendo soluciones innovadoras",
+    "jobs": [
+      {
+        "company": "Belcorp",
+        "position": "Software Developer",
+        "period": "Abr 2025 – Presente",
+        "duration": "Actual",
+        "location": "Lima, Perú",
+        "achievements": [
+          "Desarrollé automatizaciones con UnifyApps para notificaciones en 12 países",
+          "Creé y optimicé Store Procedures en SQL Server, reduciendo tiempos de respuesta en procesos críticos",
+          "Implementé y mantuve la plataforma Únete a Belcorp (uneteabelcorp.com) con React y GraphQL",
+          "Brindé soporte y mantenimiento a la plataforma SoporteBelcorp en .NET Framework"
+        ],
+        "technologies": ["UnifyApps", "React", "GraphQL", ".NET Framework", "SQL Server"]
+      },
+      {
+        "company": "Rimac Seguros",
+        "position": "Especialista Frontend",
+        "period": "Nov 2023 – Mar 2025",
+        "duration": "1 año 5 meses",
+        "location": "Lima, Perú",
+        "achievements": [
+          "Diseñé e implementé interfaces web responsivas con ReactJS bajo principios mobile-first",
+          "Lideré la migración de Redux a Zustand, mejorando rendimiento y mantenibilidad",
+          "Implementé componentes modulares y hooks personalizados, asegurando escalabilidad",
+          "Gestioné actualizaciones clave: Node.js (14→18) y Ant Design (v3→v5)",
+          "Desarrollé soluciones geoespaciales con React-Leaflet, integrando TimeDimension y capas múltiples desde Geoserver"
+        ],
+        "technologies": ["React", "TypeScript", "Zustand", "React-Leaflet", "Ant Design", "Geoserver"]
+      },
+      {
+        "company": "CRD",
+        "position": "Desarrollador de Software",
+        "period": "Ago 2022 – Nov 2023",
+        "duration": "1 año 4 meses",
+        "location": "Lima, Perú",
+        "achievements": [
+          "Implementé API serverless en AWS Lambda con autenticación segura mediante AWS Amplify",
+          "Fortalecí validación de datos con Yup, Formik y JOI",
+          "Aumenté cobertura de pruebas con Jest, mejorando confiabilidad",
+          "Contribuí al desarrollo de una plataforma de mapeo adaptada a móviles con componentes reutilizables"
+        ],
+        "technologies": ["React", "AWS Lambda", "AWS Amplify", "Node.js", "MongoDB", "Jest"]
+      },
+      {
+        "company": "Fractal",
+        "position": "Desarrollador Full Stack",
+        "period": "Abr 2022 – Ago 2022",
+        "duration": "5 meses",
+        "location": "Lima, Perú",
+        "achievements": [
+          "Desarrollé API escalables con .NET Core y AJAX",
+          "Implementé vistas dinámicas con Razor (SSR)",
+          "Creé funciones de comunicación en tiempo real con Slack API + WebSockets"
+        ],
+        "technologies": [".NET Core", "C#", "Razor", "WebSockets", "Slack API"]
+      },
+      {
+        "company": "Transforma Digital Perú | Neomadas",
+        "position": "Desarrollador Backend & Frontend",
+        "period": "Jul 2021 – Mar 2022",
+        "duration": "9 meses",
+        "location": "Lima, Perú",
+        "achievements": [
+          "Lideré el desarrollo de 'Lucy', sistema web robusto con Django",
+          "Desarrollé un sitio web personalizado para Unicon con WordPress, SASS y PHP",
+          "Implementé sistemas de comunicación en tiempo real con WebSockets"
+        ],
+        "technologies": ["Django", "Python", "WordPress", "PHP", "WebSockets", "SASS"]
+      }
+    ],
+    "research": {
+      "title": "Investigador en Blockchain & FHIR HL7",
+      "institution": "Tesis de Grado (UPC)",
+      "period": "2021 – 2022",
+      "achievements": [
+        "Diseñé un sistema innovador de interoperabilidad en EHR con FHIR HL7",
+        "Implementé blockchain para garantizar integridad y trazabilidad de datos médicos",
+        "Publicación indexada Q2 con DOI: 10.3991/ijoe.v20i03.44507"
+      ]
+    },
+    "education": {
+      "title": "Educación",
+      "degree": "Bachiller en Ingeniería de Sistemas de Información",
+      "institution": "Universidad Peruana de Ciencias Aplicadas (UPC)",
+      "period": "2016 – 2022",
+      "location": "Lima, Perú"
+    },
+    "certifications": {
+      "title": "Certificaciones",
+      "list": [
+        {
+          "name": "Advanced React",
+          "issuer": "Meta",
+          "date": "Mayo 2025",
+          "id": "286BTTG7GUHR"
+        },
+        {
+          "name": "Introduction to Front-End Development",
+          "issuer": "Meta",
+          "date": "Mayo 2025",
+          "id": "T9LFHKN7MPRI"
+        },
+        {
+          "name": "Programming with JavaScript",
+          "issuer": "Meta",
+          "date": "Mayo 2025",
+          "id": "VIKKHIBLV7V2"
+        },
+        {
+          "name": "Version Control",
+          "issuer": "Meta",
+          "date": "Mayo 2025",
+          "id": "B9U8G1LFL6W0"
+        },
+        {
+          "name": "Generative AI Fundamentals",
+          "issuer": "IBM",
+          "date": "Mayo 2025",
+          "id": "QMLQX0Q89G38"
+        },
+        {
+          "name": "Programming for Everybody (Python)",
+          "issuer": "University of Michigan",
+          "date": "2021"
+        },
+        {
+          "name": "Scrum Fundamentals Certified",
+          "issuer": "SCRUMstudy",
+          "date": "2020"
+        }
+      ]
+    },
+    "skills": {
+      "title": "Habilidades Técnicas",
+      "frontend": {
+        "title": "Frontend",
+        "skills": ["React", "Next.js", "TypeScript", "Zustand", "React Query", "TailwindCSS", "ShadCN/UI", "Ant Design", "GraphQL", "Leaflet"]
+      },
+      "backend": {
+        "title": "Backend", 
+        "skills": ["Node.js", "Express.js", "Django", ".NET Core", ".NET Framework", "Python", "SQL Server", "MongoDB", "Firebase", "AWS Lambda"]
+      },
+      "devops": {
+        "title": "DevOps & Herramientas",
+        "skills": ["Docker", "Vercel", "AWS", "UnifyApps", "Git/GitHub/GitFlow", "Jest", "React Testing Library"]
+      },
+      "special": {
+        "title": "Especializaciones",
+        "skills": ["Microfrontends", "Blockchain", "FHIR HL7", "WebSockets", "Testing (Jest, RTL)", "IA Generativa"]
+      }
+    },
+    "achievements": {
+      "title": "Logros Destacados",
+      "list": [
+        {
+          "title": "Publicación en revista Q2 internacional",
+          "description": "IJOBE sobre Blockchain y FHIR HL7",
+          "icon": "publication"
+        },
+        {
+          "title": "1er Lugar en ERPsim Game Iberoamérica 2020",
+          "description": "Liderando un equipo virtual en gestión de empresa simulada",
+          "icon": "trophy"
+        },
+        {
+          "title": "Migraciones tecnológicas críticas",
+          "description": "Redux→Zustand, Ant Design v3→v5, Node 14→18",
+          "icon": "migration"
+        },
+        {
+          "title": "Modernización de sistemas heredados",
+          "description": "Mejorando escalabilidad y experiencia de usuario",
+          "icon": "modernization"
+        }
+      ]
+    }
   },
   "contact": {
     "title": "Ponte en Contacto",

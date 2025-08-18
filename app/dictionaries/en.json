@@ -7,15 +7,39 @@
     "contact": "Contact"
   },
   "hero": {
-    "title": "Hi, I'm Paulo",
-    "subtitle": "A passionate Full-Stack Developer creating modern and responsive web applications.",
+    "title": "Full-Stack Developer",
+    "subtitle": "Creating modern and scalable web applications with over 4 years of experience in React, Next.js, Node.js, and Python.",
     "cta": "View My Work"
   },
   "about": {
     "title": "About Me",
     "subtitle": "Full Stack Software Developer",
-    "paragraph1": "I am a software developer with a passion for building beautiful and functional applications. I have experience with a variety of technologies, including React, Next.js, Node.js, and more.",
-    "paragraph2": "I am always looking to learn new things and improve my skills. I am a team player and I am excited to work on new and challenging projects."
+    "paragraph1": "Software Developer with over 4 years of experience in frontend and backend development, specialized in creating interactive, scalable, and high-performance web applications. Expert in React, Next.js, Node.js, and Python, with a track record in complex migrations, performance optimization, modular design, and microfrontend architecture.",
+    "paragraph2": "Passionate about modern technologies (Zustand, React Query, Tailwind, ShadCN/UI) and Generative AI, with experience in building robust APIs and geospatial solutions. Recognized for delivering high-impact solutions and leading technological innovation projects.",
+    "paragraph3": "With experience in enterprise automations, critical technology migrations, and legacy system modernization, always focused on improving scalability and user experience.",
+    "technologies": [
+      "React",
+      "Next.js",
+      "Node.js",
+      "Python",
+      "TypeScript",
+      "Zustand",
+      "GraphQL",
+      "AWS",
+      "React-Leaflet"
+    ],
+    "highlights": {
+      "exp": "4+ Years of Experience",
+      "expDesc": "Frontend and Backend Development",
+      "modern": "Modern Technologies",
+      "modernDesc": "Zustand, React Query, Tailwind, Generative AI",
+      "lead": "Technical Leadership",
+      "leadDesc": "Complex migrations and microfrontend architecture",
+      "pub": "Q2 Publication",
+      "pubDesc": "Research in Blockchain & FHIR HL7"
+    },
+    "highlightTitle": "Outstanding Achievement",
+    "highlightDesc": "My research on Blockchain and FHIR HL7 for electronic health record interoperability was published in an international Q2 journal (DOI: 10.3991/ijoe.v20i03.44507), demonstrating my ability to combine technology and innovation in real-impact solutions."
   },
   "projects": {
     "title": "My Projects",
@@ -28,8 +52,8 @@
       {
         "title": "Join Belcorp",
         "company": "Belcorp",
-        "description": "Development and maintenance of the consultant registration platform, using React and GraphQL for a smooth and modern user experience.",
-        "technologies": ["React", "GraphQL", "TypeScript", "Styled-Components"],
+        "description": "Development and maintenance of the consultant registration platform (uneteabelcorp.com), implementing automations with UnifyApps for notifications in 12 countries and optimizing Store Procedures in SQL Server.",
+        "technologies": ["React", "GraphQL", "TypeScript", "UnifyApps", "SQL Server", ".NET Framework"],
         "link": "https://uneteabelcorp.com/pe",
         "type": "web",
         "year": "2025"
@@ -37,13 +61,15 @@
       {
         "title": "Rimac Monitoring Center",
         "company": "Rimac Seguros",
-        "description": "Real-time monitoring platform for insurance with responsive interfaces and advanced geospatial solutions using React-Leaflet.",
+        "description": "Real-time monitoring platform for insurance with mobile-first responsive interfaces. Led migration from Redux to Zustand and updates to Node.js (14→18) and Ant Design (v3→v5). Developed advanced geospatial solutions with React-Leaflet and TimeDimension.",
         "technologies": [
           "React",
           "TypeScript",
           "React-Leaflet",
           "Zustand",
-          "Ant Design"
+          "Ant Design",
+          "Geoserver",
+          "TimeDimension"
         ],
         "link": "https://centrodemonitoreo.rimac.com/",
         "type": "web",
@@ -52,17 +78,51 @@
       {
         "title": "HolaLink",
         "company": "CRD",
-        "description": "Innovative web platform with serverless API on AWS Lambda, secure authentication with AWS Amplify, and mobile-first designs.",
+        "description": "Innovative web platform with serverless API on AWS Lambda, secure authentication with AWS Amplify, and mobile-first designs. Strengthened validation with Yup, Formik, and JOI, increasing test coverage with Jest.",
         "technologies": [
           "React",
           "AWS Lambda",
           "AWS Amplify",
           "Node.js",
-          "MongoDB"
+          "MongoDB",
+          "Jest",
+          "Yup",
+          "Formik"
         ],
         "link": "https://hola.link",
         "type": "web",
         "year": "2023"
+      },
+      {
+        "title": "Lucy System",
+        "company": "Transforma Digital Perú",
+        "description": "Robust web system developed with Django for business management. Led complete backend and frontend development, implementing real-time communication with WebSockets.",
+        "technologies": [
+          "Django",
+          "Python",
+          "WebSockets",
+          "PostgreSQL",
+          "JavaScript"
+        ],
+        "link": null,
+        "type": "web",
+        "year": "2021"
+      },
+      {
+        "title": "Fractal Platform",
+        "company": "Fractal",
+        "description": "Development of scalable APIs with .NET Core and dynamic views with Razor (SSR). Implemented real-time communication functions with Slack API and WebSockets for business collaboration.",
+        "technologies": [
+          ".NET Core",
+          "C#",
+          "Razor",
+          "WebSockets",
+          "Slack API",
+          "AJAX"
+        ],
+        "link": null,
+        "type": "web",
+        "year": "2022"
       }
     ],
     "personal": [
@@ -103,6 +163,216 @@
         "year": "2024"
       }
     ]
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "subtitle": "Over 4 years building innovative solutions",
+    "jobs": [
+      {
+        "company": "Belcorp",
+        "position": "Software Developer",
+        "period": "Apr 2025 – Present",
+        "duration": "Current",
+        "location": "Lima, Peru",
+        "achievements": [
+          "Developed automations with UnifyApps for notifications in 12 countries",
+          "Created and optimized Store Procedures in SQL Server, reducing response times in critical processes",
+          "Implemented and maintained the Join Belcorp platform (uneteabelcorp.com) with React and GraphQL",
+          "Provided support and maintenance to the SoporteBelcorp platform in .NET Framework"
+        ],
+        "technologies": ["UnifyApps", "React", "GraphQL", ".NET Framework", "SQL Server"]
+      },
+      {
+        "company": "Rimac Seguros",
+        "position": "Frontend Specialist",
+        "period": "Nov 2023 – Mar 2025",
+        "duration": "1 year 5 months",
+        "location": "Lima, Peru",
+        "achievements": [
+          "Designed and implemented responsive web interfaces with ReactJS under mobile-first principles",
+          "Led migration from Redux to Zustand, improving performance and maintainability",
+          "Implemented modular components and custom hooks, ensuring scalability",
+          "Managed key updates: Node.js (14→18) and Ant Design (v3→v5)",
+          "Developed geospatial solutions with React-Leaflet, integrating TimeDimension and multiple layers from Geoserver"
+        ],
+        "technologies": ["React", "TypeScript", "Zustand", "React-Leaflet", "Ant Design", "Geoserver"]
+      },
+      {
+        "company": "CRD",
+        "position": "Software Developer",
+        "period": "Aug 2022 – Nov 2023",
+        "duration": "1 year 4 months",
+        "location": "Lima, Peru",
+        "achievements": [
+          "Implemented serverless API on AWS Lambda with secure authentication through AWS Amplify",
+          "Strengthened data validation with Yup, Formik, and JOI",
+          "Increased test coverage with Jest, improving reliability",
+          "Contributed to the development of a mobile-adapted mapping platform with reusable components"
+        ],
+        "technologies": ["React", "AWS Lambda", "AWS Amplify", "Node.js", "MongoDB", "Jest"]
+      },
+      {
+        "company": "Fractal",
+        "position": "Full Stack Developer",
+        "period": "Apr 2022 – Aug 2022",
+        "duration": "5 months",
+        "location": "Lima, Peru",
+        "achievements": [
+          "Developed scalable APIs with .NET Core and AJAX",
+          "Implemented dynamic views with Razor (SSR)",
+          "Created real-time communication functions with Slack API + WebSockets"
+        ],
+        "technologies": [".NET Core", "C#", "Razor", "WebSockets", "Slack API"]
+      },
+      {
+        "company": "Transforma Digital Perú | Neomadas",
+        "position": "Backend & Frontend Developer",
+        "period": "Jul 2021 – Mar 2022",
+        "duration": "9 months",
+        "location": "Lima, Peru",
+        "achievements": [
+          "Led the development of 'Lucy', a robust web system with Django",
+          "Developed a custom website for Unicon with WordPress, SASS, and PHP",
+          "Implemented real-time communication systems with WebSockets"
+        ],
+        "technologies": ["Django", "Python", "WordPress", "PHP", "WebSockets", "SASS"]
+      }
+    ],
+    "research": {
+      "title": "Blockchain & FHIR HL7 Researcher",
+      "institution": "Undergraduate Thesis (UPC)",
+      "period": "2021 – 2022",
+      "achievements": [
+        "Designed an innovative EHR interoperability system with FHIR HL7",
+        "Implemented blockchain to ensure integrity and traceability of medical data",
+        "Q2 indexed publication with DOI: 10.3991/ijoe.v20i03.44507"
+      ]
+    },
+    "education": {
+      "title": "Education",
+      "degree": "Bachelor in Information Systems Engineering",
+      "institution": "Universidad Peruana de Ciencias Aplicadas (UPC)",
+      "period": "2016 – 2022",
+      "location": "Lima, Peru"
+    },
+    "certifications": {
+      "title": "Certifications",
+      "list": [
+        {
+          "name": "Advanced React",
+          "issuer": "Meta",
+          "date": "May 2025",
+          "id": "286BTTG7GUHR"
+        },
+        {
+          "name": "Introduction to Front-End Development",
+          "issuer": "Meta",
+          "date": "May 2025",
+          "id": "T9LFHKN7MPRI"
+        },
+        {
+          "name": "Programming with JavaScript",
+          "issuer": "Meta",
+          "date": "May 2025",
+          "id": "VIKKHIBLV7V2"
+        },
+        {
+          "name": "Version Control",
+          "issuer": "Meta",
+          "date": "May 2025",
+          "id": "B9U8G1LFL6W0"
+        },
+        {
+          "name": "Generative AI Fundamentals",
+          "issuer": "IBM",
+          "date": "May 2025",
+          "id": "QMLQX0Q89G38"
+        },
+        {
+          "name": "Generative AI: Foundation Models and Platforms",
+          "issuer": "IBM",
+          "date": "May 2025",
+          "id": "TPZVUOAXOFJM"
+        },
+        {
+          "name": "Generative AI: Impact, Considerations, and Ethical Issues",
+          "issuer": "IBM",
+          "date": "May 2025",
+          "id": "3X1375IHA888"
+        },
+        {
+          "name": "Generative AI: Introduction and Applications",
+          "issuer": "IBM",
+          "date": "May 2025",
+          "id": "5BYYXS112ELM"
+        },
+        {
+          "name": "Generative AI: Prompt Engineering Basics",
+          "issuer": "IBM",
+          "date": "May 2025",
+          "id": "NKWPPVS1G2AO"
+        },
+        {
+          "name": "Programming for Everybody (Python)",
+          "issuer": "University of Michigan",
+          "date": "2021"
+        },
+        {
+          "name": "Google Analytics for Business",
+          "issuer": "Google",
+          "date": "2020"
+        },
+        {
+          "name": "Scrum Fundamentals Certified",
+          "issuer": "SCRUMstudy",
+          "date": "2020"
+        }
+      ]
+    },
+    "skills": {
+      "title": "Technical Skills",
+      "frontend": {
+        "title": "Frontend",
+        "skills": ["React", "Next.js", "TypeScript", "Zustand", "React Query", "TailwindCSS", "ShadCN/UI", "Ant Design", "GraphQL", "Leaflet"]
+      },
+      "backend": {
+        "title": "Backend", 
+        "skills": ["Node.js", "Express.js", "Django", ".NET Core", ".NET Framework", "Python", "SQL Server", "MongoDB", "Firebase", "AWS Lambda"]
+      },
+      "devops": {
+        "title": "DevOps & Tools",
+        "skills": ["Docker", "Vercel", "AWS", "UnifyApps", "Git/GitHub/GitFlow", "Jest", "React Testing Library"]
+      },
+      "special": {
+        "title": "Specializations",
+        "skills": ["Microfrontends", "Blockchain", "FHIR HL7", "WebSockets", "Testing (Jest, RTL)", "Generative AI"]
+      }
+    },
+    "achievements": {
+      "title": "Key Achievements",
+      "list": [
+        {
+          "title": "International Q2 journal publication",
+          "description": "IJOBE on Blockchain and FHIR HL7",
+          "icon": "publication"
+        },
+        {
+          "title": "1st Place ERPsim Game Iberoamérica 2020",
+          "description": "Leading a virtual team in simulated business management",
+          "icon": "trophy"
+        },
+        {
+          "title": "Critical technology migrations",
+          "description": "Redux→Zustand, Ant Design v3→v5, Node 14→18",
+          "icon": "migration"
+        },
+        {
+          "title": "Legacy system modernization",
+          "description": "Improving scalability and user experience",
+          "icon": "modernization"
+        }
+      ]
+    }
   },
   "contact": {
     "title": "Get in Touch",

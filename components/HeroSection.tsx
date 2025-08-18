@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { format } from "date-fns";
 import { es, enUS } from "date-fns/locale";
-import { Github, Linkedin, Mail, Code2, MessageCircle } from "lucide-react";
+import { Github, Linkedin, Mail, MessageCircle } from "lucide-react";
 import Image from "next/image";
 
 const skills = [
@@ -270,33 +270,21 @@ export default function HeroSection({ dict, lang }: HeroSectionProps) {
 
           {/* Main Title */}
           <motion.div variants={titleVariants} className="mb-8">
-            <h1 className="text-4xl sm:text-6xl lg:text-8xl font-bold mb-4">
-              <span className="block text-slate-800 dark:text-white">
-                {dict.hero.title}
-              </span>
+            <h1 className="text-4xl sm:text-6xl lg:text-8xl font-bold mb-6">
               <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Paulo Llanos
               </span>
-            </h1>
-
-            <div className="text-xl sm:text-2xl lg:text-3xl text-slate-600 dark:text-slate-300 font-medium flex items-center justify-center gap-3">
-              <span>
-                {lang === "es"
-                  ? "Full Stack Developer"
-                  : "Full Stack Developer"}
+              <span className="block text-slate-800 dark:text-white text-3xl sm:text-4xl lg:text-5xl font-medium mt-2">
+                {dict.hero.title}
               </span>
-              <motion.div
-                className="text-blue-600 dark:text-blue-400"
-                animate={{ rotate: [0, 10, -10, 0] }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              >
-                <Code2 className="w-6 h-6 sm:w-8 sm:h-8" />
-              </motion.div>
-            </div>
+            </h1>
+          </motion.div>
+
+          {/* Subtitle */}
+          <motion.div variants={itemVariants} className="mb-12">
+            <p className="text-lg sm:text-xl lg:text-2xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
+              {dict.hero.subtitle}
+            </p>
           </motion.div>
 
           {/* Description */}

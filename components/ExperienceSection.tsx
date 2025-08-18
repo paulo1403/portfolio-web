@@ -81,6 +81,68 @@ interface Dictionary {
     technicalSkills?: string;
     achievements?: string;
   };
+  experience?: {
+    title: string;
+    subtitle: string;
+    jobs: {
+      company: string;
+      position: string;
+      period: string;
+      duration: string;
+      location: string;
+      achievements: string[];
+      technologies: string[];
+    }[];
+    research?: {
+      title: string;
+      institution: string;
+      period: string;
+      achievements: string[];
+    };
+    education?: {
+      title: string;
+      degree: string;
+      institution: string;
+      period: string;
+      location: string;
+    };
+    certifications?: {
+      title: string;
+      list: {
+        name: string;
+        issuer: string;
+        date: string;
+        id?: string;
+      }[];
+    };
+    skills?: {
+      title: string;
+      frontend: {
+        title: string;
+        skills: string[];
+      };
+      backend: {
+        title: string;
+        skills: string[];
+      };
+      devops: {
+        title: string;
+        skills: string[];
+      };
+      special: {
+        title: string;
+        skills: string[];
+      };
+    };
+    achievements?: {
+      title: string;
+      list: {
+        title: string;
+        description: string;
+        icon: string;
+      }[];
+    };
+  };
   contact: {
     title: string;
     form: {
@@ -101,13 +163,14 @@ export default function ExperienceSection({
   dict,
   lang,
 }: ExperienceSectionProps) {
-  // For demo, you may want to move these to the dictionary as well
-  const experiences = [
+  // Use data from dictionary or fallback to current data
+  const experiences = dict.experience?.jobs || [
     {
       company: "Belcorp",
       position: lang === "en" ? "Software Developer" : "Software Developer",
       period: lang === "en" ? "Apr 2025 - Present" : "Abr 2025 - Presente",
       duration: lang === "en" ? "Current" : "Actual",
+      location: "Lima, Peru",
       achievements: [
         lang === "en"
           ? "Automation development with UnifyApps for notifications in 12 countries."
@@ -130,104 +193,30 @@ export default function ExperienceSection({
         "SQL Server",
       ],
     },
-    {
-      company: "Rimac Seguros",
-      position: lang === "en" ? "Frontend Specialist" : "Especialista Frontend",
-      period: lang === "en" ? "Nov 2023 - Apr 2025" : "Nov 2023 - Abr 2025",
-      duration: lang === "en" ? "1 year 6 months" : "1 año 6 meses",
-      achievements: [
-        lang === "en"
-          ? "Led migration from Redux to Zustand improving performance"
-          : "Lideré migración de Redux a Zustand mejorando rendimiento",
-        lang === "en"
-          ? "Implemented geospatial solutions with React-Leaflet and Geoserver"
-          : "Implementé soluciones geoespaciales con React-Leaflet y Geoserver",
-        lang === "en"
-          ? "Upgraded Node.js (14→18) and Ant Design (v3→v5)"
-          : "Actualicé Node.js (14→18) y Ant Design (v3→v5)",
-        lang === "en"
-          ? "Developed modular components and custom hooks"
-          : "Desarrollé componentes modulares y hooks personalizados",
-      ],
-      technologies: [
-        "React",
-        "TypeScript",
-        "Zustand",
-        "React-Leaflet",
-        "Ant Design",
-      ],
-    },
-    {
-      company: "CRD",
-      position:
-        lang === "en" ? "Software Developer" : "Desarrollador de Software",
-      period: lang === "en" ? "Aug 2022 - Nov 2023" : "Ago 2022 - Nov 2023",
-      duration: lang === "en" ? "1 year 3 months" : "1 año 3 meses",
-      achievements: [
-        lang === "en"
-          ? "Complex migration from Create React App to Vite improving build time by 60%"
-          : "Migración compleja de Create React App a Vite mejorando build time 60%",
-        lang === "en"
-          ? "Implemented serverless API in AWS Lambda with secure authentication"
-          : "Implementé API serverless en AWS Lambda con autenticación segura",
-        lang === "en"
-          ? "Developed mapping platform with full features"
-          : "Desarrollé plataforma de mapeo con características completas",
-        lang === "en"
-          ? "Improved data validation with Yup, Formik, and JOI"
-          : "Mejoré validación de datos con Yup, Formik y JOI",
-      ],
-      technologies: ["React", "Vite", "AWS Lambda", "AWS Amplify", "MongoDB"],
-    },
-    {
-      company: "Fractal",
-      position:
-        lang === "en" ? "Full Stack Developer" : "Desarrollador Full Stack",
-      period: lang === "en" ? "Apr 2022 - Aug 2022" : "Abr 2022 - Ago 2022",
-      duration: lang === "en" ? "4 months" : "4 meses",
-      achievements: [
-        lang === "en"
-          ? "Designed scalable APIs with .NET Core and AJAX integration"
-          : "Diseñé API escalables con .NET Core y integración AJAX",
-        lang === "en"
-          ? "Implemented real-time communication with Slack API and WebSockets"
-          : "Implementé comunicación en tiempo real con Slack API y WebSockets",
-        lang === "en"
-          ? "Developed dynamic views with Razor technology"
-          : "Desarrollé vistas dinámicas con tecnología Razor",
-        lang === "en"
-          ? "Collaborated in multidisciplinary team for high-quality solutions"
-          : "Colaboré en equipo multidisciplinario para soluciones de alta calidad",
-      ],
-      technologies: [".NET Core", "C#", "Razor", "WebSockets", "Slack API"],
-    },
-    {
-      company: "Transforma Digital Perú",
-      position:
-        lang === "en"
-          ? "Backend and Frontend Developer"
-          : "Desarrollador Backend y Frontend",
-      period: lang === "en" ? "Jul 2021 - Mar 2022" : "Jul 2021 - Mar 2022",
-      duration: lang === "en" ? "8 months" : "8 meses",
-      achievements: [
-        lang === "en"
-          ? "Led development of 'Lucy', robust web system with Django"
-          : "Lideré desarrollo de 'Lucy', sistema web robusto con Django",
-        lang === "en"
-          ? "Designed custom site for Unicon with WordPress and PHP"
-          : "Diseñé sitio personalizado para Unicon con WordPress y PHP",
-        lang === "en"
-          ? "Pioneer in real-time communication systems with WebSockets"
-          : "Pionero en sistemas de comunicación en tiempo real con WebSockets",
-        lang === "en"
-          ? "Strengthened team collaboration ensuring quality deliveries"
-          : "Fortalecí colaboración del equipo garantizando entregas de calidad",
-      ],
-      technologies: ["Django", "Python", "WordPress", "PHP", "WebSockets"],
-    },
   ];
 
-  const technicalSkills = {
+  const technicalSkills = dict.experience?.skills ? {
+    [dict.experience.skills.frontend.title]: {
+      icon: <Code className="w-5 h-5" />,
+      skills: dict.experience.skills.frontend.skills,
+      color: "blue",
+    },
+    [dict.experience.skills.backend.title]: {
+      icon: <Database className="w-5 h-5" />,
+      skills: dict.experience.skills.backend.skills,
+      color: "green",
+    },
+    [dict.experience.skills.devops.title]: {
+      icon: <Cloud className="w-5 h-5" />,
+      skills: dict.experience.skills.devops.skills,
+      color: "purple",
+    },
+    [dict.experience.skills.special.title]: {
+      icon: <Wrench className="w-5 h-5" />,
+      skills: dict.experience.skills.special.skills,
+      color: "orange",
+    },
+  } : {
     [lang === "en" ? "Frontend" : "Frontend"]: {
       icon: <Code className="w-5 h-5" />,
       skills: [
@@ -257,48 +246,85 @@ export default function ExperienceSection({
     },
   };
 
-  const achievements = [
-    {
-      icon: <Trophy className="w-6 h-6" />,
-      title: lang === "en" ? "1st Place ERPsim Game" : "1er Lugar ERPsim Game",
-      description:
-        lang === "en"
-          ? "Iberoamerica 2020 - Virtual team leadership"
-          : "Iberoamérica 2020 - Liderazgo de equipo virtual",
-      color: "yellow",
-    },
-    {
-      icon: <GraduationCap className="w-6 h-6" />,
-      title:
-        lang === "en"
-          ? "Q2 Scientific Publication"
-          : "Publicación Científica Q2",
-      description:
-        lang === "en"
-          ? "Blockchain & FHIR HL7 - DOI: 10.3991/ijoe.v20i03.44507"
-          : "Blockchain & FHIR HL7 - DOI: 10.3991/ijoe.v20i03.44507",
-      color: "blue",
-    },
-    {
-      icon: <Zap className="w-6 h-6" />,
-      title: lang === "en" ? "CRA → Vite Migration" : "Migración CRA → Vite",
-      description:
-        lang === "en"
-          ? "60% improvement in build and development time"
-          : "Mejora del 60% en tiempo de build y desarrollo",
-      color: "green",
-    },
-    {
-      icon: <MapPin className="w-6 h-6" />,
-      title:
-        lang === "en" ? "Geospatial Solutions" : "Soluciones Geoespaciales",
-      description:
-        lang === "en"
-          ? "React-Leaflet + Geoserver with multiple layers"
-          : "React-Leaflet + Geoserver con capas múltiples",
-      color: "red",
-    },
-  ];
+  const achievements = dict.experience?.achievements?.list ? 
+    dict.experience.achievements.list.map(achievement => ({
+      icon: getIconForAchievement(achievement.icon),
+      title: achievement.title,
+      description: achievement.description,
+      color: getColorForIcon(achievement.icon),
+    })) : 
+    [
+      {
+        icon: <Trophy className="w-6 h-6" />,
+        title: lang === "en" ? "1st Place ERPsim Game" : "1er Lugar ERPsim Game",
+        description:
+          lang === "en"
+            ? "Iberoamerica 2020 - Virtual team leadership"
+            : "Iberoamérica 2020 - Liderazgo de equipo virtual",
+        color: "yellow",
+      },
+      {
+        icon: <GraduationCap className="w-6 h-6" />,
+        title:
+          lang === "en"
+            ? "Q2 Scientific Publication"
+            : "Publicación Científica Q2",
+        description:
+          lang === "en"
+            ? "Blockchain & FHIR HL7 - DOI: 10.3991/ijoe.v20i03.44507"
+            : "Blockchain & FHIR HL7 - DOI: 10.3991/ijoe.v20i03.44507",
+        color: "blue",
+      },
+      {
+        icon: <Zap className="w-6 h-6" />,
+        title: lang === "en" ? "CRA → Vite Migration" : "Migración CRA → Vite",
+        description:
+          lang === "en"
+            ? "60% improvement in build and development time"
+            : "Mejora del 60% en tiempo de build y desarrollo",
+        color: "green",
+      },
+      {
+        icon: <MapPin className="w-6 h-6" />,
+        title:
+          lang === "en" ? "Geospatial Solutions" : "Soluciones Geoespaciales",
+        description:
+          lang === "en"
+            ? "React-Leaflet + Geoserver with multiple layers"
+            : "React-Leaflet + Geoserver con capas múltiples",
+        color: "red",
+      },
+    ];
+
+  function getIconForAchievement(iconName: string) {
+    switch (iconName) {
+      case "trophy":
+        return <Trophy className="w-6 h-6" />;
+      case "publication":
+        return <GraduationCap className="w-6 h-6" />;
+      case "migration":
+        return <Zap className="w-6 h-6" />;
+      case "modernization":
+        return <MapPin className="w-6 h-6" />;
+      default:
+        return <CheckCircle className="w-6 h-6" />;
+    }
+  }
+
+  function getColorForIcon(iconName: string) {
+    switch (iconName) {
+      case "trophy":
+        return "yellow";
+      case "publication":
+        return "blue";
+      case "migration":
+        return "green";
+      case "modernization":
+        return "red";
+      default:
+        return "blue";
+    }
+  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -387,7 +413,7 @@ export default function ExperienceSection({
           >
             <Briefcase className="w-6 h-6 text-blue-600 dark:text-blue-400 mr-3" />
             <h3 className="text-2xl font-bold text-slate-800 dark:text-white">
-              {dict.projects?.professionalExperience ||
+              {dict.experience?.title ||
                 (lang === "en"
                   ? "Professional Experience"
                   : "Experiencia Profesional")}
@@ -465,7 +491,7 @@ export default function ExperienceSection({
             variants={itemVariants}
             className="text-2xl font-bold text-slate-800 dark:text-white mb-8 text-center"
           >
-            {dict.projects?.technicalSkills ||
+            {dict.experience?.skills?.title ||
               (lang === "en" ? "Technical Skills" : "Habilidades Técnicas")}
           </motion.h3>
 
@@ -505,7 +531,7 @@ export default function ExperienceSection({
           >
             <Award className="w-6 h-6 text-purple-600 dark:text-purple-400 mr-3" />
             <h3 className="text-2xl font-bold text-slate-800 dark:text-white">
-              {dict.projects?.achievements ||
+              {dict.experience?.achievements?.title ||
                 (lang === "en" ? "Achievements" : "Logros Destacados")}
             </h3>
           </motion.div>

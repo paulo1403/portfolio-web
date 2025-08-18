@@ -17,7 +17,7 @@ type ProfessionalProject = {
   company: string;
   description: string;
   technologies: string[];
-  link: string;
+  link: string | null;
   type: string;
   year: string;
 };
@@ -171,18 +171,7 @@ export default function ProjectsSection({ dict, lang }: ProjectsSectionProps) {
 
           <div className="grid md:grid-cols-2 gap-8">
             {professionalProjects.map(
-              (
-                project: {
-                  title: string;
-                  company: string;
-                  description: string;
-                  technologies: string[];
-                  link: string;
-                  type: string;
-                  year: string;
-                },
-                index: number,
-              ) => (
+              (project: ProfessionalProject, index: number) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
@@ -220,15 +209,17 @@ export default function ProjectsSection({ dict, lang }: ProjectsSectionProps) {
                   </div>
 
                   <div className="flex items-center space-x-4">
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors"
-                    >
-                      <ExternalLink className="w-4 h-4 mr-1" />
-                      {lang === "en" ? "View Project" : "Ver Proyecto"}
-                    </a>
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors"
+                      >
+                        <ExternalLink className="w-4 h-4 mr-1" />
+                        {lang === "en" ? "View Project" : "Ver Proyecto"}
+                      </a>
+                    )}
                   </div>
                 </motion.div>
               ),

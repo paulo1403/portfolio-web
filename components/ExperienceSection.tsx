@@ -61,7 +61,7 @@ interface Dictionary {
       company: string;
       description: string;
       technologies: string[];
-      link: string;
+      link: string | null;
       type: string;
       year: string;
     }[];

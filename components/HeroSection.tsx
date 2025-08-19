@@ -287,13 +287,6 @@ export default function HeroSection({ dict, lang }: HeroSectionProps) {
             </p>
           </motion.div>
 
-          {/* Description */}
-          <motion.p
-            variants={itemVariants}
-            className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed"
-          >
-            {dict.hero.subtitle}
-          </motion.p>
 
           {/* CTA Buttons */}
           <motion.div

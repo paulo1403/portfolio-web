@@ -5,12 +5,10 @@ import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import {
   Mail,
-  Phone,
   MapPin,
   Send,
   Linkedin,
   Github,
-  MessageCircle,
   CheckCircle,
   AlertCircle,
 } from "lucide-react";
@@ -53,13 +51,6 @@ export default function ContactSection({ dict, lang }: ContactSectionProps) {
       color: "blue",
     },
     {
-      icon: <Phone className="w-5 h-5" />,
-      label: lang === "es" ? "Teléfono" : "Phone",
-      value: "+51 999-195-557",
-      href: "tel:+51999195557",
-      color: "green",
-    },
-    {
       icon: <MapPin className="w-5 h-5" />,
       label: lang === "es" ? "Ubicación" : "Location",
       value: "Lima, Perú",
@@ -80,12 +71,6 @@ export default function ContactSection({ dict, lang }: ContactSectionProps) {
       label: "GitHub",
       href: "https://github.com/paulo1403",
       color: "gray",
-    },
-    {
-      icon: <MessageCircle className="w-5 h-5" />,
-      label: "WhatsApp",
-      href: "https://wa.me/51999195557",
-      color: "green",
     },
   ];
 
@@ -384,7 +369,6 @@ export default function ContactSection({ dict, lang }: ContactSectionProps) {
                       <p className="text-sm opacity-80">
                         {social.label === "LinkedIn" && "paulollanoscolchado"}
                         {social.label === "GitHub" && "paulo1403"}
-                        {social.label === "WhatsApp" && "+51 999-195-557"}
                       </p>
                     </div>
                   </motion.a>
@@ -402,8 +386,8 @@ export default function ContactSection({ dict, lang }: ContactSectionProps) {
               </h4>
               <p className="opacity-90">
                 {lang === "es"
-                  ? "Normalmente respondo en menos de 24 horas. Para consultas urgentes, puedes contactarme directamente por WhatsApp."
-                  : "I usually reply in less than 24 hours. For urgent inquiries, you can contact me directly via WhatsApp."}
+                  ? "Normalmente respondo en menos de 24 horas. Para consultas urgentes, por favor escríbeme por correo."
+                  : "I usually reply in less than 24 hours. For urgent inquiries, please email me."}
               </p>
             </motion.div>
           </motion.div>

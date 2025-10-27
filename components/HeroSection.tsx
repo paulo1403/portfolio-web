@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { format } from "date-fns";
 import { es, enUS } from "date-fns/locale";
-import { Github, Linkedin, Mail, MessageCircle } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
 
 const skills = [
@@ -22,14 +22,13 @@ const skills = [
   "Git",
 ];
 
-const socialLinks = [
-  { name: "GitHub", href: "https://github.com/paulo1403", icon: Github },
-  {
-    name: "LinkedIn",
-    href: "https://linkedin.com/in/paulollanoscolchado",
-    icon: Linkedin,
-  },
-  { name: "WhatsApp", href: "https://wa.me/51999195557", icon: MessageCircle },
+  const socialLinks = [
+    { name: "GitHub", href: "https://github.com/paulo1403", icon: Github },
+    {
+      name: "LinkedIn",
+      href: "https://linkedin.com/in/paulollanoscolchado",
+      icon: Linkedin,
+    },
   { name: "Email", href: "mailto:paulollanosc@gmail.com", icon: Mail },
 ];
 

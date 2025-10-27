@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Heart, Github, Linkedin, Mail, MessageCircle } from "lucide-react";
+import { Heart, Github, Linkedin, Mail } from "lucide-react";
 
 interface FooterProps {
   lang: string;
@@ -23,11 +23,6 @@ export default function Footer({ lang }: FooterProps) {
       icon: <Mail className="w-5 h-5" />,
       href: "mailto:paulollanosc@gmail.com",
       label: "Email",
-    },
-    {
-      icon: <MessageCircle className="w-5 h-5" />,
-      href: "https://wa.me/51999195557",
-      label: "WhatsApp",
     },
   ];
 

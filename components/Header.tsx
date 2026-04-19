@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { ArrowRight, Menu, SunMoon, X } from "lucide-react";
+import { useTheme } from "next-themes";
 
 interface Dictionary {
   navigation: {
@@ -12,9 +12,6 @@ interface Dictionary {
     contact: string;
     experience?: string;
   };
-  hero: {
-    cta: string;
-  };
 }
 
 type HeaderProps = {
@@ -22,361 +19,203 @@ type HeaderProps = {
   lang: "en" | "es";
 };
 
-const getNavigation = (dict: Dictionary) => [
-  { name: dict.navigation.home, href: "#home" },
-  { name: dict.navigation.about, href: "#about" },
-  { name: dict.navigation.projects, href: "#projects" },
-  { name: dict.navigation.experience, href: "#experience" },
-];
-
 const scrollToSection = (sectionId: string) => {
   const element = document.getElementById(sectionId);
-  if (element) {
-    const headerHeight = 80; // Height of fixed header
-    const elementPosition = element.offsetTop - headerHeight;
+  if (!element) return;
 
-    window.scrollTo({
-      top: elementPosition,
-      behavior: "smooth",
-    });
-  }
+  const headerHeight = 88;
+  const top = element.offsetTop - headerHeight;
+
+  window.scrollTo({ top, behavior: "auto" });
 };
 
 export default function Header({ dict, lang }: HeaderProps) {
-  const navigation = getNavigation(dict);
-  const { scrollYProgress } = useScroll();
-  const progressScaleX = useSpring(scrollYProgress, {
-    stiffness: 120,
-    damping: 20,
-    mass: 0.2,
-  });
-
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [isPinned, setIsPinned] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const { resolvedTheme, setTheme } = useTheme();
 
-  // Idioma switcher
+  const navigation = useMemo(
+    () => [
+      { name: dict.navigation.home, href: "#home" },
+      { name: dict.navigation.about, href: "#about" },
+      { name: dict.navigation.projects, href: "#projects" },
+      { name: dict.navigation.experience ?? "Experience", href: "#experience" },
+    ],
+    [dict.navigation.home, dict.navigation.about, dict.navigation.projects, dict.navigation.experience],
+  );
+
   const otherLang = lang === "es" ? "en" : "es";
-  // Calcula la URL actual pero cambiando el prefijo de idioma
+
   const getSwitchLangHref = () => {
     if (typeof window === "undefined") return `/${otherLang}`;
     const path = window.location.pathname;
-    const newPath = path.replace(/^\/(en|es)/, `/${otherLang}`);
-    return newPath === path ? `/${otherLang}${path}` : newPath;
+    const switched = path.replace(/^\/(en|es)/, `/${otherLang}`);
+    return switched === path ? `/${otherLang}${path}` : switched;
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const onScroll = () => {
+      setIsPinned(window.scrollY > 14);
 
-    const handleSectionChange = () => {
-      const sections = navigation.map((item) => item.href.substring(1));
-      const scrollPosition = window.scrollY + 100;
+      const sections = navigation.map((item) => item.href.slice(1));
+      const marker = window.scrollY + 130;
 
       for (const section of sections) {
         const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (
-            scrollPosition >= offsetTop &&
-            scrollPosition < offsetTop + offsetHeight
-          ) {
-            setActiveSection(section);
-            break;
-          }
+        if (!element) continue;
+
+        if (marker >= element.offsetTop && marker < element.offsetTop + element.offsetHeight) {
+          setActiveSection(section);
+          break;
         }
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("scroll", handleSectionChange);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("scroll", handleSectionChange);
-    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, [navigation]);
 
-  const headerVariants = {
-    hidden: { y: -100, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring" as const,
-        stiffness: 100,
-        damping: 20,
-        duration: 0.8,
-      },
-    },
+  const isDark = resolvedTheme === "dark";
+  const themeLabel = lang === "es" ? "Tema" : "Theme";
+  const themeAriaLabel = lang === "es" ? "Cambiar tema" : "Toggle theme";
+  const onToggleTheme = () => {
+    setTheme(isDark ? "light" : "dark");
   };
-
-  const menuVariants = {
-    closed: {
-      opacity: 0,
-      height: 0,
-      transition: {
-        duration: 0.3,
-        when: "afterChildren",
-      },
-    },
-    open: {
-      opacity: 1,
-      height: "auto",
-      transition: {
-        duration: 0.3,
-        when: "beforeChildren",
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const menuItemVariants = {
-    closed: {
-      opacity: 0,
-      x: -20,
-    },
-    open: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.3,
-      },
-    },
-  };
-
-  const logoVariants = {
-    hover: {
-      scale: 1.05,
-      rotate: 5,
-      transition: {
-        type: "spring" as const,
-        stiffness: 400,
-        damping: 10,
-      },
-    },
-  };
-
-  const navItemVariants = {
-    hover: {
-      scale: 1.05,
-      y: -2,
-      transition: {
-        type: "spring" as const,
-        stiffness: 400,
-        damping: 10,
-      },
-    },
-  };
-
-  // Idioma switcher (opcional)
-  // const otherLang = lang === "es" ? "en" : "es";
 
   return (
-    <motion.header
-      variants={headerVariants}
-      initial="hidden"
-      animate="visible"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/85 backdrop-blur-xl border-b border-border/50 shadow-lg"
-          : "bg-transparent"
-      }`}
-    >
-      <motion.div
-        className="absolute bottom-0 left-0 right-0 h-[2px] origin-left bg-gradient-to-r from-primary via-secondary to-accent"
-        style={{ scaleX: progressScaleX }}
-      />
-      <nav className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
-          <motion.div
-            variants={logoVariants}
-            whileHover="hover"
-            className="flex-shrink-0"
-          >
-            <button
-              onClick={() => scrollToSection("home")}
-              className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent hover:opacity-80 transition-opacity duration-200"
-            >
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 lg:px-6">
+      <nav
+        className={`mx-auto max-w-7xl rounded-[1.6rem] border px-4 py-3 lg:px-6 ${
+          isPinned
+            ? "border-primary/30 bg-surface/92 shadow-lg backdrop-blur"
+            : "border-primary/20 bg-surface/72"
+        }`}
+      >
+        <div className="flex items-center justify-between gap-3">
+          <button onClick={() => scrollToSection("home")} className="text-left">
+            <div className="text-[0.68rem] font-extrabold uppercase tracking-[0.22em] text-muted-foreground">
+              Full Stack
+            </div>
+            <div className="font-display text-lg leading-none text-primary sm:text-xl">
               Paulo Llanos
               <span className="text-secondary">.</span>
-            </button>
-          </motion.div>
-          {/* Language Switcher (solo desktop) */}
-          <div className="ml-4 lg:hidden flex items-center">
+            </div>
+          </button>
+
+          <div className="hidden items-center gap-1 lg:flex">
+            {navigation.map((item) => {
+              const sectionId = item.href.slice(1);
+              const isActive = activeSection === sectionId;
+
+              return (
+                <button
+                  key={item.href}
+                  onClick={() => scrollToSection(sectionId)}
+                  className={`rounded-full px-4 py-2 text-sm font-semibold ${
+                    isActive
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:bg-primary/8 hover:text-primary"
+                  }`}
+                >
+                  {item.name}
+                </button>
+              );
+            })}
+
             <a
-              href={
-                typeof window !== "undefined"
-                  ? getSwitchLangHref()
-                  : `/${otherLang}`
-              }
-              className="px-3 py-1 rounded-md border border-primary/70 text-primary bg-background/70 hover:bg-primary/10 transition-all duration-200 text-xs font-semibold uppercase"
-              aria-label={
-                lang === "es" ? "Cambiar a inglés" : "Switch to Spanish"
-              }
-              style={{ letterSpacing: "0.05em" }}
+              href={getSwitchLangHref()}
+              className="ml-2 rounded-full border border-primary/25 bg-background px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-primary"
+              aria-label={lang === "es" ? "Cambiar a inglés" : "Switch to Spanish"}
             >
               {otherLang.toUpperCase()}
             </a>
+
+            <button
+              onClick={onToggleTheme}
+              className="ml-2 inline-flex items-center gap-2 rounded-full border border-primary/25 bg-background px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-primary"
+              aria-label={themeAriaLabel}
+              title={themeAriaLabel}
+            >
+              <SunMoon className="h-4 w-4" />
+              {themeLabel}
+            </button>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center">
-            <div className="ml-10 flex items-baseline space-x-8">
-              {navigation.map((item) => (
-                <motion.div
-                  key={item.name}
-                  variants={navItemVariants}
-                  whileHover="hover"
-                >
-                  <button
-                    onClick={() => {
-                      const sectionId = item.href.substring(1);
-                      scrollToSection(sectionId);
-                      setActiveSection(sectionId);
-                    }}
-                    className={`relative px-3 py-2 text-sm font-medium transition-all duration-200 ${
-                      activeSection === item.href.substring(1)
-                        ? "text-primary"
-                        : "text-muted-foreground hover:text-primary"
-                    }`}
-                  >
-                    {item.name}
-                    {activeSection === item.href.substring(1) && (
-                      <motion.div
-                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
-                        layoutId="navbar-indicator"
-                        initial={{ opacity: 0, scaleX: 0 }}
-                        animate={{ opacity: 1, scaleX: 1 }}
-                        transition={{
-                          type: "spring" as const,
-                          stiffness: 500,
-                          damping: 30,
-                        }}
-                      />
-                    )}
-                  </button>
-                </motion.div>
-              ))}
-              {/* Language Switcher (desktop) */}
-              <a
-                href={
-                  typeof window !== "undefined"
-                    ? getSwitchLangHref()
-                    : `/${otherLang}`
-                }
-                className="ml-6 px-3 py-1 rounded-md border border-primary/70 text-primary bg-background/70 hover:bg-primary/10 transition-all duration-200 text-xs font-semibold uppercase"
-                aria-label={
-                  lang === "es" ? "Cambiar a inglés" : "Switch to Spanish"
-                }
-                style={{ letterSpacing: "0.05em" }}
-              >
-                {otherLang.toUpperCase()}
-              </a>
-            </div>
-          </div>
-
-          {/* CTA Button */}
           <div className="hidden lg:block">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <button
               onClick={() => scrollToSection("contact")}
-              className="bg-gradient-to-r from-primary to-secondary hover:brightness-110 text-white px-6 py-2.5 text-sm font-medium rounded-lg flex items-center gap-2 transition-all duration-300 shadow-lg hover:shadow-glow"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-primary px-4 py-2.5 text-sm font-bold text-primary-foreground shadow-md"
             >
-              <MessageCircle className="w-4 h-4" />
-              {dict.hero.cta}
-            </motion.button>
+              {lang === "es" ? "Hablemos" : "Let’s talk"}
+              <ArrowRight className="h-4 w-4" />
+            </button>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="lg:hidden">
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-foreground hover:text-primary hover:bg-surface/50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all duration-200"
-              aria-expanded="false"
+          <div className="flex items-center gap-2 lg:hidden">
+            <button
+              onClick={onToggleTheme}
+              className="rounded-full border border-primary/25 bg-background px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-primary"
+              aria-label={themeAriaLabel}
             >
-              <span className="sr-only">
-                {lang === "en" ? "Open main menu" : "Abrir menú principal"}
+              <span className="inline-flex items-center gap-1.5">
+                <SunMoon className="h-3.5 w-3.5" />
+                {themeLabel}
               </span>
-              <motion.div
-                animate={isOpen ? "open" : "closed"}
-                className="w-6 h-6"
-              >
-                <motion.div
-                  variants={{
-                    closed: { opacity: 1, rotate: 0 },
-                    open: { opacity: 0, rotate: 180 },
-                  }}
-                  className="absolute"
-                >
-                  <Menu className="w-6 h-6" />
-                </motion.div>
-                <motion.div
-                  variants={{
-                    closed: { opacity: 0, rotate: -180 },
-                    open: { opacity: 1, rotate: 0 },
-                  }}
-                  className="absolute"
-                >
-                  <X className="w-6 h-6" />
-                </motion.div>
-              </motion.div>
-            </motion.button>
+            </button>
+
+            <a
+              href={getSwitchLangHref()}
+              className="rounded-full border border-primary/25 bg-background px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-primary"
+              aria-label={lang === "es" ? "Cambiar a inglés" : "Switch to Spanish"}
+            >
+              {otherLang.toUpperCase()}
+            </a>
+
+            <button
+              onClick={() => setIsOpen((value) => !value)}
+              className="rounded-full border border-primary/25 p-2 text-primary"
+              aria-label={lang === "es" ? "Abrir menú" : "Open menu"}
+            >
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              variants={menuVariants}
-              initial="closed"
-              animate="open"
-              exit="closed"
-              className="lg:hidden overflow-hidden"
-            >
-              <div className="px-2 pt-2 pb-3 space-y-1 bg-surface/95 backdrop-blur-md rounded-lg mt-2 border border-border/30">
-                {navigation.map((item) => (
-                  <motion.div key={item.name} variants={menuItemVariants}>
-                    <button
-                      onClick={() => {
-                        const sectionId = item.href.substring(1);
-                        scrollToSection(sectionId);
-                        setActiveSection(sectionId);
-                        setIsOpen(false);
-                      }}
-                      className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
-                        activeSection === item.href.substring(1)
-                          ? "text-primary bg-primary/10"
-                          : "text-muted-foreground hover:text-primary hover:bg-primary/5"
-                      }`}
-                    >
-                      {item.name}
-                    </button>
-                  </motion.div>
-                ))}
-                <motion.div variants={menuItemVariants} className="pt-2">
+        {isOpen && (
+          <div className="mt-3 overflow-hidden lg:hidden">
+            <div className="space-y-2 rounded-2xl border border-primary/20 bg-background/90 p-3">
+              {navigation.map((item) => {
+                const sectionId = item.href.slice(1);
+                return (
                   <button
+                    key={item.href}
                     onClick={() => {
-                      scrollToSection("contact");
+                      scrollToSection(sectionId);
+                      setActiveSection(sectionId);
                       setIsOpen(false);
                     }}
-                    className="w-full bg-gradient-to-r from-primary to-secondary hover:brightness-110 text-white px-4 py-2.5 text-sm font-medium rounded-lg flex items-center justify-center gap-2 transition-all duration-300"
+                    className="block w-full rounded-xl px-3 py-2.5 text-left text-sm font-semibold text-foreground hover:bg-primary/10"
                   >
-                    <MessageCircle className="w-4 h-4" />
-                    {dict.hero.cta}
+                    {item.name}
                   </button>
-                </motion.div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+                );
+              })}
+
+              <button
+                onClick={() => {
+                  scrollToSection("contact");
+                  setIsOpen(false);
+                }}
+                className="mt-1 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-primary px-4 py-2.5 text-sm font-bold text-primary-foreground"
+              >
+                {lang === "es" ? "Hablemos" : "Let’s talk"}
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </div>
+          </div>
+        )}
       </nav>
-    </motion.header>
+    </header>
   );
 }

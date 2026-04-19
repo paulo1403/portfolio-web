@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Code, Zap, Users, Award } from "lucide-react";
+import { Award, Code, Radar, Sparkles, Users, Zap } from "lucide-react";
 
 interface AboutDictionary {
   title: string;
@@ -33,180 +32,149 @@ interface AboutSectionProps {
 }
 
 export default function AboutSection({ dict }: AboutSectionProps) {
-  const highlights = [
+  const isSpanish = dict.about?.title === "Sobre Mí";
+
+  const focusPoints = [
     {
-      icon: <Code className="w-6 h-6" />,
-      title: dict.about?.highlights?.exp || "4+ Years Experience",
-      description:
-        dict.about?.highlights?.expDesc || "Frontend and Backend Development",
+      title: isSpanish ? "Trabajo reciente" : "Recent work",
+      description: isSpanish
+        ? "Iniciativas en Belcorp, combinando soporte, evolución de producto y delivery continuo."
+        : "Belcorp initiatives, combining support, product evolution, and continuous delivery.",
     },
     {
-      icon: <Zap className="w-6 h-6" />,
-      title: dict.about?.highlights?.modern || "Modern Technologies",
-      description:
-        dict.about?.highlights?.modernDesc || "React, Next.js, Node.js, Python",
+      title: isSpanish ? "Especialidad" : "Specialty",
+      description: isSpanish
+        ? "Migraciones complejas, modernización de legados y mejoras de producto con impacto real."
+        : "Complex migrations, legacy modernization, and product improvements with real impact.",
     },
     {
-      icon: <Users className="w-6 h-6" />,
-      title: dict.about?.highlights?.lead || "Technical Leadership",
-      description:
-        dict.about?.highlights?.leadDesc ||
-        "Complex migrations and optimization",
-    },
-    {
-      icon: <Award className="w-6 h-6" />,
-      title: dict.about?.highlights?.pub || "Q2 Publication",
-      description:
-        dict.about?.highlights?.pubDesc || "Research in Blockchain & FHIR HL7",
+      title: isSpanish ? "Aporte" : "Value",
+      description: isSpanish
+        ? "Implementaciones sostenibles que equilibran negocio, estabilidad técnica y experiencia de usuario."
+        : "Sustainable implementations balancing business goals, technical stability, and user experience.",
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
+  const profilePoints = [
+    {
+      icon: <Radar className="h-5 w-5" />,
+      title: isSpanish ? "Mentalidad" : "Mindset",
+      description: isSpanish
+        ? "Me enfoco en resolver problemas que mueven negocio, no solo en cerrar tickets."
+        : "I focus on solving problems that move the business, not just closing tickets.",
     },
-  };
+    {
+      icon: <Sparkles className="h-5 w-5" />,
+      title: isSpanish ? "Forma de trabajo" : "Way of working",
+      description: isSpanish
+        ? "Busco claridad técnica, interfaces limpias y decisiones que se puedan sostener en el tiempo."
+        : "I aim for technical clarity, cleaner interfaces, and decisions that stay sustainable over time.",
+    },
+  ];
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-      },
+  const highlights = [
+    {
+      icon: <Code className="h-6 w-6" />,
+      title: dict.about?.highlights?.exp || "4+ Years Experience",
+      description: dict.about?.highlights?.expDesc || "Frontend and Backend Development",
     },
-  };
+    {
+      icon: <Zap className="h-6 w-6" />,
+      title: dict.about?.highlights?.modern || "Modern Technologies",
+      description: dict.about?.highlights?.modernDesc || "React, Next.js, Node.js, Python",
+    },
+    {
+      icon: <Users className="h-6 w-6" />,
+      title: dict.about?.highlights?.lead || "Technical Leadership",
+      description: dict.about?.highlights?.leadDesc || "Complex migrations and optimization",
+    },
+    {
+      icon: <Award className="h-6 w-6" />,
+      title: dict.about?.highlights?.pub || "Q2 Publication",
+      description: dict.about?.highlights?.pubDesc || "Research in Blockchain & FHIR HL7",
+    },
+  ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800">
-      <div className="container mx-auto px-6 max-w-6xl">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
-          className="text-center mb-16"
-        >
-          <motion.h2
-            variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-white mb-6"
-          >
+    <section className="py-24">
+      <div className="container mx-auto max-w-6xl px-6">
+        <div className="mb-14">
+          <p className="eyebrow mb-4 text-center">{isSpanish ? "Contexto y forma de trabajo" : "Context and working style"}</p>
+          <h2 className="mx-auto max-w-4xl text-center text-4xl text-foreground md:text-5xl">
             {dict.about?.title || "About Me"}
-            <span className="text-blue-600 dark:text-blue-400">
-              {/* No repetir "Sobre mí" */}
-            </span>
-          </motion.h2>
-          <motion.div
-            variants={itemVariants}
-            className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-8"
-          />
-        </motion.div>
-
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Professional Summary */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={itemVariants}
-            className="space-y-6"
-          >
-            <h3 className="text-2xl font-semibold text-slate-800 dark:text-white mb-4">
-              {dict.about?.subtitle || "Full Stack Software Developer"}
-            </h3>
-            <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-              {dict.about?.paragraph1}
-            </p>
-            <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-              {dict.about?.paragraph2}
-            </p>
-            {dict.about?.paragraph3 && (
-              <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                {dict.about?.paragraph3}
-              </p>
-            )}
-
-            <motion.div
-              className="flex flex-wrap gap-3 mt-6"
-              variants={containerVariants}
-            >
-              {(
-                dict.about?.technologies || [
-                  "React",
-                  "Next.js",
-                  "Node.js",
-                  "Python",
-                  "TypeScript",
-                  "AWS",
-                ]
-              ).map((tech: string) => (
-                <motion.span
-                  key={tech}
-                  variants={itemVariants}
-                  className="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium"
-                >
-                  {tech}
-                </motion.span>
-              ))}
-            </motion.div>
-          </motion.div>
-
-          {/* Key Highlights */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={containerVariants}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
-          >
-            {highlights.map((highlight, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-slate-200 dark:border-slate-700"
-              >
-                <div className="flex items-center mb-3">
-                  <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg text-blue-600 dark:text-blue-400 mr-3">
-                    {highlight.icon}
-                  </div>
-                  <h4 className="font-semibold text-slate-800 dark:text-white text-sm">
-                    {highlight.title}
-                  </h4>
-                </div>
-                <p className="text-slate-600 dark:text-slate-300 text-sm">
-                  {highlight.description}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
+          </h2>
         </div>
 
-        {/* Achievement Highlight */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={itemVariants}
-          className="mt-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-center text-white"
-        >
-          <h4 className="text-2xl font-bold mb-4">
-            {dict.about?.highlightTitle || "Key Achievement"}
-          </h4>
-          <p className="text-lg opacity-90 max-w-3xl mx-auto">
-            {dict.about?.highlightDesc ||
-              "My research in Blockchain and FHIR HL7 for electronic medical record interoperability was published in a Q2 international journal, demonstrating my ability to combine technology and innovation in real-impact solutions."}
-          </p>
-          <div className="flex justify-center mt-6">
-            <span className="px-6 py-2 bg-white/20 rounded-full text-sm font-medium">
-              DOI: 10.3991/ijoe.v20i03.44507
-            </span>
+        <div className="grid items-start gap-8 lg:grid-cols-[1.08fr_0.92fr]">
+          <div className="retro-panel space-y-6 p-6 sm:p-8 lg:p-9">
+            <p className="eyebrow">{isSpanish ? "Quién soy" : "Who I am"}</p>
+            <h3 className="text-2xl font-extrabold text-foreground sm:text-3xl">
+              {dict.about?.subtitle || "Full Stack Software Developer"}
+            </h3>
+            <p className="text-lg leading-relaxed text-surface-foreground">{dict.about?.paragraph1}</p>
+            <p className="text-lg leading-relaxed text-surface-foreground">{dict.about?.paragraph2}</p>
+            {dict.about?.paragraph3 && (
+              <p className="text-lg leading-relaxed text-surface-foreground">{dict.about?.paragraph3}</p>
+            )}
+
+            <div className="mt-6 flex flex-wrap gap-3">
+              {(dict.about?.technologies || ["React", "Next.js", "Node.js", "Python", "TypeScript", "AWS"]).map(
+                (tech: string) => (
+                  <span key={tech} className="retro-chip px-4 py-2 text-sm font-bold">
+                    {tech}
+                  </span>
+                ),
+              )}
+            </div>
+
+            <div className="grid gap-4 rounded-2xl border border-primary/15 bg-background/60 p-4">
+              {focusPoints.map((point) => (
+                <div key={point.title}>
+                  <h4 className="text-sm font-extrabold uppercase tracking-[0.12em] text-primary">{point.title}</h4>
+                  <p className="mt-1 text-sm leading-relaxed text-surface-foreground">{point.description}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {profilePoints.map((point) => (
+                <div key={point.title} className="rounded-2xl border border-primary/15 bg-background/72 p-4">
+                  <div className="mb-3 flex items-center gap-2 text-primary">
+                    {point.icon}
+                    <h4 className="text-sm font-extrabold uppercase tracking-[0.12em]">{point.title}</h4>
+                  </div>
+                  <p className="text-sm leading-relaxed text-surface-foreground">{point.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </motion.div>
+
+          <div className="space-y-6">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              {highlights.map((highlight, index) => (
+                <div key={index} className="retro-panel h-full p-6">
+                  <div className="mb-3 flex items-center">
+                    <div className="mr-3 rounded-lg bg-primary/12 p-2 text-primary">{highlight.icon}</div>
+                    <h4 className="text-sm font-bold text-foreground">{highlight.title}</h4>
+                  </div>
+                  <p className="text-sm text-surface-foreground">{highlight.description}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="retro-panel bg-gradient-accent p-8 text-foreground">
+              <p className="eyebrow text-foreground/70">{isSpanish ? "Punto diferenciador" : "Differentiator"}</p>
+              <h4 className="mt-3 text-2xl font-bold text-foreground">{dict.about?.highlightTitle || "Key Achievement"}</h4>
+              <p className="mt-4 text-base leading-relaxed text-surface-foreground sm:text-lg">
+                {dict.about?.highlightDesc ||
+                  "My research in Blockchain and FHIR HL7 for electronic medical record interoperability was published in a Q2 international journal, demonstrating my ability to combine technology and innovation in real-impact solutions."}
+              </p>
+              <div className="mt-6 inline-flex rounded-full border border-foreground/20 bg-foreground/10 px-5 py-2 text-sm font-semibold text-foreground">
+                DOI: 10.3991/ijoe.v20i03.44507
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

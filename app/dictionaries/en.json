@@ -8,33 +8,34 @@
   },
   "hero": {
     "title": "Full-Stack Developer",
-    "subtitle": "Creating modern and scalable web applications with over 4 years of experience in React, Next.js, Node.js, and Python.",
+    "subtitle": "I build scalable web applications with over 4 years of frontend and backend experience. I am currently focused on Belcorp initiatives, driving legacy modernization, regional updates, and critical migrations with React, Node.js, .NET, and SQL Server.",
     "cta": "View My Work"
   },
   "about": {
     "title": "About Me",
     "subtitle": "Full Stack Software Developer",
-    "paragraph1": "Software Developer with over 4 years of experience in frontend and backend development, specialized in creating interactive, scalable, and high-performance web applications. Expert in React, Next.js, Node.js, and Python, with a track record in complex migrations, performance optimization, modular design, and microfrontend architecture.",
-    "paragraph2": "Passionate about modern technologies (Zustand, React Query, Tailwind, ShadCN/UI) and Generative AI, with experience in building robust APIs and geospatial solutions. Recognized for delivering high-impact solutions and leading technological innovation projects.",
-    "paragraph3": "With experience in enterprise automations, critical technology migrations, and legacy system modernization, always focused on improving scalability and user experience.",
+    "paragraph1": "Software Developer with over 4 years of frontend and backend experience, focused on building scalable, maintainable, and business-oriented web applications. I work across React, Next.js, Node.js, Python, and .NET ecosystems, combining product delivery with continuous improvement and technical modernization.",
+    "paragraph2": "My recent work has been centered on Belcorp, contributing to product evolution, production support, and functional improvements with a strong focus on stability, performance, and operational continuity.",
+    "paragraph3": "I specialize in automation-heavy delivery: workflow orchestration, notification pipelines, SQL optimization, and maintainable integrations across React, Node.js, and .NET stacks. I combine strong product judgment, clean architecture, and reliable execution for production-critical systems.",
     "technologies": [
       "React",
       "Next.js",
       "Node.js",
-      "Python",
       "TypeScript",
-      "Zustand",
+      ".NET Framework",
+      "SQL Server",
+      "Python",
       "GraphQL",
-      "AWS",
-      "React-Leaflet"
+      "UnifyApps",
+      "Zustand"
     ],
     "highlights": {
-      "exp": "4+ Years of Experience",
-      "expDesc": "Frontend and Backend Development",
-      "modern": "Modern Technologies",
-      "modernDesc": "Zustand, React Query, Tailwind, Generative AI",
-      "lead": "Technical Leadership",
-      "leadDesc": "Complex migrations and microfrontend architecture",
+      "exp": "4+ Years Shipping Software",
+      "expDesc": "Frontend, backend, and continuous improvement",
+      "modern": "Critical Migrations",
+      "modernDesc": "Bolivia in .NET 4.5 and Colombia in Node.js",
+      "lead": "Belcorp initiatives",
+      "leadDesc": "Hands-on execution across automation, integrations, and product continuity",
       "pub": "Q2 Publication",
       "pubDesc": "Research in Blockchain & FHIR HL7"
     },
@@ -52,8 +53,8 @@
       {
         "title": "Join Belcorp",
         "company": "Belcorp",
-        "description": "Development and maintenance of the consultant registration platform (uneteabelcorp.com), implementing automations with UnifyApps for notifications in 12 countries and optimizing Store Procedures in SQL Server.",
-        "technologies": ["React", "GraphQL", "TypeScript", "UnifyApps", "SQL Server", ".NET Framework"],
+        "description": "Development and maintenance of the consultant registration platform, including automations across 12 countries, SQL Server Store Procedure optimization, Bolivia bureau changes on .NET Framework 4.5, and support for the migration of Colombia's traditional flow into Node.js.",
+        "technologies": ["React", "GraphQL", "TypeScript", "UnifyApps", "SQL Server", ".NET Framework 4.5", "Node.js"],
         "link": "https://uneteabelcorp.com/pe",
         "type": "web",
         "year": "2025"
@@ -128,39 +129,57 @@
     "personal": [
       {
         "title": "MCA Makeup",
-        "description": "Professional website for a makeup artist with interactive gallery, appointment system, and responsive design optimized for mobile.",
-        "technologies": ["Next.js", "React", "Tailwind CSS", "Vercel"],
+        "description": "Full web platform for a professional makeup artist with online booking, real-time availability, testimonials, complaint book, and an admin panel for services, calendar, income, and reports.",
+        "technologies": ["Next.js", "React", "TypeScript", "Prisma", "Tailwind CSS", "Admin Panel"],
         "link": "https://mca-makeup.vercel.app/",
-        "github": null,
+        "github": "https://github.com/paulo1403/mca-makeup",
         "type": "web",
-        "year": "2024"
+        "year": "2026"
       },
       {
-        "title": "YT-DLP GUI Electron",
-        "description": "Desktop application with graphical interface to download YouTube videos using yt-dlp. Intuitive interface built with Electron.",
-        "technologies": ["Electron", "JavaScript", "Node.js", "HTML/CSS"],
+        "title": "Chicama Map",
+        "description": "Map and directory of useful places in Puerto Chicama and Malabrigo, with a public discovery flow and an admin panel to create, edit, and organize points of interest with bilingual support.",
+        "technologies": ["Vite", "React", "TypeScript", "Bun", "Elysia", "Prisma", "Leaflet"],
         "link": null,
-        "github": "https://github.com/paulo1403/yt-dlp-gui-electron",
-        "type": "desktop",
-        "year": "2024"
+        "github": "https://github.com/paulo1403/chicama-map",
+        "type": "web",
+        "year": "2026"
       },
       {
-        "title": "Bun Auth CRUD",
-        "description": "Modern authentication and CRUD system built with Bun runtime. JWT implementation, data validation, and full database operations.",
-        "technologies": ["Bun", "TypeScript", "JWT", "SQLite"],
+        "title": "Personal Finances",
+        "description": "Full-stack personal finance app with JWT authentication, expense dashboard, categories, transactions, budgets, and a clean separation between frontend and API.",
+        "technologies": ["React 19", "TypeScript", "TanStack Query", "Bun", "Elysia", "Prisma", "SQLite"],
         "link": null,
-        "github": "https://github.com/paulo1403/bun-auth-crud",
+        "github": "https://github.com/paulo1403/personal-finances",
+        "type": "web",
+        "year": "2025"
+      },
+      {
+        "title": "Peru in Map",
+        "description": "Discovery-focused monorepo for places in Peru with Astro + React on the frontend, Hono on the backend, and a product-oriented architecture around maps, reviews, admin flows, and PWA behavior.",
+        "technologies": ["Astro", "React", "TypeScript", "Hono", "Prisma", "PostgreSQL", "PWA"],
+        "link": null,
+        "github": "https://github.com/paulo1403/peru-in-map",
+        "type": "web",
+        "year": "2025"
+      },
+      {
+        "title": "GitHub Profile Fetcher",
+        "description": "Small API built with Elysia and Bun to fetch public GitHub profiles with in-memory caching, structured logging, and cache clearing endpoints for development.",
+        "technologies": ["Bun", "Elysia", "TypeScript", "GitHub API", "Caching", "Logging"],
+        "link": null,
+        "github": "https://github.com/paulo1403/github-profile-fetcher",
         "type": "api",
-        "year": "2024"
+        "year": "2025"
       },
       {
-        "title": "Django API Book",
-        "description": "Complete REST API for book management developed with Django REST Framework. Includes authentication, pagination, and automatic documentation.",
-        "technologies": ["Django", "Python", "DRF", "PostgreSQL"],
+        "title": "Carioca Game Web",
+        "description": "Frontend experiment to bring a card-game experience into the browser with a dedicated interface and a structure optimized for fast interaction.",
+        "technologies": ["TypeScript", "Frontend", "Game UI", "Web App"],
         "link": null,
-        "github": "https://github.com/paulo1403/django-api-book",
-        "type": "api",
-        "year": "2024"
+        "github": "https://github.com/paulo1403/carioca-game-web",
+        "type": "web",
+        "year": "2026"
       }
     ]
   },
@@ -176,11 +195,13 @@
         "location": "Lima, Peru",
         "achievements": [
           "Developed automations with UnifyApps for notifications in 12 countries",
+          "Delivered Bolivia bureau changes on a legacy .NET Framework 4.5 project",
+          "Supported the migration to the new traditional Colombia flow in Node.js while preserving operational continuity",
           "Created and optimized Store Procedures in SQL Server, reducing response times in critical processes",
           "Implemented and maintained the Join Belcorp platform (uneteabelcorp.com) with React and GraphQL",
           "Provided support and maintenance to the SoporteBelcorp platform in .NET Framework"
         ],
-        "technologies": ["UnifyApps", "React", "GraphQL", ".NET Framework", "SQL Server"]
+        "technologies": ["UnifyApps", "React", "GraphQL", ".NET Framework 4.5", "Node.js", "SQL Server"]
       },
       {
         "company": "Rimac Seguros",
@@ -370,6 +391,11 @@
           "title": "Legacy system modernization",
           "description": "Improving scalability and user experience",
           "icon": "modernization"
+        },
+        {
+          "title": "Regional delivery at Belcorp",
+          "description": "Bolivia updates and evolution of Colombia's traditional flow",
+          "icon": "migration"
         }
       ]
     }

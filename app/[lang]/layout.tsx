@@ -1,12 +1,23 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import {
+  Bungee,
+  JetBrains_Mono,
+  Nunito_Sans,
+} from "next/font/google";
 import "../globals.css";
 import Providers from "@/components/Providers";
 import { Analytics } from "@vercel/analytics/next";
 
-const inter = Inter({
+const nunitoSans = Nunito_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-nunito-sans",
+  display: "swap",
+});
+
+const bungee = Bungee({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-bungee",
   display: "swap",
 });
 
@@ -16,11 +27,6 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: {
@@ -124,7 +130,7 @@ export default async function RootLayout({
   const lang = rawLang === "es" ? "es" : "en";
 
   return (
-    <html lang={lang} className="scroll-smooth">
+    <html lang={lang} suppressHydrationWarning>
       <head>
         {/* Prefer light icon when user prefers light scheme */}
         <link rel="icon" href="/icon-terminal-light.svg" media="(prefers-color-scheme: light)" />
@@ -134,7 +140,7 @@ export default async function RootLayout({
         <link rel="icon" href="/icon-terminal.png" />
       </head>
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} ${spaceGrotesk.variable} font-sans antialiased bg-background text-foreground`}
+        className={`${nunitoSans.variable} ${bungee.variable} ${jetbrainsMono.variable} font-sans antialiased bg-background text-foreground`}
       >
         <Providers>{children}</Providers>
         <Analytics />

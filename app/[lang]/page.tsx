@@ -17,22 +17,31 @@ export default async function Home({
   const dict = await getDictionary(lang);
 
   return (
-    <main className="relative">
+    <main className="relative overflow-hidden pb-10">
       <Header dict={dict} lang={lang} />
-      <section id="home">
+      <div className="absolute inset-x-0 top-0 -z-10 h-[42rem] bg-[radial-gradient(circle_at_top,rgb(255_247_231/0.92),transparent_68%)]" />
+      <section id="home" className="section-shell">
         <HeroSection dict={dict} lang={lang} />
       </section>
-      <section id="about">
-        <AboutSection dict={dict} lang={lang} />
+      <section id="about" className="section-shell section-shell--soft px-4 lg:px-6">
+        <div className="section-frame mx-auto max-w-7xl">
+          <AboutSection dict={dict} lang={lang} />
+        </div>
       </section>
-      <section id="projects">
-        <ProjectsSection dict={dict} lang={lang} />
+      <section id="projects" className="section-shell section-shell--warm px-4 lg:px-6">
+        <div className="section-frame mx-auto max-w-7xl">
+          <ProjectsSection dict={dict} lang={lang} />
+        </div>
       </section>
-      <section id="experience">
-        <ExperienceSection dict={dict} lang={lang} />
+      <section id="experience" className="section-shell px-4 lg:px-6">
+        <div className="section-frame mx-auto max-w-7xl">
+          <ExperienceSection dict={dict} lang={lang} />
+        </div>
       </section>
-      <section id="contact">
-        <ContactSection dict={dict} lang={lang} />
+      <section id="contact" className="section-shell section-shell--soft px-4 lg:px-6">
+        <div className="section-frame mx-auto max-w-7xl">
+          <ContactSection dict={dict} lang={lang} />
+        </div>
       </section>
       <Footer lang={lang} />
     </main>

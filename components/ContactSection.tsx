@@ -1,8 +1,16 @@
 "use client";
 
-import { useState } from "react";
 import emailjs from "@emailjs/browser";
-import { AlertCircle, CheckCircle, Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
+import {
+  AlertCircle,
+  CheckCircle,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Send,
+} from "lucide-react";
+import { useState } from "react";
 
 interface ContactDictionary {
   contact: {
@@ -30,12 +38,14 @@ export default function ContactSection({ dict, lang }: ContactSectionProps) {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
   const contactInfo = [
     {
       icon: <Mail className="h-5 w-5" />,
-      label: dict.contact.form.email,
+      label: isSpanish ? "Correo" : "Email",
       value: "paulollanosc@gmail.com",
       href: "mailto:paulollanosc@gmail.com",
       colorClass: "bg-primary/10 text-primary",
@@ -66,7 +76,9 @@ export default function ContactSection({ dict, lang }: ContactSectionProps) {
     },
   ];
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -103,68 +115,105 @@ export default function ContactSection({ dict, lang }: ContactSectionProps) {
   return (
     <section className="py-24">
       <div className="container mx-auto max-w-6xl px-6">
-        <div className="mb-14 text-center">
-          <p className="eyebrow mb-4">{isSpanish ? "Conversemos" : "Let’s connect"}</p>
-          <h2 className="mb-6 text-4xl text-foreground md:text-5xl">{dict.contact.title}</h2>
+        <div className="mb-12 text-center">
+          <p className="eyebrow mb-4">
+            {isSpanish ? "Contacto" : "Get in touch"}
+          </p>
+          <h2 className="text-4xl text-foreground md:text-5xl">
+            {dict.contact.title}
+          </h2>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-[0.84fr_1.16fr]">
-          <div className="space-y-6">
-            <div className="retro-panel p-7 sm:p-8">
-              <p className="eyebrow mb-4">{isSpanish ? "Disponibilidad" : "Availability"}</p>
-              <h3 className="text-3xl font-extrabold text-foreground">
-                {isSpanish ? "Estoy abierto a conversaciones serias de producto y desarrollo." : "I am open to serious product and software conversations."}
-              </h3>
-              <p className="mt-5 text-base leading-relaxed text-surface-foreground">
-                {isSpanish
-                  ? "Si necesitas apoyo en frontend, modernización de sistemas, integraciones o evolución de una plataforma en producción, este sitio ya te muestra el tipo de problemas que me gusta resolver."
-                  : "If you need support on frontend delivery, legacy modernization, integrations, or the evolution of a production platform, this site already shows the kind of problems I like solving."}
-              </p>
+        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+          <aside className="retro-panel p-7 sm:p-8">
+            <h3 className="text-2xl font-extrabold text-foreground">
+              {isSpanish ? "Canales directos" : "Direct channels"}
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-surface-foreground">
+              {isSpanish
+                ? "Escríbeme por correo o por redes. Respondo rápido con contexto claro."
+                : "Reach out by email or social. Fast response with clear context."}
+            </p>
+
+            <div className="mt-6 space-y-3">
+              {contactInfo.map((info, index) => {
+                const Container = info.href ? "a" : "div";
+
+                return (
+                  <Container
+                    key={index}
+                    {...(info.href
+                      ? {
+                          href: info.href,
+                        }
+                      : {})}
+                    className="flex items-center gap-4 rounded-2xl border border-primary/14 bg-background/72 p-4"
+                  >
+                    <div className={`rounded-xl p-3 ${info.colorClass}`}>
+                      {info.icon}
+                    </div>
+                    <div>
+                      <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-muted-foreground">
+                        {info.label}
+                      </p>
+                      <p className="mt-1 text-sm font-bold text-foreground">
+                        {info.value}
+                      </p>
+                    </div>
+                  </Container>
+                );
+              })}
             </div>
 
-            <div className="retro-panel p-7">
-              <h3 className="mb-6 text-2xl font-extrabold text-foreground">
-                {isSpanish ? "Canales directos" : "Direct channels"}
-              </h3>
-              <div className="space-y-4">
-                {contactInfo.map((info, index) => (
-                  <div
-                    key={index}
-                    className={`flex items-center rounded-2xl border border-primary/14 bg-background/72 p-4 ${info.href ? "cursor-pointer" : ""}`}
-                    onClick={() => info.href && window.open(info.href, "_self")}
-                  >
-                    <div className={`mr-4 rounded-xl p-3 ${info.colorClass}`}>{info.icon}</div>
+            <div className="mt-6 grid gap-3">
+              {socialLinks.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between rounded-2xl border border-primary/14 bg-background/72 px-4 py-3"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className={`rounded-xl p-2.5 ${social.colorClass}`}>
+                      {social.icon}
+                    </div>
                     <div>
-                      <p className="font-bold text-foreground">{info.label}</p>
-                      <p className="text-sm opacity-80">{info.value}</p>
+                      <p className="text-sm font-bold text-foreground">
+                        {social.label}
+                      </p>
+                      <p className="text-xs text-surface-foreground">
+                        {social.user}
+                      </p>
                     </div>
                   </div>
-                ))}
-              </div>
+                  <span className="text-xs font-bold uppercase tracking-[0.14em] text-muted-foreground">
+                    Open
+                  </span>
+                </a>
+              ))}
             </div>
+          </aside>
 
-            <div className="retro-panel bg-gradient-accent p-6 text-foreground">
-              <h4 className="text-lg font-bold text-foreground">{isSpanish ? "Tiempo de respuesta" : "Response time"}</h4>
-              <p className="mt-2 text-sm leading-relaxed text-surface-foreground">
-                {isSpanish
-                  ? "Normalmente respondo en menos de 24 horas. Si el tema es urgente o tiene contexto técnico, el correo sigue siendo el mejor canal."
-                  : "I usually reply in under 24 hours. If the topic is urgent or technically detailed, email is still the best channel."}
-              </p>
-            </div>
-          </div>
-
-          <div className="retro-panel p-8">
+          <div className="retro-panel p-7 sm:p-8">
             <div className="mb-6">
-              <p className="eyebrow mb-3">{isSpanish ? "Cuéntame el contexto" : "Send the context"}</p>
+              <p className="eyebrow mb-3">
+                {isSpanish ? "Formulario" : "Form"}
+              </p>
               <h3 className="text-2xl font-extrabold text-foreground">
-                {isSpanish ? "Mientras más claro el problema, mejor la respuesta." : "The clearer the problem, the better the response."}
+                {isSpanish
+                  ? "Cuéntame qué necesitas."
+                  : "Tell me what you need."}
               </h3>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid gap-4 md:grid-cols-2">
                 <div>
-                  <label htmlFor="name" className="mb-2 block text-sm font-semibold text-surface-foreground">
+                  <label
+                    htmlFor="name"
+                    className="mb-2 block text-sm font-semibold text-surface-foreground"
+                  >
                     {dict.contact.form.name} *
                   </label>
                   <input
@@ -179,7 +228,10 @@ export default function ContactSection({ dict, lang }: ContactSectionProps) {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="mb-2 block text-sm font-semibold text-surface-foreground">
+                  <label
+                    htmlFor="email"
+                    className="mb-2 block text-sm font-semibold text-surface-foreground"
+                  >
                     {dict.contact.form.email} *
                   </label>
                   <input
@@ -196,7 +248,10 @@ export default function ContactSection({ dict, lang }: ContactSectionProps) {
               </div>
 
               <div>
-                <label htmlFor="subject" className="mb-2 block text-sm font-semibold text-surface-foreground">
+                <label
+                  htmlFor="subject"
+                  className="mb-2 block text-sm font-semibold text-surface-foreground"
+                >
                   {lang === "es" ? "Asunto" : "Subject"} *
                 </label>
                 <input
@@ -207,12 +262,17 @@ export default function ContactSection({ dict, lang }: ContactSectionProps) {
                   onChange={handleInputChange}
                   required
                   className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
-                  placeholder={lang === "es" ? "¿En que puedo ayudarte?" : "How can I help you?"}
+                  placeholder={
+                    lang === "es" ? "¿En qué te ayudo?" : "How can I help?"
+                  }
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="mb-2 block text-sm font-semibold text-surface-foreground">
+                <label
+                  htmlFor="message"
+                  className="mb-2 block text-sm font-semibold text-surface-foreground"
+                >
                   {dict.contact.form.message} *
                 </label>
                 <textarea
@@ -232,7 +292,7 @@ export default function ContactSection({ dict, lang }: ContactSectionProps) {
                   <CheckCircle className="mr-2 h-5 w-5" />
                   <span>
                     {lang === "es"
-                      ? "Mensaje enviado exitosamente. Te respondere pronto."
+                      ? "Mensaje enviado. Te respondo pronto."
                       : "Message sent successfully. I will get back to you soon."}
                   </span>
                 </div>
@@ -264,26 +324,6 @@ export default function ContactSection({ dict, lang }: ContactSectionProps) {
                 )}
               </button>
             </form>
-          </div>
-
-          <div className="lg:col-start-1 lg:row-start-2">
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="retro-panel flex items-center rounded-2xl p-4"
-                >
-                  <div className={`mr-4 rounded-xl p-3 ${social.colorClass}`}>{social.icon}</div>
-                  <div>
-                    <p className="font-bold text-foreground">{social.label}</p>
-                    <p className="text-sm text-surface-foreground">{social.user}</p>
-                  </div>
-                </a>
-              ))}
-            </div>
           </div>
         </div>
       </div>

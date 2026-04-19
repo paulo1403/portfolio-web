@@ -1,6 +1,6 @@
 "use client";
 
-import { Award, Code, Radar, Sparkles, Users, Zap } from "lucide-react";
+import { Award, Code, Users, Zap } from "lucide-react";
 
 interface AboutDictionary {
   title: string;
@@ -34,64 +34,31 @@ interface AboutSectionProps {
 export default function AboutSection({ dict }: AboutSectionProps) {
   const isSpanish = dict.about?.title === "Sobre Mí";
 
-  const focusPoints = [
-    {
-      title: isSpanish ? "Trabajo reciente" : "Recent work",
-      description: isSpanish
-        ? "Iniciativas en Belcorp, combinando soporte, evolución de producto y delivery continuo."
-        : "Belcorp initiatives, combining support, product evolution, and continuous delivery.",
-    },
-    {
-      title: isSpanish ? "Especialidad" : "Specialty",
-      description: isSpanish
-        ? "Migraciones complejas, modernización de legados y mejoras de producto con impacto real."
-        : "Complex migrations, legacy modernization, and product improvements with real impact.",
-    },
-    {
-      title: isSpanish ? "Aporte" : "Value",
-      description: isSpanish
-        ? "Implementaciones sostenibles que equilibran negocio, estabilidad técnica y experiencia de usuario."
-        : "Sustainable implementations balancing business goals, technical stability, and user experience.",
-    },
-  ];
-
-  const profilePoints = [
-    {
-      icon: <Radar className="h-5 w-5" />,
-      title: isSpanish ? "Mentalidad" : "Mindset",
-      description: isSpanish
-        ? "Me enfoco en resolver problemas que mueven negocio, no solo en cerrar tickets."
-        : "I focus on solving problems that move the business, not just closing tickets.",
-    },
-    {
-      icon: <Sparkles className="h-5 w-5" />,
-      title: isSpanish ? "Forma de trabajo" : "Way of working",
-      description: isSpanish
-        ? "Busco claridad técnica, interfaces limpias y decisiones que se puedan sostener en el tiempo."
-        : "I aim for technical clarity, cleaner interfaces, and decisions that stay sustainable over time.",
-    },
-  ];
-
   const highlights = [
     {
       icon: <Code className="h-6 w-6" />,
-      title: dict.about?.highlights?.exp || "4+ Years Experience",
-      description: dict.about?.highlights?.expDesc || "Frontend and Backend Development",
+      title: dict.about?.highlights?.exp || "5+ Years Experience",
+      description:
+        dict.about?.highlights?.expDesc || "Frontend and Backend Development",
     },
     {
       icon: <Zap className="h-6 w-6" />,
       title: dict.about?.highlights?.modern || "Modern Technologies",
-      description: dict.about?.highlights?.modernDesc || "React, Next.js, Node.js, Python",
+      description:
+        dict.about?.highlights?.modernDesc || "React, Next.js, Node.js, Python",
     },
     {
       icon: <Users className="h-6 w-6" />,
       title: dict.about?.highlights?.lead || "Technical Leadership",
-      description: dict.about?.highlights?.leadDesc || "Complex migrations and optimization",
+      description:
+        dict.about?.highlights?.leadDesc ||
+        "Complex migrations and optimization",
     },
     {
       icon: <Award className="h-6 w-6" />,
       title: dict.about?.highlights?.pub || "Q2 Publication",
-      description: dict.about?.highlights?.pubDesc || "Research in Blockchain & FHIR HL7",
+      description:
+        dict.about?.highlights?.pubDesc || "Research in Blockchain & FHIR HL7",
     },
   ];
 
@@ -99,7 +66,11 @@ export default function AboutSection({ dict }: AboutSectionProps) {
     <section className="py-24">
       <div className="container mx-auto max-w-6xl px-6">
         <div className="mb-14">
-          <p className="eyebrow mb-4 text-center">{isSpanish ? "Contexto y forma de trabajo" : "Context and working style"}</p>
+          <p className="eyebrow mb-4 text-center">
+            {isSpanish
+              ? "Contexto y forma de trabajo"
+              : "Context and working style"}
+          </p>
           <h2 className="mx-auto max-w-4xl text-center text-4xl text-foreground md:text-5xl">
             {dict.about?.title || "About Me"}
           </h2>
@@ -111,41 +82,35 @@ export default function AboutSection({ dict }: AboutSectionProps) {
             <h3 className="text-2xl font-extrabold text-foreground sm:text-3xl">
               {dict.about?.subtitle || "Full Stack Software Developer"}
             </h3>
-            <p className="text-lg leading-relaxed text-surface-foreground">{dict.about?.paragraph1}</p>
-            <p className="text-lg leading-relaxed text-surface-foreground">{dict.about?.paragraph2}</p>
+            <p className="text-lg leading-relaxed text-surface-foreground">
+              {dict.about?.paragraph1}
+            </p>
             {dict.about?.paragraph3 && (
-              <p className="text-lg leading-relaxed text-surface-foreground">{dict.about?.paragraph3}</p>
+              <p className="text-lg leading-relaxed text-surface-foreground">
+                {dict.about?.paragraph3}
+              </p>
             )}
 
             <div className="mt-6 flex flex-wrap gap-3">
-              {(dict.about?.technologies || ["React", "Next.js", "Node.js", "Python", "TypeScript", "AWS"]).map(
-                (tech: string) => (
-                  <span key={tech} className="retro-chip px-4 py-2 text-sm font-bold">
+              {(
+                dict.about?.technologies || [
+                  "React",
+                  "Next.js",
+                  "Node.js",
+                  "Python",
+                  "TypeScript",
+                  "AWS",
+                ]
+              )
+                .slice(0, 6)
+                .map((tech: string) => (
+                  <span
+                    key={tech}
+                    className="retro-chip px-4 py-2 text-sm font-bold"
+                  >
                     {tech}
                   </span>
-                ),
-              )}
-            </div>
-
-            <div className="grid gap-4 rounded-2xl border border-primary/15 bg-background/60 p-4">
-              {focusPoints.map((point) => (
-                <div key={point.title}>
-                  <h4 className="text-sm font-extrabold uppercase tracking-[0.12em] text-primary">{point.title}</h4>
-                  <p className="mt-1 text-sm leading-relaxed text-surface-foreground">{point.description}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              {profilePoints.map((point) => (
-                <div key={point.title} className="rounded-2xl border border-primary/15 bg-background/72 p-4">
-                  <div className="mb-3 flex items-center gap-2 text-primary">
-                    {point.icon}
-                    <h4 className="text-sm font-extrabold uppercase tracking-[0.12em]">{point.title}</h4>
-                  </div>
-                  <p className="text-sm leading-relaxed text-surface-foreground">{point.description}</p>
-                </div>
-              ))}
+                ))}
             </div>
           </div>
 
@@ -154,17 +119,27 @@ export default function AboutSection({ dict }: AboutSectionProps) {
               {highlights.map((highlight, index) => (
                 <div key={index} className="retro-panel h-full p-6">
                   <div className="mb-3 flex items-center">
-                    <div className="mr-3 rounded-lg bg-primary/12 p-2 text-primary">{highlight.icon}</div>
-                    <h4 className="text-sm font-bold text-foreground">{highlight.title}</h4>
+                    <div className="mr-3 rounded-lg bg-primary/12 p-2 text-primary">
+                      {highlight.icon}
+                    </div>
+                    <h4 className="text-sm font-bold text-foreground">
+                      {highlight.title}
+                    </h4>
                   </div>
-                  <p className="text-sm text-surface-foreground">{highlight.description}</p>
+                  <p className="text-sm text-surface-foreground">
+                    {highlight.description}
+                  </p>
                 </div>
               ))}
             </div>
 
             <div className="retro-panel bg-gradient-accent p-8 text-foreground">
-              <p className="eyebrow text-foreground/70">{isSpanish ? "Punto diferenciador" : "Differentiator"}</p>
-              <h4 className="mt-3 text-2xl font-bold text-foreground">{dict.about?.highlightTitle || "Key Achievement"}</h4>
+              <p className="eyebrow text-foreground/70">
+                {isSpanish ? "Punto diferenciador" : "Differentiator"}
+              </p>
+              <h4 className="mt-3 text-2xl font-bold text-foreground">
+                {dict.about?.highlightTitle || "Key Achievement"}
+              </h4>
               <p className="mt-4 text-base leading-relaxed text-surface-foreground sm:text-lg">
                 {dict.about?.highlightDesc ||
                   "My research in Blockchain and FHIR HL7 for electronic medical record interoperability was published in a Q2 international journal, demonstrating my ability to combine technology and innovation in real-impact solutions."}

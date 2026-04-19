@@ -8,15 +8,15 @@
   },
   "hero": {
     "title": "Full-Stack Developer",
-    "subtitle": "I build scalable web applications with over 4 years of frontend and backend experience. I am currently focused on Belcorp initiatives, driving legacy modernization, regional updates, and critical migrations with React, Node.js, .NET, and SQL Server.",
+    "subtitle": "5+ years building frontend and backend systems. Currently at Belcorp — automations, legacy modernization, and critical migrations.",
     "cta": "View My Work"
   },
   "about": {
     "title": "About Me",
     "subtitle": "Full Stack Software Developer",
-    "paragraph1": "Software Developer with over 4 years of frontend and backend experience, focused on building scalable, maintainable, and business-oriented web applications. I work across React, Next.js, Node.js, Python, and .NET ecosystems, combining product delivery with continuous improvement and technical modernization.",
-    "paragraph2": "My recent work has been centered on Belcorp, contributing to product evolution, production support, and functional improvements with a strong focus on stability, performance, and operational continuity.",
-    "paragraph3": "I specialize in automation-heavy delivery: workflow orchestration, notification pipelines, SQL optimization, and maintainable integrations across React, Node.js, and .NET stacks. I combine strong product judgment, clean architecture, and reliable execution for production-critical systems.",
+    "paragraph1": "Full Stack Developer with 5+ years across React, Node.js, .NET, and Python. I build scalable web apps focused on product delivery and technical quality.",
+    "paragraph2": "Currently at Belcorp — production platforms, regional migrations, and automation pipelines.",
+    "paragraph3": "Specializing in workflow automation, SQL optimization, and cross-stack integrations.",
     "technologies": [
       "React",
       "Next.js",
@@ -30,7 +30,7 @@
       "Zustand"
     ],
     "highlights": {
-      "exp": "4+ Years Shipping Software",
+      "exp": "5+ Years Shipping Software",
       "expDesc": "Frontend, backend, and continuous improvement",
       "modern": "Critical Migrations",
       "modernDesc": "Bolivia in .NET 4.5 and Colombia in Node.js",
@@ -40,21 +40,29 @@
       "pubDesc": "Research in Blockchain & FHIR HL7"
     },
     "highlightTitle": "Outstanding Achievement",
-    "highlightDesc": "My research on Blockchain and FHIR HL7 for electronic health record interoperability was published in an international Q2 journal (DOI: 10.3991/ijoe.v20i03.44507), demonstrating my ability to combine technology and innovation in real-impact solutions."
+    "highlightDesc": "Research on Blockchain + FHIR HL7 for EHR interoperability published in a Q2 international journal. DOI: 10.3991/ijoe.v20i03.44507"
   },
   "projects": {
     "title": "My Projects",
     "professionalTitle": "Professional Projects",
     "personalTitle": "Personal Projects",
     "githubCtaTitle": "Want to see more?",
-    "githubCtaText": "Find more projects and contributions on my GitHub profile. I'm always working on something new and interesting.",
+    "githubCtaText": "More projects and experiments on my GitHub.",
     "githubCtaButton": "View GitHub",
     "professional": [
       {
         "title": "Join Belcorp",
         "company": "Belcorp",
-        "description": "Development and maintenance of the consultant registration platform, including automations across 12 countries, SQL Server Store Procedure optimization, Bolivia bureau changes on .NET Framework 4.5, and support for the migration of Colombia's traditional flow into Node.js.",
-        "technologies": ["React", "GraphQL", "TypeScript", "UnifyApps", "SQL Server", ".NET Framework 4.5", "Node.js"],
+        "description": "Consultant registration platform — automations across 12 countries, SQL Server optimization, .NET legacy maintenance, and Node.js migration support.",
+        "technologies": [
+          "React",
+          "GraphQL",
+          "TypeScript",
+          "UnifyApps",
+          "SQL Server",
+          ".NET Framework 4.5",
+          "Node.js"
+        ],
         "link": "https://uneteabelcorp.com/pe",
         "type": "web",
         "year": "2025"
@@ -62,7 +70,7 @@
       {
         "title": "Rimac Monitoring Center",
         "company": "Rimac Seguros",
-        "description": "Real-time monitoring platform for insurance with mobile-first responsive interfaces. Led migration from Redux to Zustand and updates to Node.js (14→18) and Ant Design (v3→v5). Developed advanced geospatial solutions with React-Leaflet and TimeDimension.",
+        "description": "Real-time insurance monitoring platform. Led Redux→Zustand migration, Node.js and Ant Design upgrades, and geospatial features with React-Leaflet.",
         "technologies": [
           "React",
           "TypeScript",
@@ -79,7 +87,7 @@
       {
         "title": "HolaLink",
         "company": "CRD",
-        "description": "Innovative web platform with serverless API on AWS Lambda, secure authentication with AWS Amplify, and mobile-first designs. Strengthened validation with Yup, Formik, and JOI, increasing test coverage with Jest.",
+        "description": "Web platform with serverless API on AWS Lambda, Amplify auth, mobile-first UI, and improved test coverage with Jest.",
         "technologies": [
           "React",
           "AWS Lambda",
@@ -97,7 +105,7 @@
       {
         "title": "Lucy System",
         "company": "Transforma Digital Perú",
-        "description": "Robust web system developed with Django for business management. Led complete backend and frontend development, implementing real-time communication with WebSockets.",
+        "description": "Business management web system built with Django. Full-stack development with real-time WebSocket communication.",
         "technologies": [
           "Django",
           "Python",
@@ -112,7 +120,7 @@
       {
         "title": "Fractal Platform",
         "company": "Fractal",
-        "description": "Development of scalable APIs with .NET Core and dynamic views with Razor (SSR). Implemented real-time communication functions with Slack API and WebSockets for business collaboration.",
+        "description": "Scalable APIs with .NET Core, Razor SSR views, and real-time Slack integration via WebSockets.",
         "technologies": [
           ".NET Core",
           "C#",
@@ -129,8 +137,15 @@
     "personal": [
       {
         "title": "MCA Makeup",
-        "description": "Full web platform for a professional makeup artist with online booking, real-time availability, testimonials, complaint book, and an admin panel for services, calendar, income, and reports.",
-        "technologies": ["Next.js", "React", "TypeScript", "Prisma", "Tailwind CSS", "Admin Panel"],
+        "description": "Booking platform for a makeup artist with availability calendar, testimonials, and admin panel.",
+        "technologies": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Prisma",
+          "Tailwind CSS",
+          "Admin Panel"
+        ],
         "link": "https://mca-makeup.vercel.app/",
         "github": "https://github.com/paulo1403/mca-makeup",
         "type": "web",
@@ -138,8 +153,16 @@
       },
       {
         "title": "Chicama Map",
-        "description": "Map and directory of useful places in Puerto Chicama and Malabrigo, with a public discovery flow and an admin panel to create, edit, and organize points of interest with bilingual support.",
-        "technologies": ["Vite", "React", "TypeScript", "Bun", "Elysia", "Prisma", "Leaflet"],
+        "description": "Map and directory of local places with public discovery flow and admin panel.",
+        "technologies": [
+          "Vite",
+          "React",
+          "TypeScript",
+          "Bun",
+          "Elysia",
+          "Prisma",
+          "Leaflet"
+        ],
         "link": null,
         "github": "https://github.com/paulo1403/chicama-map",
         "type": "web",
@@ -147,8 +170,16 @@
       },
       {
         "title": "Personal Finances",
-        "description": "Full-stack personal finance app with JWT authentication, expense dashboard, categories, transactions, budgets, and a clean separation between frontend and API.",
-        "technologies": ["React 19", "TypeScript", "TanStack Query", "Bun", "Elysia", "Prisma", "SQLite"],
+        "description": "Finance tracker with expense dashboard, categories, budgets, and JWT auth.",
+        "technologies": [
+          "React 19",
+          "TypeScript",
+          "TanStack Query",
+          "Bun",
+          "Elysia",
+          "Prisma",
+          "SQLite"
+        ],
         "link": null,
         "github": "https://github.com/paulo1403/personal-finances",
         "type": "web",
@@ -156,8 +187,16 @@
       },
       {
         "title": "Peru in Map",
-        "description": "Discovery-focused monorepo for places in Peru with Astro + React on the frontend, Hono on the backend, and a product-oriented architecture around maps, reviews, admin flows, and PWA behavior.",
-        "technologies": ["Astro", "React", "TypeScript", "Hono", "Prisma", "PostgreSQL", "PWA"],
+        "description": "Map-based discovery app for places in Peru. Astro frontend, Hono backend, PWA.",
+        "technologies": [
+          "Astro",
+          "React",
+          "TypeScript",
+          "Hono",
+          "Prisma",
+          "PostgreSQL",
+          "PWA"
+        ],
         "link": null,
         "github": "https://github.com/paulo1403/peru-in-map",
         "type": "web",
@@ -165,8 +204,15 @@
       },
       {
         "title": "GitHub Profile Fetcher",
-        "description": "Small API built with Elysia and Bun to fetch public GitHub profiles with in-memory caching, structured logging, and cache clearing endpoints for development.",
-        "technologies": ["Bun", "Elysia", "TypeScript", "GitHub API", "Caching", "Logging"],
+        "description": "Bun/Elysia API for GitHub profile lookup with in-memory caching and structured logging.",
+        "technologies": [
+          "Bun",
+          "Elysia",
+          "TypeScript",
+          "GitHub API",
+          "Caching",
+          "Logging"
+        ],
         "link": null,
         "github": "https://github.com/paulo1403/github-profile-fetcher",
         "type": "api",
@@ -174,18 +220,59 @@
       },
       {
         "title": "Carioca Game Web",
-        "description": "Frontend experiment to bring a card-game experience into the browser with a dedicated interface and a structure optimized for fast interaction.",
+        "description": "Browser card-game interface experiment built with TypeScript.",
         "technologies": ["TypeScript", "Frontend", "Game UI", "Web App"],
         "link": null,
         "github": "https://github.com/paulo1403/carioca-game-web",
         "type": "web",
         "year": "2026"
+      },
+      {
+        "title": "BioChain",
+        "description": "Healthcare interoperability platform with FHIR R4, SMART on FHIR, and blockchain anchoring.",
+        "technologies": [
+          "FHIR R4",
+          "SMART on FHIR",
+          "TypeScript",
+          "Blockchain"
+        ],
+        "link": null,
+        "github": "https://github.com/paulo1403/biochain",
+        "type": "web",
+        "year": "2026"
+      },
+      {
+        "title": "Bun Auth CRUD",
+        "description": "Authentication and CRUD backend built with Bun for fast API delivery.",
+        "technologies": ["Bun", "TypeScript", "Auth", "REST API"],
+        "link": null,
+        "github": "https://github.com/paulo1403/bun-auth-crud",
+        "type": "api",
+        "year": "2025"
+      },
+      {
+        "title": "YT-DLP GUI Electron",
+        "description": "Desktop GUI for yt-dlp automation with Electron.",
+        "technologies": ["Electron", "TypeScript", "Desktop", "Node.js"],
+        "link": null,
+        "github": "https://github.com/paulo1403/yt-dlp-gui-electron",
+        "type": "desktop",
+        "year": "2025"
+      },
+      {
+        "title": "University Enrollment Management",
+        "description": "Enrollment management system prototype for university workflows.",
+        "technologies": ["TypeScript", "CRUD", "Web App", "Forms"],
+        "link": null,
+        "github": "https://github.com/paulo1403/university-enrollment-management",
+        "type": "web",
+        "year": "2025"
       }
     ]
   },
   "experience": {
     "title": "Professional Experience",
-    "subtitle": "Over 4 years building innovative solutions",
+    "subtitle": "5+ years of professional experience",
     "jobs": [
       {
         "company": "Belcorp",
@@ -194,14 +281,18 @@
         "duration": "Current",
         "location": "Lima, Peru",
         "achievements": [
-          "Developed automations with UnifyApps for notifications in 12 countries",
-          "Delivered Bolivia bureau changes on a legacy .NET Framework 4.5 project",
-          "Supported the migration to the new traditional Colombia flow in Node.js while preserving operational continuity",
-          "Created and optimized Store Procedures in SQL Server, reducing response times in critical processes",
-          "Implemented and maintained the Join Belcorp platform (uneteabelcorp.com) with React and GraphQL",
-          "Provided support and maintenance to the SoporteBelcorp platform in .NET Framework"
+          "Automations with UnifyApps for consultant notifications across 12 countries",
+          "SQL Server optimization and .NET Framework 4.5 legacy maintenance",
+          "Node.js migration support for Colombia's traditional flow"
         ],
-        "technologies": ["UnifyApps", "React", "GraphQL", ".NET Framework 4.5", "Node.js", "SQL Server"]
+        "technologies": [
+          "UnifyApps",
+          "React",
+          "GraphQL",
+          ".NET Framework 4.5",
+          "Node.js",
+          "SQL Server"
+        ]
       },
       {
         "company": "Rimac Seguros",
@@ -210,13 +301,18 @@
         "duration": "1 year 5 months",
         "location": "Lima, Peru",
         "achievements": [
-          "Designed and implemented responsive web interfaces with ReactJS under mobile-first principles",
-          "Led migration from Redux to Zustand, improving performance and maintainability",
-          "Implemented modular components and custom hooks, ensuring scalability",
-          "Managed key updates: Node.js (14→18) and Ant Design (v3→v5)",
-          "Developed geospatial solutions with React-Leaflet, integrating TimeDimension and multiple layers from Geoserver"
+          "Mobile-first UI development with React and TypeScript",
+          "Led Redux→Zustand migration and Node.js/Ant Design upgrades",
+          "Geospatial features with React-Leaflet and Geoserver layers"
         ],
-        "technologies": ["React", "TypeScript", "Zustand", "React-Leaflet", "Ant Design", "Geoserver"]
+        "technologies": [
+          "React",
+          "TypeScript",
+          "Zustand",
+          "React-Leaflet",
+          "Ant Design",
+          "Geoserver"
+        ]
       },
       {
         "company": "CRD",
@@ -225,12 +321,18 @@
         "duration": "1 year 4 months",
         "location": "Lima, Peru",
         "achievements": [
-          "Implemented serverless API on AWS Lambda with secure authentication through AWS Amplify",
-          "Strengthened data validation with Yup, Formik, and JOI",
-          "Increased test coverage with Jest, improving reliability",
-          "Contributed to the development of a mobile-adapted mapping platform with reusable components"
+          "Serverless API on AWS Lambda with Amplify authentication",
+          "Data validation with Yup/Formik/JOI and test coverage with Jest",
+          "Mobile-adapted mapping platform with reusable components"
         ],
-        "technologies": ["React", "AWS Lambda", "AWS Amplify", "Node.js", "MongoDB", "Jest"]
+        "technologies": [
+          "React",
+          "AWS Lambda",
+          "AWS Amplify",
+          "Node.js",
+          "MongoDB",
+          "Jest"
+        ]
       },
       {
         "company": "Fractal",
@@ -252,11 +354,18 @@
         "duration": "9 months",
         "location": "Lima, Peru",
         "achievements": [
-          "Led the development of 'Lucy', a robust web system with Django",
-          "Developed a custom website for Unicon with WordPress, SASS, and PHP",
-          "Implemented real-time communication systems with WebSockets"
+          "Built 'Lucy' business management system with Django",
+          "Custom website for Unicon with WordPress and PHP",
+          "Real-time communication with WebSockets"
         ],
-        "technologies": ["Django", "Python", "WordPress", "PHP", "WebSockets", "SASS"]
+        "technologies": [
+          "Django",
+          "Python",
+          "WordPress",
+          "PHP",
+          "WebSockets",
+          "SASS"
+        ]
       }
     ],
     "research": {
@@ -354,19 +463,56 @@
       "title": "Technical Skills",
       "frontend": {
         "title": "Frontend",
-        "skills": ["React", "Next.js", "TypeScript", "Zustand", "React Query", "TailwindCSS", "ShadCN/UI", "Ant Design", "GraphQL", "Leaflet"]
+        "skills": [
+          "React",
+          "Next.js",
+          "TypeScript",
+          "Zustand",
+          "React Query",
+          "TailwindCSS",
+          "ShadCN/UI",
+          "Ant Design",
+          "GraphQL",
+          "Leaflet"
+        ]
       },
       "backend": {
-        "title": "Backend", 
-        "skills": ["Node.js", "Express.js", "Django", ".NET Core", ".NET Framework", "Python", "SQL Server", "MongoDB", "Firebase", "AWS Lambda"]
+        "title": "Backend",
+        "skills": [
+          "Node.js",
+          "Express.js",
+          "Django",
+          ".NET Core",
+          ".NET Framework",
+          "Python",
+          "SQL Server",
+          "MongoDB",
+          "Firebase",
+          "AWS Lambda"
+        ]
       },
       "devops": {
         "title": "DevOps & Tools",
-        "skills": ["Docker", "Vercel", "AWS", "UnifyApps", "Git/GitHub/GitFlow", "Jest", "React Testing Library"]
+        "skills": [
+          "Docker",
+          "Vercel",
+          "AWS",
+          "UnifyApps",
+          "Git/GitHub/GitFlow",
+          "Jest",
+          "React Testing Library"
+        ]
       },
       "special": {
         "title": "Specializations",
-        "skills": ["Microfrontends", "Blockchain", "FHIR HL7", "WebSockets", "Testing (Jest, RTL)", "Generative AI"]
+        "skills": [
+          "Microfrontends",
+          "Blockchain",
+          "FHIR HL7",
+          "WebSockets",
+          "Testing (Jest, RTL)",
+          "Generative AI"
+        ]
       }
     },
     "achievements": {

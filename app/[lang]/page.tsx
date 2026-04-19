@@ -1,10 +1,10 @@
+import AboutSection from "@/components/AboutSection";
+import ContactSection from "@/components/ContactSection";
+import ExperienceSection from "@/components/ExperienceSection";
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
 import ProjectsSection from "@/components/ProjectsSection";
-import ExperienceSection from "@/components/ExperienceSection";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
 import { getDictionary } from "../dictionaries";
 
 export default async function Home({
@@ -23,12 +23,18 @@ export default async function Home({
       <section id="home" className="section-shell">
         <HeroSection dict={dict} lang={lang} />
       </section>
-      <section id="about" className="section-shell section-shell--soft px-4 lg:px-6">
+      <section
+        id="about"
+        className="section-shell section-shell--soft px-4 lg:px-6"
+      >
         <div className="section-frame mx-auto max-w-7xl">
           <AboutSection dict={dict} lang={lang} />
         </div>
       </section>
-      <section id="projects" className="section-shell section-shell--warm px-4 lg:px-6">
+      <section
+        id="projects"
+        className="section-shell section-shell--warm px-4 lg:px-6"
+      >
         <div className="section-frame mx-auto max-w-7xl">
           <ProjectsSection dict={dict} lang={lang} />
         </div>
@@ -38,7 +44,10 @@ export default async function Home({
           <ExperienceSection dict={dict} lang={lang} />
         </div>
       </section>
-      <section id="contact" className="section-shell section-shell--soft px-4 lg:px-6">
+      <section
+        id="contact"
+        className="section-shell section-shell--soft px-4 lg:px-6"
+      >
         <div className="section-frame mx-auto max-w-7xl">
           <ContactSection dict={dict} lang={lang} />
         </div>

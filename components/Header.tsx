@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, Menu, SunMoon, X } from "lucide-react";
 import { useTheme } from "next-themes";
+import { useEffect, useMemo, useState } from "react";
 
 interface Dictionary {
   navigation: {
@@ -42,7 +42,12 @@ export default function Header({ dict, lang }: HeaderProps) {
       { name: dict.navigation.projects, href: "#projects" },
       { name: dict.navigation.experience ?? "Experience", href: "#experience" },
     ],
-    [dict.navigation.home, dict.navigation.about, dict.navigation.projects, dict.navigation.experience],
+    [
+      dict.navigation.home,
+      dict.navigation.about,
+      dict.navigation.projects,
+      dict.navigation.experience,
+    ],
   );
 
   const otherLang = lang === "es" ? "en" : "es";
@@ -65,7 +70,10 @@ export default function Header({ dict, lang }: HeaderProps) {
         const element = document.getElementById(section);
         if (!element) continue;
 
-        if (marker >= element.offsetTop && marker < element.offsetTop + element.offsetHeight) {
+        if (
+          marker >= element.offsetTop &&
+          marker < element.offsetTop + element.offsetHeight
+        ) {
           setActiveSection(section);
           break;
         }
@@ -93,7 +101,11 @@ export default function Header({ dict, lang }: HeaderProps) {
         }`}
       >
         <div className="flex items-center justify-between gap-3">
-          <button onClick={() => scrollToSection("home")} className="text-left">
+          <button
+            type="button"
+            onClick={() => scrollToSection("home")}
+            className="text-left"
+          >
             <div className="text-[0.68rem] font-extrabold uppercase tracking-[0.22em] text-muted-foreground">
               Full Stack
             </div>
@@ -110,6 +122,7 @@ export default function Header({ dict, lang }: HeaderProps) {
 
               return (
                 <button
+                  type="button"
                   key={item.href}
                   onClick={() => scrollToSection(sectionId)}
                   className={`rounded-full px-4 py-2 text-sm font-semibold ${
@@ -126,12 +139,15 @@ export default function Header({ dict, lang }: HeaderProps) {
             <a
               href={getSwitchLangHref()}
               className="ml-2 rounded-full border border-primary/25 bg-background px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-primary"
-              aria-label={lang === "es" ? "Cambiar a inglés" : "Switch to Spanish"}
+              aria-label={
+                lang === "es" ? "Cambiar a inglés" : "Switch to Spanish"
+              }
             >
               {otherLang.toUpperCase()}
             </a>
 
             <button
+              type="button"
               onClick={onToggleTheme}
               className="ml-2 inline-flex items-center gap-2 rounded-full border border-primary/25 bg-background px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-primary"
               aria-label={themeAriaLabel}
@@ -144,6 +160,7 @@ export default function Header({ dict, lang }: HeaderProps) {
 
           <div className="hidden lg:block">
             <button
+              type="button"
               onClick={() => scrollToSection("contact")}
               className="inline-flex items-center gap-2 rounded-full bg-gradient-primary px-4 py-2.5 text-sm font-bold text-primary-foreground shadow-md"
             >
@@ -154,6 +171,7 @@ export default function Header({ dict, lang }: HeaderProps) {
 
           <div className="flex items-center gap-2 lg:hidden">
             <button
+              type="button"
               onClick={onToggleTheme}
               className="rounded-full border border-primary/25 bg-background px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-primary"
               aria-label={themeAriaLabel}
@@ -167,17 +185,24 @@ export default function Header({ dict, lang }: HeaderProps) {
             <a
               href={getSwitchLangHref()}
               className="rounded-full border border-primary/25 bg-background px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-primary"
-              aria-label={lang === "es" ? "Cambiar a inglés" : "Switch to Spanish"}
+              aria-label={
+                lang === "es" ? "Cambiar a inglés" : "Switch to Spanish"
+              }
             >
               {otherLang.toUpperCase()}
             </a>
 
             <button
+              type="button"
               onClick={() => setIsOpen((value) => !value)}
               className="rounded-full border border-primary/25 p-2 text-primary"
               aria-label={lang === "es" ? "Abrir menú" : "Open menu"}
             >
-              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
             </button>
           </div>
         </div>
@@ -189,6 +214,7 @@ export default function Header({ dict, lang }: HeaderProps) {
                 const sectionId = item.href.slice(1);
                 return (
                   <button
+                    type="button"
                     key={item.href}
                     onClick={() => {
                       scrollToSection(sectionId);
@@ -203,6 +229,7 @@ export default function Header({ dict, lang }: HeaderProps) {
               })}
 
               <button
+                type="button"
                 onClick={() => {
                   scrollToSection("contact");
                   setIsOpen(false);

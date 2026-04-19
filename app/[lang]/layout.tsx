@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
-import {
-  Bungee,
-  JetBrains_Mono,
-  Nunito_Sans,
-} from "next/font/google";
+import { Bungee, JetBrains_Mono, Nunito_Sans } from "next/font/google";
 import "../globals.css";
-import Providers from "@/components/Providers";
 import { Analytics } from "@vercel/analytics/next";
+import Providers from "@/components/Providers";
 
 const nunitoSans = Nunito_Sans({
   subsets: ["latin"],
@@ -26,7 +22,6 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   display: "swap",
 });
-
 
 export const metadata: Metadata = {
   title: {
@@ -91,7 +86,7 @@ export const metadata: Metadata = {
     images: [
       {
         // Primary OG image (1200x630 recommended)
-  url: "https://paulo-llanos.vercel.app/og-image.png",
+        url: "https://paulo-llanos.vercel.app/og-image.png",
         width: 1200,
         height: 630,
         alt: "Paulo Llanos — Full Stack Developer",
@@ -111,7 +106,7 @@ export const metadata: Metadata = {
     description:
       "Desarrollador Full Stack con +4 años de experiencia en React, Next.js, Node.js, Python y AWS. Especialista en automatizaciones, GraphQL y .NET para soluciones web escalables e innovadoras.",
     creator: "@your_twitter_handle",
-  images: ["https://paulo-llanos.vercel.app/og-image.png"],
+    images: ["https://paulo-llanos.vercel.app/og-image.png"],
   },
 };
 
@@ -133,9 +128,17 @@ export default async function RootLayout({
     <html lang={lang} suppressHydrationWarning>
       <head>
         {/* Prefer light icon when user prefers light scheme */}
-        <link rel="icon" href="/icon-terminal-light.svg" media="(prefers-color-scheme: light)" />
+        <link
+          rel="icon"
+          href="/icon-terminal-light.svg"
+          media="(prefers-color-scheme: light)"
+        />
         {/* Prefer dark icon when user prefers dark scheme */}
-        <link rel="icon" href="/icon-terminal-dark.svg" media="(prefers-color-scheme: dark)" />
+        <link
+          rel="icon"
+          href="/icon-terminal-dark.svg"
+          media="(prefers-color-scheme: dark)"
+        />
         {/* Default favicon fallback */}
         <link rel="icon" href="/icon-terminal.png" />
       </head>

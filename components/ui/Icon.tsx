@@ -1,7 +1,7 @@
 "use client";
 
+import type { LucideIcon, LucideProps } from "lucide-react";
 import { forwardRef } from "react";
-import { LucideIcon, LucideProps } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface IconProps extends Omit<LucideProps, "ref"> {
@@ -38,7 +38,7 @@ const Icon = forwardRef<SVGSVGElement, IconProps>(
       className,
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <IconComponent
@@ -46,12 +46,12 @@ const Icon = forwardRef<SVGSVGElement, IconProps>(
         className={cn(
           iconVariants.variant[variant],
           iconVariants.size[size],
-          className
+          className,
         )}
         {...props}
       />
     );
-  }
+  },
 );
 
 Icon.displayName = "Icon";

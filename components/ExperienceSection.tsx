@@ -1,20 +1,15 @@
 "use client";
 
 import {
-  Award,
   Briefcase,
   Calendar,
-  CheckCircle,
   Cloud,
   Code,
   Database,
-  GraduationCap,
   LayoutGrid,
   MapPin,
   Milestone,
-  Trophy,
   Wrench,
-  Zap,
 } from "lucide-react";
 
 interface Dictionary {
@@ -54,33 +49,44 @@ interface ExperienceSectionProps {
   lang: string;
 }
 
-export default function ExperienceSection({ dict, lang }: ExperienceSectionProps) {
+export default function ExperienceSection({
+  dict,
+  lang,
+}: ExperienceSectionProps) {
   const isSpanish = lang === "es";
 
-  const experiences = dict.experience?.jobs || [
-    {
-      company: "Belcorp",
-      position: lang === "en" ? "Software Developer" : "Software Developer",
-      period: lang === "en" ? "Apr 2025 - Present" : "Abr 2025 - Presente",
-      duration: lang === "en" ? "Current" : "Actual",
-      location: "Lima, Peru",
-      achievements: [
-        lang === "en"
-          ? "Automation development with UnifyApps for notifications in 12 countries."
-          : "Desarrollo de automatizaciones con UnifyApps para notificaciones en 12 paises.",
-        lang === "en"
-          ? "Creation and maintenance of Store Procedures for data optimization."
-          : "Creacion y mantenimiento de Store Procedures para optimizacion de datos.",
-        lang === "en"
-          ? "Frontend development for uneteabelcorp.com with React and GraphQL."
-          : "Desarrollo frontend para uneteabelcorp.com con React y GraphQL.",
-        lang === "en"
-          ? "Support and maintenance for SoporteBelcorp platform in .NET Framework."
-          : "Soporte y mantenimiento para la plataforma SoporteBelcorp en .NET Framework.",
-      ],
-      technologies: ["UnifyApps", "React", "GraphQL", ".NET Framework", "SQL Server"],
-    },
-  ];
+  const experiences = (
+    dict.experience?.jobs || [
+      {
+        company: "Belcorp",
+        position: lang === "en" ? "Software Developer" : "Software Developer",
+        period: lang === "en" ? "Apr 2025 - Present" : "Abr 2025 - Presente",
+        duration: lang === "en" ? "Current" : "Actual",
+        location: "Lima, Peru",
+        achievements: [
+          lang === "en"
+            ? "Automation development with UnifyApps for notifications in 12 countries."
+            : "Desarrollo de automatizaciones con UnifyApps para notificaciones en 12 paises.",
+          lang === "en"
+            ? "Creation and maintenance of Store Procedures for data optimization."
+            : "Creacion y mantenimiento de Store Procedures para optimizacion de datos.",
+          lang === "en"
+            ? "Frontend development for uneteabelcorp.com with React and GraphQL."
+            : "Desarrollo frontend para uneteabelcorp.com con React y GraphQL.",
+          lang === "en"
+            ? "Support and maintenance for SoporteBelcorp platform in .NET Framework."
+            : "Soporte y mantenimiento para la plataforma SoporteBelcorp en .NET Framework.",
+        ],
+        technologies: [
+          "UnifyApps",
+          "React",
+          "GraphQL",
+          ".NET Framework",
+          "SQL Server",
+        ],
+      },
+    ]
+  ).slice(0, 3);
 
   const technicalSkills = dict.experience?.skills
     ? {
@@ -104,11 +110,25 @@ export default function ExperienceSection({ dict, lang }: ExperienceSectionProps
     : {
         [lang === "en" ? "Frontend" : "Frontend"]: {
           icon: <Code className="h-5 w-5" />,
-          skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "React-Leaflet", "Ant Design"],
+          skills: [
+            "React",
+            "Next.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "React-Leaflet",
+            "Ant Design",
+          ],
         },
         [lang === "en" ? "Backend" : "Backend"]: {
           icon: <Database className="h-5 w-5" />,
-          skills: ["Node.js", "Python", "Django", ".NET Core", "Express.js", "Bun"],
+          skills: [
+            "Node.js",
+            "Python",
+            "Django",
+            ".NET Core",
+            "Express.js",
+            "Bun",
+          ],
         },
         [lang === "en" ? "Cloud & DevOps" : "Cloud & DevOps"]: {
           icon: <Cloud className="h-5 w-5" />,
@@ -120,50 +140,22 @@ export default function ExperienceSection({ dict, lang }: ExperienceSectionProps
         },
       };
 
-  const achievements = dict.experience?.achievements?.list
-    ? dict.experience.achievements.list.map((achievement) => ({
-        icon:
-          achievement.icon === "trophy"
-            ? <Trophy className="h-6 w-6" />
-            : achievement.icon === "publication"
-              ? <GraduationCap className="h-6 w-6" />
-              : achievement.icon === "migration"
-                ? <Zap className="h-6 w-6" />
-                : <MapPin className="h-6 w-6" />,
-        title: achievement.title,
-        description: achievement.description,
-      }))
-    : [
-        {
-          icon: <Trophy className="h-6 w-6" />,
-          title: lang === "en" ? "1st Place ERPsim Game" : "1er Lugar ERPsim Game",
-          description: lang === "en" ? "Iberoamerica 2020 - Virtual team leadership" : "Iberoamerica 2020 - Liderazgo de equipo virtual",
-        },
-        {
-          icon: <GraduationCap className="h-6 w-6" />,
-          title: lang === "en" ? "Q2 Scientific Publication" : "Publicacion Cientifica Q2",
-          description: "Blockchain & FHIR HL7 - DOI: 10.3991/ijoe.v20i03.44507",
-        },
-        {
-          icon: <Zap className="h-6 w-6" />,
-          title: lang === "en" ? "CRA to Vite Migration" : "Migracion CRA a Vite",
-          description: lang === "en" ? "60% improvement in build and development time" : "Mejora del 60% en tiempo de build y desarrollo",
-        },
-        {
-          icon: <MapPin className="h-6 w-6" />,
-          title: lang === "en" ? "Geospatial Solutions" : "Soluciones Geoespaciales",
-          description: lang === "en" ? "React-Leaflet + Geoserver with multiple layers" : "React-Leaflet + Geoserver con capas multiples",
-        },
-      ];
-
   return (
     <section className="py-24">
       <div className="container mx-auto max-w-6xl px-6">
         <div className="mb-14 text-center">
-          <p className="eyebrow mb-4">{isSpanish ? "Trayectoria y capacidad técnica" : "Trajectory and technical depth"}</p>
+          <p className="eyebrow mb-4">
+            {isSpanish
+              ? "Trayectoria y capacidad técnica"
+              : "Trajectory and technical depth"}
+          </p>
           <h2 className="mb-6 text-4xl text-foreground md:text-5xl">
-            {dict.projects?.experienceTitle || (lang === "en" ? "Experience & " : "Experiencia & ")}
-            <span className="text-primary">{dict.projects?.skillsTitle || (lang === "en" ? "Skills" : "Habilidades")}</span>
+            {dict.projects?.experienceTitle ||
+              (lang === "en" ? "Experience & " : "Experiencia & ")}
+            <span className="text-primary">
+              {dict.projects?.skillsTitle ||
+                (lang === "en" ? "Skills" : "Habilidades")}
+            </span>
           </h2>
           <p className="mx-auto max-w-3xl text-lg text-surface-foreground">
             {dict.projects?.experienceDescription ||
@@ -178,7 +170,10 @@ export default function ExperienceSection({ dict, lang }: ExperienceSectionProps
             <div className="mb-8 flex items-center gap-3">
               <Briefcase className="h-6 w-6 text-primary" />
               <h3 className="text-2xl font-extrabold text-foreground">
-                {dict.experience?.title || (lang === "en" ? "Professional Experience" : "Experiencia Profesional")}
+                {dict.experience?.title ||
+                  (lang === "en"
+                    ? "Professional Experience"
+                    : "Experiencia Profesional")}
               </h3>
             </div>
 
@@ -192,8 +187,12 @@ export default function ExperienceSection({ dict, lang }: ExperienceSectionProps
                   <div className="rounded-[1.6rem] border border-primary/15 bg-background/72 p-5 sm:p-6">
                     <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                       <div>
-                        <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-muted-foreground">{exp.company}</p>
-                        <h4 className="mt-2 text-xl font-extrabold text-foreground">{exp.position}</h4>
+                        <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-muted-foreground">
+                          {exp.company}
+                        </p>
+                        <h4 className="mt-2 text-xl font-extrabold text-foreground">
+                          {exp.position}
+                        </h4>
                       </div>
                       <div className="text-sm text-surface-foreground">
                         <div className="flex items-center gap-2">
@@ -212,18 +211,23 @@ export default function ExperienceSection({ dict, lang }: ExperienceSectionProps
                       {exp.location}
                     </div>
 
-                    <div className="space-y-3">
-                      {exp.achievements.map((achievement, i) => (
-                        <div key={i} className="flex items-start gap-3">
-                          <CheckCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-green-600" />
-                          <span className="text-sm leading-relaxed text-surface-foreground">{achievement}</span>
-                        </div>
+                    <div className="space-y-2">
+                      {exp.achievements.slice(0, 2).map((achievement, i) => (
+                        <p
+                          key={i}
+                          className="text-sm leading-relaxed text-surface-foreground"
+                        >
+                          {achievement}
+                        </p>
                       ))}
                     </div>
 
                     <div className="mt-5 flex flex-wrap gap-2">
-                      {exp.technologies.map((tech) => (
-                        <span key={tech} className="retro-chip px-3 py-1 text-xs font-semibold">
+                      {exp.technologies.slice(0, 4).map((tech) => (
+                        <span
+                          key={tech}
+                          className="retro-chip px-3 py-1 text-xs font-semibold"
+                        >
                           {tech}
                         </span>
                       ))}
@@ -239,45 +243,35 @@ export default function ExperienceSection({ dict, lang }: ExperienceSectionProps
               <div className="mb-6 flex items-center gap-3">
                 <LayoutGrid className="h-5 w-5 text-primary" />
                 <h3 className="text-2xl font-extrabold text-foreground">
-                  {dict.experience?.skills?.title || (lang === "en" ? "Technical Skills" : "Habilidades Tecnicas")}
+                  {dict.experience?.skills?.title ||
+                    (lang === "en"
+                      ? "Technical Skills"
+                      : "Habilidades Tecnicas")}
                 </h3>
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">
                 {Object.entries(technicalSkills).map(([category, data]) => (
-                  <div key={category} className="rounded-[1.5rem] border border-primary/15 bg-background/72 p-5">
+                  <div
+                    key={category}
+                    className="rounded-[1.5rem] border border-primary/15 bg-background/72 p-5"
+                  >
                     <div className="mb-4 flex items-center gap-2 text-primary">
                       {data.icon}
-                      <h4 className="font-extrabold text-foreground">{category}</h4>
+                      <h4 className="font-extrabold text-foreground">
+                        {category}
+                      </h4>
                     </div>
                     <div className="flex flex-wrap gap-2">
-                      {data.skills.map((skill) => (
-                        <span key={skill} className="retro-chip px-3 py-1 text-xs font-semibold">
+                      {data.skills.slice(0, 4).map((skill) => (
+                        <span
+                          key={skill}
+                          className="retro-chip px-3 py-1 text-xs font-semibold"
+                        >
                           {skill}
                         </span>
                       ))}
                     </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="retro-panel p-6 sm:p-8">
-              <div className="mb-6 flex items-center gap-3">
-                <Award className="h-5 w-5 text-accent" />
-                <h3 className="text-2xl font-extrabold text-foreground">
-                  {dict.experience?.achievements?.title || (lang === "en" ? "Achievements" : "Logros Destacados")}
-                </h3>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                {achievements.map((achievement, index) => (
-                  <div key={index} className="rounded-[1.5rem] border border-accent/14 bg-accent/8 p-5">
-                    <div className="mb-3 flex items-center gap-3 text-accent">
-                      {achievement.icon}
-                      <h4 className="font-extrabold text-foreground">{achievement.title}</h4>
-                    </div>
-                    <p className="text-sm leading-relaxed text-surface-foreground">{achievement.description}</p>
                   </div>
                 ))}
               </div>

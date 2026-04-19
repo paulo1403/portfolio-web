@@ -6,8 +6,10 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --max-warnings=0",
-    "lint:fix": "eslint . --fix"
+    "lint": "biome lint .",
+    "lint:fix": "biome lint . --write",
+    "format": "biome format . --write",
+    "format:check": "biome format ."
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -27,14 +29,12 @@
     "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.5",
+    "@biomejs/biome": "^2.4.12",
     "@tailwindcss/postcss": "^4.2.2",
     "@types/negotiator": "^0.6.4",
     "@types/node": "^25.6.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "eslint": "^9.39.4",
-    "eslint-config-next": "16.2.4",
     "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3"
   }

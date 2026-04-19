@@ -115,6 +115,14 @@ body {
     font-feature-settings:
         "rlig" 1,
         "calt" 1;
+    min-height: 100dvh;
+    background-image:
+        radial-gradient(circle at 8% 14%, rgb(var(--secondary) / 0.16), transparent 32%),
+        radial-gradient(circle at 84% 6%, rgb(var(--accent) / 0.14), transparent 30%),
+        linear-gradient(180deg, rgb(var(--background)) 0%, rgb(12 20 46) 45%, rgb(var(--background)) 100%);
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 html {
@@ -435,5 +443,16 @@ html {
 @media (min-width: 1025px) {
     html {
         font-size: 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { Menu, X, MessageCircle } from "lucide-react";
 
 interface Dictionary {
@@ -44,6 +44,12 @@ const scrollToSection = (sectionId: string) => {
 
 export default function Header({ dict, lang }: HeaderProps) {
   const navigation = getNavigation(dict);
+  const { scrollYProgress } = useScroll();
+  const progressScaleX = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 20,
+    mass: 0.2,
+  });
 
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -174,10 +180,14 @@ export default function Header({ dict, lang }: HeaderProps) {
       animate="visible"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-700/50 shadow-lg"
+          ? "bg-background/85 backdrop-blur-xl border-b border-border/50 shadow-lg"
           : "bg-transparent"
       }`}
     >
+      <motion.div
+        className="absolute bottom-0 left-0 right-0 h-[2px] origin-left bg-gradient-to-r from-primary via-secondary to-accent"
+        style={{ scaleX: progressScaleX }}
+      />
       <nav className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
@@ -188,10 +198,10 @@ export default function Header({ dict, lang }: HeaderProps) {
           >
             <button
               onClick={() => scrollToSection("home")}
-              className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:opacity-80 transition-opacity duration-200"
+              className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent hover:opacity-80 transition-opacity duration-200"
             >
               Paulo Llanos
-              <span className="text-blue-600 dark:text-blue-400">.</span>
+              <span className="text-secondary">.</span>
             </button>
           </motion.div>
           {/* Language Switcher (solo desktop) */}
@@ -202,7 +212,7 @@ export default function Header({ dict, lang }: HeaderProps) {
                   ? getSwitchLangHref()
                   : `/${otherLang}`
               }
-              className="px-3 py-1 rounded-md border border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 bg-white dark:bg-slate-900 hover:bg-blue-50 dark:hover:bg-blue-800 transition-all duration-200 text-xs font-semibold uppercase"
+              className="px-3 py-1 rounded-md border border-primary/70 text-primary bg-background/70 hover:bg-primary/10 transition-all duration-200 text-xs font-semibold uppercase"
               aria-label={
                 lang === "es" ? "Cambiar a inglés" : "Switch to Spanish"
               }
@@ -229,14 +239,14 @@ export default function Header({ dict, lang }: HeaderProps) {
                     }}
                     className={`relative px-3 py-2 text-sm font-medium transition-all duration-200 ${
                       activeSection === item.href.substring(1)
-                        ? "text-blue-600 dark:text-blue-400"
-                        : "text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400"
+                        ? "text-primary"
+                        : "text-muted-foreground hover:text-primary"
                     }`}
                   >
                     {item.name}
                     {activeSection === item.href.substring(1) && (
                       <motion.div
-                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400"
+                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
                         layoutId="navbar-indicator"
                         initial={{ opacity: 0, scaleX: 0 }}
                         animate={{ opacity: 1, scaleX: 1 }}
@@ -257,7 +267,7 @@ export default function Header({ dict, lang }: HeaderProps) {
                     ? getSwitchLangHref()
                     : `/${otherLang}`
                 }
-                className="ml-6 px-3 py-1 rounded-md border border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 bg-white dark:bg-slate-900 hover:bg-blue-50 dark:hover:bg-blue-800 transition-all duration-200 text-xs font-semibold uppercase"
+                className="ml-6 px-3 py-1 rounded-md border border-primary/70 text-primary bg-background/70 hover:bg-primary/10 transition-all duration-200 text-xs font-semibold uppercase"
                 aria-label={
                   lang === "es" ? "Cambiar a inglés" : "Switch to Spanish"
                 }
@@ -274,7 +284,7 @@ export default function Header({ dict, lang }: HeaderProps) {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection("contact")}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2.5 text-sm font-medium rounded-lg flex items-center gap-2 transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="bg-gradient-to-r from-primary to-secondary hover:brightness-110 text-white px-6 py-2.5 text-sm font-medium rounded-lg flex items-center gap-2 transition-all duration-300 shadow-lg hover:shadow-glow"
             >
               <MessageCircle className="w-4 h-4" />
               {dict.hero.cta}
@@ -342,8 +352,8 @@ export default function Header({ dict, lang }: HeaderProps) {
                       }}
                       className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
                         activeSection === item.href.substring(1)
-                          ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
-                          : "text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800"
+                          ? "text-primary bg-primary/10"
+                          : "text-muted-foreground hover:text-primary hover:bg-primary/5"
                       }`}
                     >
                       {item.name}
@@ -356,7 +366,7 @@ export default function Header({ dict, lang }: HeaderProps) {
                       scrollToSection("contact");
                       setIsOpen(false);
                     }}
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-2.5 text-sm font-medium rounded-lg flex items-center justify-center gap-2 transition-all duration-300"
+                    className="w-full bg-gradient-to-r from-primary to-secondary hover:brightness-110 text-white px-4 py-2.5 text-sm font-medium rounded-lg flex items-center justify-center gap-2 transition-all duration-300"
                   >
                     <MessageCircle className="w-4 h-4" />
                     {dict.hero.cta}

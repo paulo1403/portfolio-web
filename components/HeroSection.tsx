@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { format } from "date-fns";
 import { es, enUS } from "date-fns/locale";
 import { Github, Linkedin, Mail } from "lucide-react";
@@ -45,6 +45,7 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ dict, lang }: HeroSectionProps) {
+  const prefersReducedMotion = useReducedMotion();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [currentTime, setCurrentTime] = useState(new Date());
   const { scrollY } = useScroll();
@@ -60,6 +61,10 @@ export default function HeroSection({ dict, lang }: HeroSectionProps) {
   }, []);
 
   useEffect(() => {
+    if (prefersReducedMotion) {
+      return;
+    }
+
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({
         x: (e.clientX / window.innerWidth) * 100,
@@ -69,7 +74,7 @@ export default function HeroSection({ dict, lang }: HeroSectionProps) {
 
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
+  }, [prefersReducedMotion]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -135,7 +140,7 @@ export default function HeroSection({ dict, lang }: HeroSectionProps) {
   return (
     <section
       id="home"
-      className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 pt-20"
+      className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(0,212,255,0.22),_transparent_42%),radial-gradient(circle_at_80%_18%,_rgba(255,107,107,0.22),_transparent_32%),linear-gradient(180deg,_rgb(15,15,35)_0%,_rgb(10,16,38)_52%,_rgb(15,15,35)_100%)] pt-20"
     >
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
@@ -153,7 +158,7 @@ export default function HeroSection({ dict, lang }: HeroSectionProps) {
 
         {/* Floating Orbs */}
         <motion.div
-          className="absolute top-20 left-10 w-32 h-32 bg-primary/20 rounded-full blur-xl"
+          className="absolute top-20 left-10 h-32 w-32 rounded-full bg-primary/25 blur-xl"
           animate={{
             x: [0, 100, 0],
             y: [0, -50, 0],
@@ -166,7 +171,7 @@ export default function HeroSection({ dict, lang }: HeroSectionProps) {
           }}
         />
         <motion.div
-          className="absolute top-40 right-20 w-24 h-24 bg-secondary/20 rounded-full blur-xl"
+          className="absolute right-20 top-40 h-24 w-24 rounded-full bg-secondary/20 blur-xl"
           animate={{
             x: [0, -80, 0],
             y: [0, 60, 0],
@@ -180,7 +185,7 @@ export default function HeroSection({ dict, lang }: HeroSectionProps) {
           }}
         />
         <motion.div
-          className="absolute bottom-40 left-1/3 w-40 h-40 bg-accent/10 rounded-full blur-xl"
+          className="absolute bottom-40 left-1/3 h-40 w-40 rounded-full bg-accent/20 blur-xl"
           animate={{
             x: [0, 60, 0],
             y: [0, -40, 0],
@@ -197,10 +202,14 @@ export default function HeroSection({ dict, lang }: HeroSectionProps) {
         {/* Mouse Follower Effect */}
         <motion.div
           className="absolute w-96 h-96 bg-gradient-radial from-primary/10 to-transparent rounded-full blur-3xl pointer-events-none"
-          animate={{
-            x: mousePosition.x * 4,
-            y: mousePosition.y * 4,
-          }}
+          animate={
+            prefersReducedMotion
+              ? { opacity: 0.4 }
+              : {
+                  x: mousePosition.x * 4,
+                  y: mousePosition.y * 4,
+                }
+          }
           transition={{
             type: "spring" as const,
             stiffness: 50,
@@ -242,7 +251,7 @@ export default function HeroSection({ dict, lang }: HeroSectionProps) {
               whileHover={{ scale: 1.05 }}
               className="relative mx-auto w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 mb-8"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full p-1">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-secondary to-accent p-1">
                 <Image
                   src="/avatar.jpeg"
                   alt="Paulo Llanos"
@@ -253,7 +262,7 @@ export default function HeroSection({ dict, lang }: HeroSectionProps) {
                 />
               </div>
               <motion.div
-                className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-full blur-xl"
+                className="absolute -inset-4 rounded-full bg-gradient-to-r from-primary/30 to-secondary/20 blur-xl"
                 animate={{
                   scale: [1, 1.1, 1],
                   opacity: [0.5, 0.8, 0.5],
@@ -270,10 +279,10 @@ export default function HeroSection({ dict, lang }: HeroSectionProps) {
           {/* Main Title */}
           <motion.div variants={titleVariants} className="mb-8">
             <h1 className="text-4xl sm:text-6xl lg:text-8xl font-bold mb-6">
-              <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
                 Paulo Llanos
               </span>
-              <span className="block text-slate-800 dark:text-white text-3xl sm:text-4xl lg:text-5xl font-medium mt-2">
+              <span className="mt-2 block text-3xl font-medium text-white sm:text-4xl lg:text-5xl">
                 {dict.hero.title}
               </span>
             </h1>
@@ -281,7 +290,7 @@ export default function HeroSection({ dict, lang }: HeroSectionProps) {
 
           {/* Subtitle */}
           <motion.div variants={itemVariants} className="mb-12">
-            <p className="text-lg sm:text-xl lg:text-2xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
+            <p className="mx-auto max-w-4xl text-lg leading-relaxed text-slate-200 sm:text-xl lg:text-2xl">
               {dict.hero.subtitle}
             </p>
           </motion.div>
@@ -301,7 +310,7 @@ export default function HeroSection({ dict, lang }: HeroSectionProps) {
                   element.scrollIntoView({ behavior: "smooth" });
                 }
               }}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 text-lg font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+              className="rounded-lg bg-gradient-to-r from-primary to-secondary px-8 py-3 text-lg font-medium text-white shadow-lg transition-all duration-300 hover:brightness-110 hover:shadow-glow"
             >
               {dict.hero.cta}
             </motion.button>
@@ -315,7 +324,7 @@ export default function HeroSection({ dict, lang }: HeroSectionProps) {
               }
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-slate-900 px-8 py-3 text-lg font-medium rounded-lg transition-all duration-300"
+              className="rounded-lg border-2 border-secondary px-8 py-3 text-lg font-medium text-secondary transition-all duration-300 hover:bg-secondary hover:text-slate-950"
             >
               {lang === "es" ? "Descargar CV" : "Download CV"}
             </motion.a>
@@ -327,7 +336,7 @@ export default function HeroSection({ dict, lang }: HeroSectionProps) {
         {/* Skills Cloud */}
         {/* Skills Cloud */}
         <motion.div variants={itemVariants} className="mb-16">
-          <h3 className="text-sm uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-6 font-medium">
+          <h3 className="mb-6 text-sm font-medium uppercase tracking-wider text-slate-300">
             {lang === "es" ? "Tecnologías que domino" : "Technologies I master"}
           </h3>
           <div className="flex flex-wrap justify-center gap-3">
@@ -339,10 +348,10 @@ export default function HeroSection({ dict, lang }: HeroSectionProps) {
                 variants={skillVariants}
                 whileHover={{
                   scale: 1.1,
-                  backgroundColor: "rgb(59 130 246 / 0.1)",
-                  color: "rgb(59 130 246)",
+                  backgroundColor: "rgb(0 212 255 / 0.14)",
+                  color: "rgb(0 212 255)",
                 }}
-                className="px-4 py-2 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200/30 dark:border-slate-700/30 rounded-full text-sm font-medium text-slate-700 dark:text-slate-300 hover:shadow-md transition-all duration-200 cursor-default"
+                className="cursor-default rounded-full border border-white/15 bg-slate-900/30 px-4 py-2 text-sm font-medium text-slate-200 backdrop-blur-sm transition-all duration-200 hover:shadow-md"
                 style={{
                   animationDelay: `${index * 0.1}s`,
                 }}
@@ -370,11 +379,12 @@ export default function HeroSection({ dict, lang }: HeroSectionProps) {
                 y: -5,
               }}
               whileTap={{ scale: 0.9 }}
-              className="w-12 h-12 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200/30 dark:border-slate-700/30 rounded-full flex items-center justify-center text-xl hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:border-blue-300 dark:hover:border-blue-700 transition-all duration-200 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-slate-900/45 text-xl text-slate-200 backdrop-blur-sm transition-all duration-200 hover:border-secondary/70 hover:bg-secondary/10 hover:text-secondary"
               style={{
                 animationDelay: `${index * 0.5}s`,
               }}
               title={social.name}
+              aria-label={social.name}
             >
               <social.icon className="w-5 h-5" />
             </motion.a>

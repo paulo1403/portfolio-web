@@ -118,9 +118,10 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ lang: "en" | "es" }>;
+  params: Promise<{ lang: string }>;
 }) {
-  const { lang } = await params;
+  const { lang: rawLang } = await params;
+  const lang = rawLang === "es" ? "es" : "en";
 
   return (
     <html lang={lang} className="scroll-smooth">

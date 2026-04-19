@@ -10,9 +10,10 @@ import { getDictionary } from "../dictionaries";
 export default async function Home({
   params,
 }: {
-  params: Promise<{ lang: "en" | "es" }>;
+  params: Promise<{ lang: string }>;
 }) {
-  const { lang } = await params;
+  const { lang: rawLang } = await params;
+  const lang = rawLang === "es" ? "es" : "en";
   const dict = await getDictionary(lang);
 
   return (

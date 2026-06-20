@@ -1,332 +1,110 @@
 "use client";
 
-import emailjs from "@emailjs/browser";
-import {
-  AlertCircle,
-  CheckCircle,
-  Github,
-  Linkedin,
-  Mail,
-  MapPin,
-  Send,
-} from "lucide-react";
 import { useState } from "react";
-
-interface ContactDictionary {
-  contact: {
-    title: string;
-    form: {
-      name: string;
-      email: string;
-      message: string;
-      submit: string;
-    };
-  };
-}
+import { Mail, MapPin, Github, Linkedin, Send, Download } from "lucide-react";
 
 interface ContactSectionProps {
-  dict: ContactDictionary;
+  dict: { contact: { title: string; form: { name: string; email: string; message: string; submit: string } } };
   lang: string;
 }
 
 export default function ContactSection({ dict, lang }: ContactSectionProps) {
-  const isSpanish = lang === "es";
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<
-    "idle" | "success" | "error"
-  >("idle");
-
-  const contactInfo = [
-    {
-      icon: <Mail className="h-5 w-5" />,
-      label: isSpanish ? "Correo" : "Email",
-      value: "paulollanosc@gmail.com",
-      href: "mailto:paulollanosc@gmail.com",
-      colorClass: "bg-primary/10 text-primary",
-    },
-    {
-      icon: <MapPin className="h-5 w-5" />,
-      label: lang === "es" ? "Ubicacion" : "Location",
-      value: "Lima, Peru",
-      href: null,
-      colorClass: "bg-accent/10 text-accent",
-    },
-  ];
-
-  const socialLinks = [
-    {
-      icon: <Linkedin className="h-5 w-5" />,
-      label: "LinkedIn",
-      href: "https://linkedin.com/in/paulollanoscolchado",
-      colorClass: "bg-primary/10 text-primary",
-      user: "paulollanoscolchado",
-    },
-    {
-      icon: <Github className="h-5 w-5" />,
-      label: "GitHub",
-      href: "https://github.com/paulo1403",
-      colorClass: "bg-card text-card-foreground",
-      user: "paulo1403",
-    },
-  ];
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  const { title, form } = dict.contact;
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus("idle");
-
+    setStatus("idle");
     try {
-      await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        {
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-        },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
-      );
-
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      setSubmitStatus("success");
-    } catch (error) {
-      console.error("Error sending email:", error);
-      setSubmitStatus("error");
-    } finally {
-      setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus("idle"), 5000);
-    }
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) { setStatus("success"); setFormData({ name: "", email: "", message: "" }); }
+      else setStatus("error");
+    } catch { setStatus("error"); }
   };
 
   return (
-    <section className="py-24">
-      <div className="container mx-auto max-w-6xl px-6">
-        <div className="mb-12 text-center">
-          <p className="eyebrow mb-4">
-            {isSpanish ? "Contacto" : "Get in touch"}
-          </p>
-          <h2 className="text-4xl text-foreground md:text-5xl">
-            {dict.contact.title}
-          </h2>
-        </div>
+    <div className="mx-auto max-w-5xl">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl font-bold text-foreground sm:text-5xl">{title}</h2>
+      </div>
 
-        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
-          <aside className="retro-panel p-7 sm:p-8">
-            <h3 className="text-2xl font-extrabold text-foreground">
-              {isSpanish ? "Canales directos" : "Direct channels"}
-            </h3>
-            <p className="mt-3 text-sm leading-relaxed text-surface-foreground">
-              {isSpanish
-                ? "Escríbeme por correo o por redes. Respondo rápido con contexto claro."
-                : "Reach out by email or social. Fast response with clear context."}
-            </p>
-
-            <div className="mt-6 space-y-3">
-              {contactInfo.map((info, index) => {
-                const Container = info.href ? "a" : "div";
-
-                return (
-                  <Container
-                    key={index}
-                    {...(info.href
-                      ? {
-                          href: info.href,
-                        }
-                      : {})}
-                    className="flex items-center gap-4 rounded-2xl border border-primary/14 bg-background/72 p-4"
-                  >
-                    <div className={`rounded-xl p-3 ${info.colorClass}`}>
-                      {info.icon}
-                    </div>
-                    <div>
-                      <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-muted-foreground">
-                        {info.label}
-                      </p>
-                      <p className="mt-1 text-sm font-bold text-foreground">
-                        {info.value}
-                      </p>
-                    </div>
-                  </Container>
-                );
-              })}
+      <div className="grid gap-10 lg:grid-cols-2">
+        <form onSubmit={handleSubmit} className="ctp-card p-8 space-y-5" noValidate>
+          <div className="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label htmlFor="name" className="block text-sm font-semibold text-foreground mb-2">{form.name}</label>
+              <input
+                type="text" id="name" name="name" required
+                value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                className="w-full rounded-full border border-border/50 bg-secondary/30 px-5 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                placeholder={lang === "es" ? "Tu nombre" : "Your name"}
+              />
             </div>
+            <div>
+              <label htmlFor="email" className="block text-sm font-semibold text-foreground mb-2">{form.email}</label>
+              <input
+                type="email" id="email" name="email" required
+                value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                className="w-full rounded-full border border-border/50 bg-secondary/30 px-5 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                placeholder={lang === "es" ? "tu@email.com" : "you@email.com"}
+              />
+            </div>
+          </div>
+          <div>
+            <label htmlFor="message" className="block text-sm font-semibold text-foreground mb-2">{form.message}</label>
+            <textarea
+              id="message" name="message" required rows={5}
+              value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              className="w-full rounded-xl border border-border/50 bg-secondary/30 px-5 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all resize-none"
+              placeholder={lang === "es" ? "Cuéntame en qué estás trabajando..." : "Tell me what you're working on..."}
+            />
+          </div>
+          <button type="submit" disabled={status === "success"} className="ctp-btn ctp-btn--primary w-full group">
+            {status === "success"
+              ? lang === "es" ? "¡Enviado!" : "Sent!"
+              : <><Send className="h-4 w-4" /> {form.submit}</>
+            }
+          </button>
+          {status === "success" && <p className="text-center text-green text-sm font-medium">{lang === "es" ? "¡Mensaje enviado! Te responderé pronto." : "Message sent! I'll get back to you soon."}</p>}
+          {status === "error" && <p className="text-center text-red text-sm font-medium">{lang === "es" ? "Error. Intenta de nuevo o escríbeme directo." : "Failed to send. Try again or email me directly."}</p>}
+        </form>
 
-            <div className="mt-6 grid gap-3">
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between rounded-2xl border border-primary/14 bg-background/72 px-4 py-3"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className={`rounded-xl p-2.5 ${social.colorClass}`}>
-                      {social.icon}
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold text-foreground">
-                        {social.label}
-                      </p>
-                      <p className="text-xs text-surface-foreground">
-                        {social.user}
-                      </p>
-                    </div>
-                  </div>
-                  <span className="text-xs font-bold uppercase tracking-[0.14em] text-muted-foreground">
-                    Open
-                  </span>
+        <div className="space-y-6">
+          <div className="ctp-card p-8">
+            <h3 className="text-lg font-semibold text-foreground mb-4">{lang === "es" ? "Hablemos" : "Let's talk"}</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+              {lang === "es" ? "¿Tienes un proyecto en mente? ¿Buscas a alguien para tu equipo? Escríbeme." : "Have a project in mind? Looking for someone for your team? Drop me a line."}
+            </p>
+            <div className="space-y-3">
+              {[
+                { icon: Mail, label: lang === "es" ? "Correo" : "Email", value: "paulollanosc@gmail.com", href: "mailto:paulollanosc@gmail.com" },
+                { icon: Github, label: "GitHub", value: "github.com/paulo1403", href: "https://github.com/paulo1403" },
+                { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/paulollanoscolchado", href: "https://linkedin.com/in/paulollanoscolchado" },
+              ].map((item) => (
+                <a key={item.label} href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" className="flex items-center gap-4 rounded-full border border-border/50 bg-secondary/20 px-4 py-3 text-sm hover:border-primary/30 hover:bg-secondary/40 transition-all">
+                  <item.icon className="h-4 w-4 text-primary flex-shrink-0" />
+                  <span className="font-medium text-foreground">{item.value}</span>
                 </a>
               ))}
+              <div className="flex items-center gap-4 rounded-full border border-border/50 bg-secondary/20 px-4 py-3 text-sm">
+                <MapPin className="h-4 w-4 text-red flex-shrink-0" />
+                <span className="font-medium text-foreground">Lima, Perú</span>
+              </div>
             </div>
-          </aside>
-
-          <div className="retro-panel p-7 sm:p-8">
-            <div className="mb-6">
-              <p className="eyebrow mb-3">
-                {isSpanish ? "Formulario" : "Form"}
-              </p>
-              <h3 className="text-2xl font-extrabold text-foreground">
-                {isSpanish
-                  ? "Cuéntame qué necesitas."
-                  : "Tell me what you need."}
-              </h3>
-            </div>
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid gap-4 md:grid-cols-2">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="mb-2 block text-sm font-semibold text-surface-foreground"
-                  >
-                    {dict.contact.form.name} *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
-                    placeholder={dict.contact.form.name}
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="mb-2 block text-sm font-semibold text-surface-foreground"
-                  >
-                    {dict.contact.form.email} *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
-                    placeholder={dict.contact.form.email}
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label
-                  htmlFor="subject"
-                  className="mb-2 block text-sm font-semibold text-surface-foreground"
-                >
-                  {lang === "es" ? "Asunto" : "Subject"} *
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
-                  placeholder={
-                    lang === "es" ? "¿En qué te ayudo?" : "How can I help?"
-                  }
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="mb-2 block text-sm font-semibold text-surface-foreground"
-                >
-                  {dict.contact.form.message} *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  required
-                  rows={5}
-                  className="w-full resize-none rounded-lg border border-border bg-background px-4 py-3 text-foreground outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
-                  placeholder={dict.contact.form.message}
-                />
-              </div>
-
-              {submitStatus === "success" && (
-                <div className="flex items-center rounded-2xl bg-green-100 p-3 text-green-700">
-                  <CheckCircle className="mr-2 h-5 w-5" />
-                  <span>
-                    {lang === "es"
-                      ? "Mensaje enviado. Te respondo pronto."
-                      : "Message sent successfully. I will get back to you soon."}
-                  </span>
-                </div>
-              )}
-
-              {submitStatus === "error" && (
-                <div className="flex items-center rounded-2xl bg-red-100 p-3 text-red-700">
-                  <AlertCircle className="mr-2 h-5 w-5" />
-                  <span>
-                    {lang === "es"
-                      ? "Error al enviar el mensaje. Por favor, intenta de nuevo."
-                      : "Error sending the message. Please try again."}
-                  </span>
-                </div>
-              )}
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="flex w-full items-center justify-center rounded-full bg-gradient-primary px-6 py-3.5 font-bold text-primary-foreground disabled:cursor-not-allowed disabled:opacity-70"
-              >
-                {isSubmitting ? (
-                  <>{lang === "es" ? "Enviando..." : "Sending..."}</>
-                ) : (
-                  <>
-                    <Send className="mr-2 h-5 w-5" />
-                    {dict.contact.form.submit}
-                  </>
-                )}
-              </button>
-            </form>
+          </div>
+          <div className="ctp-card p-6 text-center">
+            <p className="text-sm text-muted-foreground mb-4">{lang === "es" ? "O descarga mi CV" : "Or download my CV"}</p>
+            <a href={lang === "es" ? "/cv-es.pdf" : "/cv-en.pdf"} download className="ctp-btn ctp-btn--ghost">
+              <Download className="h-4 w-4" /> {lang === "es" ? "Descargar CV" : "Download CV"}
+            </a>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

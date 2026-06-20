@@ -1,21 +1,8 @@
 import type { Metadata } from "next";
-import { Bungee, JetBrains_Mono, Nunito_Sans } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import "../globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import Providers from "@/components/Providers";
-
-const nunitoSans = Nunito_Sans({
-  subsets: ["latin"],
-  variable: "--font-nunito-sans",
-  display: "swap",
-});
-
-const bungee = Bungee({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-bungee",
-  display: "swap",
-});
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -25,53 +12,28 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Paulo Llanos | Full Stack Developer & Automation Expert",
+    default: "Paulo Llanos | Full Stack, Mobile & AI Developer",
     template: "%s | Paulo Llanos",
   },
   description:
-    "Desarrollador Full Stack con +4 años de experiencia en React, Next.js, Node.js, Python y AWS. Especialista en automatizaciones, GraphQL y .NET para soluciones web escalables e innovadoras.",
+    "Software Developer y Tech Lead con +5 años de experiencia. React, Next.js, Kotlin, Android, AI Agents. Líder en Belcorp.",
   keywords: [
-    "Paulo Llanos",
-    "Full Stack Developer",
-    "React",
-    "Next.js",
-    "Node.js",
-    "Python",
-    "AWS",
-    "Automatizaciones",
-    "GraphQL",
-    ".NET",
-    "UnifyApps",
-    "Web Developer",
-    "Software Engineer",
-    "Portfolio",
-    "Lima",
-    "Perú",
-    "Belcorp",
+    "Paulo Llanos", "Full Stack Developer", "Mobile Developer", "Kotlin",
+    "Android", "React", "Next.js", "Node.js", "Python", "AI Agents",
+    "Tech Lead", "Software Engineer", "Portfolio", "Lima", "Perú", "Belcorp",
   ],
   authors: [{ name: "Paulo Llanos", url: "https://paulollanos.dev" }],
   creator: "Paulo Llanos",
-  publisher: "Paulo Llanos",
-  // Use the Vercel deployment domain so social previews point to the live site
   metadataBase: new URL("https://paulo-llanos.vercel.app"),
-  alternates: {
-    canonical: "https://paulo-llanos.vercel.app",
-  },
+  alternates: { canonical: "https://paulo-llanos.vercel.app" },
   icons: {
     icon: [
-      { url: "/icon-terminal.png", type: "image/png" },
-      { url: "/icon-terminal-32x32.png", type: "image/png", sizes: "32x32" },
-      { url: "/icon-terminal-16x16.png", type: "image/png", sizes: "16x16" },
-      { url: "/favicon.ico", type: "image/x-icon" },
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/icon-tux-64.png", type: "image/png", sizes: "64x64" },
     ],
     shortcut: "/favicon.ico",
     apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-      {
-        url: "/icon-terminal-180x180.png",
-        sizes: "180x180",
-        type: "image/png",
-      },
+      { url: "/icon-tux-180.png", sizes: "180x180", type: "image/png" },
     ],
   },
   manifest: "/site.webmanifest",
@@ -79,33 +41,19 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_ES",
     url: "https://paulo-llanos.vercel.app",
-    title: "Paulo Llanos | Full Stack Developer & Automation Expert",
-    description:
-      "Desarrollador Full Stack con +4 años de experiencia en React, Next.js, Node.js, Python y AWS. Especialista en automatizaciones, GraphQL y .NET para soluciones web escalables e innovadoras.",
+    title: "Paulo Llanos | Full Stack, Mobile & AI Developer",
+    description: "Software Developer y Tech Lead con +5 años. React, Kotlin, Android, AI Agents. Líder en Belcorp.",
     siteName: "Portfolio Paulo Llanos",
     images: [
-      {
-        // Primary OG image (1200x630 recommended)
-        url: "https://paulo-llanos.vercel.app/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Paulo Llanos — Full Stack Developer",
-      },
-      {
-        // Fallback (square avatar)
-        url: "https://paulo-llanos.vercel.app/avatar.jpeg",
-        width: 400,
-        height: 400,
-        alt: "Paulo Llanos",
-      },
+      { url: "https://paulo-llanos.vercel.app/og-image.png", width: 1200, height: 630, alt: "Paulo Llanos — Developer" },
+      { url: "https://paulo-llanos.vercel.app/avatar.jpeg", width: 400, height: 400, alt: "Paulo Llanos" },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Paulo Llanos | Full Stack Developer & Automation Expert",
-    description:
-      "Desarrollador Full Stack con +4 años de experiencia en React, Next.js, Node.js, Python y AWS. Especialista en automatizaciones, GraphQL y .NET para soluciones web escalables e innovadoras.",
-    creator: "@your_twitter_handle",
+    title: "Paulo Llanos | Full Stack, Mobile & AI Developer",
+    description: "Software Developer y Tech Lead con +5 años. React, Kotlin, Android, AI Agents.",
+    creator: "@paulo1403",
     images: ["https://paulo-llanos.vercel.app/og-image.png"],
   },
 };
@@ -127,24 +75,10 @@ export default async function RootLayout({
   return (
     <html lang={lang} suppressHydrationWarning>
       <head>
-        {/* Prefer light icon when user prefers light scheme */}
-        <link
-          rel="icon"
-          href="/icon-terminal-light.svg"
-          media="(prefers-color-scheme: light)"
-        />
-        {/* Prefer dark icon when user prefers dark scheme */}
-        <link
-          rel="icon"
-          href="/icon-terminal-dark.svg"
-          media="(prefers-color-scheme: dark)"
-        />
-        {/* Default favicon fallback */}
-        <link rel="icon" href="/icon-terminal.png" />
+        <link rel="icon" href="/favicon.ico" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/icon-tux-180.png" />
       </head>
-      <body
-        className={`${nunitoSans.variable} ${bungee.variable} ${jetbrainsMono.variable} font-sans antialiased bg-background text-foreground`}
-      >
+      <body className={`${jetbrainsMono.variable} font-sans antialiased bg-background text-foreground`}>
         <Providers>{children}</Providers>
         <Analytics />
       </body>

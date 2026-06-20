@@ -1,156 +1,128 @@
 "use client";
 
-import { Award, Code, Users, Zap } from "lucide-react";
-
-interface AboutDictionary {
-  title: string;
-  subtitle: string;
-  paragraph1: string;
-  paragraph2: string;
-  paragraph3?: string;
-  technologies?: string[];
-  highlights?: {
-    exp: string;
-    expDesc: string;
-    modern: string;
-    modernDesc: string;
-    lead: string;
-    leadDesc: string;
-    pub: string;
-    pubDesc: string;
-  };
-  highlightTitle?: string;
-  highlightDesc?: string;
-}
+import { Zap, Activity, Users, BookOpen, Terminal, Bike, Wrench, Cpu, Music, GitFork, Smartphone, Gamepad2 } from "lucide-react";
 
 interface AboutSectionProps {
   dict: {
-    about: AboutDictionary;
-    navigation?: { about?: string };
+    about: {
+      title: string;
+      subtitle: string;
+      paragraph1: string;
+      paragraph2: string;
+      paragraph3: string;
+      technologies: string[];
+      highlights: { exp: string; expDesc: string; modern: string; modernDesc: string; lead: string; leadDesc: string; pub: string; pubDesc: string };
+      highlightTitle: string;
+      highlightDesc: string;
+      passions?: {
+        title: string;
+        items: { label: string; desc: string }[];
+        setup?: {
+          title: string;
+          items: string[];
+        };
+      };
+    };
   };
   lang: string;
 }
 
-export default function AboutSection({ dict }: AboutSectionProps) {
-  const isSpanish = dict.about?.title === "Sobre Mí";
+const icons = [
+  { Icon: Zap, color: "text-mauve" },
+  { Icon: Activity, color: "text-pink" },
+  { Icon: Users, color: "text-blue" },
+  { Icon: BookOpen, color: "text-teal" },
+];
 
-  const highlights = [
-    {
-      icon: <Code className="h-6 w-6" />,
-      title: dict.about?.highlights?.exp || "5+ Years Experience",
-      description:
-        dict.about?.highlights?.expDesc || "Frontend and Backend Development",
-    },
-    {
-      icon: <Zap className="h-6 w-6" />,
-      title: dict.about?.highlights?.modern || "Modern Technologies",
-      description:
-        dict.about?.highlights?.modernDesc || "React, Next.js, Node.js, Python",
-    },
-    {
-      icon: <Users className="h-6 w-6" />,
-      title: dict.about?.highlights?.lead || "Technical Leadership",
-      description:
-        dict.about?.highlights?.leadDesc ||
-        "Complex migrations and optimization",
-    },
-    {
-      icon: <Award className="h-6 w-6" />,
-      title: dict.about?.highlights?.pub || "Q2 Publication",
-      description:
-        dict.about?.highlights?.pubDesc || "Research in Blockchain & FHIR HL7",
-    },
-  ];
+const passionIcons = [
+  { Icon: Terminal, color: "text-mauve" },
+  { Icon: Bike, color: "text-pink" },
+  { Icon: Wrench, color: "text-peach" },
+  { Icon: Cpu, color: "text-teal" },
+  { Icon: Music, color: "text-lavender" },
+  { Icon: GitFork, color: "text-green" },
+  { Icon: Smartphone, color: "text-blue" },
+  { Icon: Gamepad2, color: "text-red" },
+];
+
+export default function AboutSection({ dict, lang }: AboutSectionProps) {
+  const { title, subtitle, paragraph1, paragraph2, paragraph3, technologies, highlights, highlightTitle, highlightDesc } = dict.about;
+  const cards = [highlights.exp, highlights.modern, highlights.lead, highlights.pub];
+  const descs = [highlights.expDesc, highlights.modernDesc, highlights.leadDesc, highlights.pubDesc];
 
   return (
-    <section className="py-24">
-      <div className="container mx-auto max-w-6xl px-6">
-        <div className="mb-14">
-          <p className="eyebrow mb-4 text-center">
-            {isSpanish
-              ? "Contexto y forma de trabajo"
-              : "Context and working style"}
-          </p>
-          <h2 className="mx-auto max-w-4xl text-center text-4xl text-foreground md:text-5xl">
-            {dict.about?.title || "About Me"}
-          </h2>
-        </div>
+    <div className="mx-auto max-w-5xl">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl font-bold text-foreground sm:text-5xl">{title}</h2>
+        <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">{subtitle}</p>
+      </div>
 
-        <div className="grid items-start gap-8 lg:grid-cols-[1.08fr_0.92fr]">
-          <div className="retro-panel space-y-6 p-6 sm:p-8 lg:p-9">
-            <p className="eyebrow">{isSpanish ? "Quién soy" : "Who I am"}</p>
-            <h3 className="text-2xl font-extrabold text-foreground sm:text-3xl">
-              {dict.about?.subtitle || "Full Stack Software Developer"}
-            </h3>
-            <p className="text-lg leading-relaxed text-surface-foreground">
-              {dict.about?.paragraph1}
-            </p>
-            {dict.about?.paragraph3 && (
-              <p className="text-lg leading-relaxed text-surface-foreground">
-                {dict.about?.paragraph3}
-              </p>
-            )}
-
-            <div className="mt-6 flex flex-wrap gap-3">
-              {(
-                dict.about?.technologies || [
-                  "React",
-                  "Next.js",
-                  "Node.js",
-                  "Python",
-                  "TypeScript",
-                  "AWS",
-                ]
-              )
-                .slice(0, 6)
-                .map((tech: string) => (
-                  <span
-                    key={tech}
-                    className="retro-chip px-4 py-2 text-sm font-bold"
-                  >
-                    {tech}
-                  </span>
-                ))}
-            </div>
-          </div>
-
-          <div className="space-y-6">
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-              {highlights.map((highlight, index) => (
-                <div key={index} className="retro-panel h-full p-6">
-                  <div className="mb-3 flex items-center">
-                    <div className="mr-3 rounded-lg bg-primary/12 p-2 text-primary">
-                      {highlight.icon}
-                    </div>
-                    <h4 className="text-sm font-bold text-foreground">
-                      {highlight.title}
-                    </h4>
-                  </div>
-                  <p className="text-sm text-surface-foreground">
-                    {highlight.description}
-                  </p>
-                </div>
+      <div className="grid gap-8 lg:grid-cols-2">
+        <div className="ctp-card p-8 space-y-5">
+          <p className="text-base leading-relaxed text-foreground/85">{paragraph1}</p>
+          <p className="text-base leading-relaxed text-foreground/85">{paragraph2}</p>
+          <p className="text-base leading-relaxed text-foreground/85">{paragraph3}</p>
+          <div className="pt-4">
+            <p className="ctp-eyebrow mb-3">{lang === "es" ? "Tecnologías" : "Technologies"}</p>
+            <div className="flex flex-wrap gap-2">
+              {technologies.map((tech) => (
+                <span key={tech} className="ctp-chip">{tech}</span>
               ))}
             </div>
+          </div>
+        </div>
 
-            <div className="retro-panel bg-gradient-accent p-8 text-foreground">
-              <p className="eyebrow text-foreground/70">
-                {isSpanish ? "Punto diferenciador" : "Differentiator"}
-              </p>
-              <h4 className="mt-3 text-2xl font-bold text-foreground">
-                {dict.about?.highlightTitle || "Key Achievement"}
-              </h4>
-              <p className="mt-4 text-base leading-relaxed text-surface-foreground sm:text-lg">
-                {dict.about?.highlightDesc ||
-                  "My research in Blockchain and FHIR HL7 for electronic medical record interoperability was published in a Q2 international journal, demonstrating my ability to combine technology and innovation in real-impact solutions."}
-              </p>
-              <div className="mt-6 inline-flex rounded-full border border-foreground/20 bg-foreground/10 px-5 py-2 text-sm font-semibold text-foreground">
-                DOI: 10.3991/ijoe.v20i03.44507
-              </div>
-            </div>
+        <div className="space-y-6">
+          <div className="ctp-card p-8">
+            <p className="text-sm font-bold text-foreground mb-3">{highlightTitle}</p>
+            <p className="text-sm leading-relaxed text-muted-foreground">{highlightDesc}</p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {[0, 1, 2, 3].map((i) => {
+              const { Icon, color } = icons[i];
+              return (
+                <div key={i} className="ctp-card p-5">
+                  <Icon className={`h-5 w-5 ${color} mb-2`} />
+                  <p className="text-sm font-semibold text-foreground">{cards[i]}</p>
+                  <p className="mt-1 text-xs text-muted-foreground">{descs[i]}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
-    </section>
+
+      {dict.about.passions && (
+        <div className="mt-12">
+          <h3 className="text-lg font-semibold text-foreground mb-6">{dict.about.passions.title}</h3>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {dict.about.passions.items.map((item, i) => {
+              const { Icon, color } = passionIcons[i] || passionIcons[0];
+              return (
+                <div key={item.label} className="ctp-card p-5">
+                  <Icon className={`h-5 w-5 ${color} mb-2`} />
+                  <p className="text-sm font-semibold text-foreground">{item.label}</p>
+                  <p className="mt-1 text-xs text-muted-foreground">{item.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {dict.about.passions?.setup && (
+        <div className="mt-12">
+          <h3 className="text-lg font-semibold text-foreground mb-4">{dict.about.passions.setup.title}</h3>
+          <div className="ctp-card p-6">
+            <div className="flex flex-wrap gap-2">
+              {dict.about.passions.setup.items.map((item) => (
+                <span key={item} className="ctp-chip text-sm">{item}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   );
 }

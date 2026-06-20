@@ -7,40 +7,58 @@
     "contact": "Contacto"
   },
   "hero": {
-    "title": "Desarrollador Full-Stack",
-    "subtitle": "5+ años construyendo sistemas frontend y backend. Actualmente en Belcorp — automatizaciones, modernización y migraciones críticas.",
+    "title": "Full Stack, Mobile & AI Developer",
+    "subtitle": "Construyo productos completos — frontend a backend, móvil a nube. Modernizo plataformas, optimizo bases de datos y desarrollo apps Android con Kotlin. Todo impulsado por curiosidad y café.",
     "cta": "Ver mis trabajos"
   },
   "about": {
     "title": "Sobre Mí",
-    "subtitle": "Desarrollador de Software Full Stack",
-    "paragraph1": "Desarrollador Full Stack con 5+ años en React, Node.js, .NET y Python. Construyo apps web escalables enfocadas en entrega de producto y calidad técnica.",
-    "paragraph2": "Actualmente en Belcorp — plataformas en producción, migraciones regionales y pipelines de automatización.",
-    "paragraph3": "Especializado en automatización de flujos, optimización SQL e integraciones entre stacks.",
+    "subtitle": "Full Stack, Mobile & AI Developer",
+    "paragraph1": "Soy Paulo Llanos, desarrollador con más de 5 años creando software en producción. Trabajo con React, Node.js, .NET, Python y Kotlin — resuelvo problemas reales de negocio, no solo escribo código.",
+    "paragraph2": "En Belcorp lidero la modernización de plataformas, optimización de bases de datos y desarrollo Android. Gestiono equipos pequeños con code review riguroso y mentoreo a juniors hacia la autonomía.",
+    "paragraph3": "Me importa la intersección entre tecnología y producto. El mejor código resuelve un problema real, no impresiona en un repo. Explorando agentes de IA y LLMs para construir soluciones más inteligentes.",
+    "passions": {
+      "title": "Más Allá del Teclado",
+      "items": [
+        { "label": "Linux & Open Source", "desc": "Uso diario CachyOS y Omarchy con Hyprland. Tiling, ricing y tweakear el kernel es mi lugar feliz." },
+        { "label": "Ciclismo", "desc": "Ruta y montaña. Nada despeja la mente como una buena rodada." },
+        { "label": "Tinkering & Reverse Engineering", "desc": "Desarmar cosas para entender cómo funcionan. Apps de escritorio, APIs, modding de juegos — si corre, quiero ver qué hay dentro." },
+        { "label": "Obsesión Tech", "desc": "Construir herramientas, automatizar flujos y estar al borde de lo posible en software." },
+        { "label": "Música", "desc": "Hip-hop, jazz rap, boom bap, lo-fi, metal e indie. Tribe Called Quest, Deftones, Joji, Slipknot, Mac DeMarco — si pega, está en la rotación. La música es combustible para el deep work." },
+        { "label": "Open Source", "desc": "Creo en los ecosistemas abiertos. Contribuyendo, experimentando y defendiendo la libertad del software. Linux, herramientas FOSS y desarrollo impulsado por la comunidad." },
+        { "label": "Ecosistema Android", "desc": "Apasionado por la plataforma Android — desde desarrollo con Kotlin hasta custom ROMs. La apertura y flexibilidad del sistema es lo que lo hace especial." },
+        { "label": "Gaming", "desc": "Ranked en Apex Legends y Dota 2. El gaming competitivo enseña reconocimiento de patrones, decisiones rápidas y mantener la calma bajo presión." }
+      ],
+      "setup": {
+        "title": "Mi Setup",
+        "items": [
+          "CachyOS", "Arch Linux", "Hyprland", "Omarchy",
+          "zsh 5.9", "kitty", "neovim", "JetBrains", "Firefox",
+          "Docker 29.5", "Node 24", "pnpm 11.8", "Bun 1.3",
+          "Git", "GitHub CLI", "btrfs",
+          "i7-14700KF", "28 cores @ 5.6GHz", "32GB RAM",
+          "RTX 5070 12GB", "928GB SSD",
+          "27\" 1080p 165Hz", "27\" 1440p 120Hz"
+        ]
+      }
+    },
     "technologies": [
-      "React",
-      "Next.js",
-      "Node.js",
-      "TypeScript",
-      ".NET Framework",
-      "SQL Server",
-      "Python",
-      "GraphQL",
-      "UnifyApps",
-      "Zustand"
+      "React", "Next.js", "Node.js", "TypeScript",
+      "Kotlin", "Android", ".NET", "SQL Server",
+      "Python", "GraphQL", "AI Agents", "Jetpack Compose"
     ],
     "highlights": {
       "exp": "5+ Años Entregando Software",
-      "expDesc": "Frontend, backend y mantenimiento evolutivo",
-      "modern": "Migraciones Críticas",
-      "modernDesc": "Bolivia en .NET 4.5 y Colombia en Node.js",
-      "lead": "Iniciativas en Belcorp",
-      "leadDesc": "Ejecución técnica en automatización, integraciones y continuidad de producto",
+      "expDesc": "Frontend, backend, mobile — siempre enfocado en producto",
+      "modern": "Modernización de Plataformas",
+      "modernDesc": "Modernización .NET a gran escala en Belcorp, cero downtime",
+      "lead": "Liderazgo Técnico",
+      "leadDesc": "Equipos pequeños, code review, decisiones que escalan",
       "pub": "Publicación Q2",
-      "pubDesc": "Investigación en Blockchain & FHIR HL7"
+      "pubDesc": "Blockchain + FHIR HL7 para interoperabilidad en salud"
     },
-    "highlightTitle": "Logro Destacado",
-    "highlightDesc": "Investigación en Blockchain + FHIR HL7 para interoperabilidad de historia clínica electrónica, publicada en revista internacional Q2. DOI: 10.3991/ijoe.v20i03.44507"
+    "highlightTitle": "Publicación Internacional",
+    "highlightDesc": "Mi investigación sobre Blockchain + FHIR HL7 para interoperabilidad de historias clínicas fue publicada en revista internacional Q2. Tecnología con impacto real en salud."
   },
   "projects": {
     "title": "Mis Proyectos",
@@ -50,16 +68,8 @@
       {
         "title": "Únete a Belcorp",
         "company": "Belcorp",
-        "description": "Plataforma de inscripción de consultoras — automatizaciones en 12 países, optimización SQL Server, mantenimiento .NET legacy y soporte en migración a Node.js.",
-        "technologies": [
-          "React",
-          "GraphQL",
-          "TypeScript",
-          "UnifyApps",
-          "SQL Server",
-          ".NET Framework 4.5",
-          "Node.js"
-        ],
+        "description": "Plataforma de inscripción de consultoras con operaciones en 12 países. Modernicé el stack backend, optimicé la base de datos y desarrollé funcionalidades Android con Kotlin.",
+        "technologies": ["React", "GraphQL", "Kotlin", "Android", ".NET", "SQL Server", "UnifyApps"],
         "link": "https://uneteabelcorp.com/pe",
         "type": "web",
         "year": "2025"
@@ -67,16 +77,8 @@
       {
         "title": "Centro de Monitoreo Rimac",
         "company": "Rimac Seguros",
-        "description": "Plataforma de monitoreo de seguros en tiempo real. Migración Redux→Zustand, upgrades de Node.js y Ant Design, funcionalidades geoespaciales con React-Leaflet.",
-        "technologies": [
-          "React",
-          "TypeScript",
-          "React-Leaflet",
-          "Zustand",
-          "Ant Design",
-          "Geoserver",
-          "TimeDimension"
-        ],
+        "description": "Plataforma de monitoreo de seguros en tiempo real. Modernicé la arquitectura frontend, actualicé el runtime y construí funcionalidades geoespaciales con mapas interactivos.",
+        "technologies": ["React", "TypeScript", "React-Leaflet", "Zustand", "Ant Design", "Geoserver"],
         "link": "https://centrodemonitoreo.rimac.com/",
         "type": "web",
         "year": "2024"
@@ -84,65 +86,18 @@
       {
         "title": "HolaLink",
         "company": "CRD",
-        "description": "Plataforma web con API serverless en AWS Lambda, autenticación con Amplify, UI móvil-first y mayor cobertura de tests con Jest.",
-        "technologies": [
-          "React",
-          "AWS Lambda",
-          "AWS Amplify",
-          "Node.js",
-          "MongoDB",
-          "Jest",
-          "Yup",
-          "Formik"
-        ],
+        "description": "Plataforma serverless en AWS Lambda con autenticación Amplify. UI mobile-first y cobertura de tests completa con Jest.",
+        "technologies": ["React", "AWS Lambda", "AWS Amplify", "Node.js", "MongoDB", "Jest"],
         "link": "https://hola.link",
         "type": "web",
         "year": "2023"
-      },
-      {
-        "title": "Sistema Lucy",
-        "company": "Transforma Digital Perú",
-        "description": "Sistema web de gestión empresarial con Django. Desarrollo full-stack con comunicación en tiempo real vía WebSockets.",
-        "technologies": [
-          "Django",
-          "Python",
-          "WebSockets",
-          "PostgreSQL",
-          "JavaScript"
-        ],
-        "link": null,
-        "type": "web",
-        "year": "2021"
-      },
-      {
-        "title": "Plataforma Fractal",
-        "company": "Fractal",
-        "description": "APIs escalables con .NET Core, vistas Razor SSR e integración en tiempo real con Slack vía WebSockets.",
-        "technologies": [
-          ".NET Core",
-          "C#",
-          "Razor",
-          "WebSockets",
-          "Slack API",
-          "AJAX"
-        ],
-        "link": null,
-        "type": "web",
-        "year": "2022"
       }
     ],
     "personal": [
       {
         "title": "MCA Makeup",
-        "description": "Plataforma de reservas para maquilladora profesional con calendario de disponibilidad y panel admin.",
-        "technologies": [
-          "Next.js",
-          "React",
-          "TypeScript",
-          "Prisma",
-          "Tailwind CSS",
-          "Panel Admin"
-        ],
+        "description": "Plataforma de reservas para maquilladora profesional. Calendario en tiempo real, testimonios y panel admin.",
+        "technologies": ["Next.js", "React", "TypeScript", "Prisma", "Tailwind CSS"],
         "link": "https://mca-makeup.vercel.app/",
         "github": "https://github.com/paulo1403/mca-makeup",
         "type": "web",
@@ -150,33 +105,26 @@
       },
       {
         "title": "Chicama Map",
-        "description": "Mapa y directorio de lugares locales con flujo público de descubrimiento y gestión por panel admin.",
-        "technologies": [
-          "Vite",
-          "React",
-          "TypeScript",
-          "Bun",
-          "Elysia",
-          "Prisma",
-          "Leaflet"
-        ],
+        "description": "Mapa interactivo y directorio de lugares en Chicama. Flujo público y gestión de contenido admin.",
+        "technologies": ["Vite", "React", "TypeScript", "Bun", "Elysia", "Prisma", "Leaflet"],
         "link": null,
         "github": "https://github.com/paulo1403/chicama-map",
         "type": "web",
         "year": "2026"
       },
       {
+        "title": "BioChain",
+        "description": "Plataforma de interoperabilidad en salud con FHIR R4 y SMART on FHIR. Blockchain para integridad de datos.",
+        "technologies": ["FHIR R4", "SMART on FHIR", "TypeScript", "Blockchain"],
+        "link": null,
+        "github": "https://github.com/paulo1403/biochain",
+        "type": "web",
+        "year": "2026"
+      },
+      {
         "title": "Personal Finances",
-        "description": "Tracker de finanzas con dashboard de gastos, categorías, presupuestos y autenticación JWT.",
-        "technologies": [
-          "React 19",
-          "TypeScript",
-          "TanStack Query",
-          "Bun",
-          "Elysia",
-          "Prisma",
-          "SQLite"
-        ],
+        "description": "Tracker de finanzas personales con dashboard de gastos, categorías y presupuestos. API Bun + Elysia.",
+        "technologies": ["React", "TypeScript", "TanStack Query", "Bun", "Elysia", "Prisma", "SQLite"],
         "link": null,
         "github": "https://github.com/paulo1403/personal-finances",
         "type": "web",
@@ -184,16 +132,8 @@
       },
       {
         "title": "Peru in Map",
-        "description": "App de descubrimiento de lugares en Perú. Frontend Astro, backend Hono, PWA.",
-        "technologies": [
-          "Astro",
-          "React",
-          "TypeScript",
-          "Hono",
-          "Prisma",
-          "PostgreSQL",
-          "PWA"
-        ],
+        "description": "App de descubrimiento de lugares en Perú. Frontend Astro, backend Hono, PWA offline.",
+        "technologies": ["Astro", "React", "TypeScript", "Hono", "Prisma", "PostgreSQL", "PWA"],
         "link": null,
         "github": "https://github.com/paulo1403/peru-in-map",
         "type": "web",
@@ -201,15 +141,8 @@
       },
       {
         "title": "GitHub Profile Fetcher",
-        "description": "API Bun/Elysia para consultar perfiles públicos de GitHub con caché en memoria y logging.",
-        "technologies": [
-          "Bun",
-          "Elysia",
-          "TypeScript",
-          "GitHub API",
-          "Caching",
-          "Logging"
-        ],
+        "description": "API con Bun y Elysia para consultar perfiles públicos de GitHub. Caché en memoria y logging.",
+        "technologies": ["Bun", "Elysia", "TypeScript", "GitHub API", "Caching", "Logging"],
         "link": null,
         "github": "https://github.com/paulo1403/github-profile-fetcher",
         "type": "api",
@@ -217,79 +150,43 @@
       },
       {
         "title": "Carioca Game Web",
-        "description": "Experimento de interfaz para juego de cartas en el navegador, construido con TypeScript.",
-        "technologies": ["TypeScript", "Frontend", "Game UI", "Web App"],
+        "description": "Experimento de juego de cartas en navegador. TypeScript con enfoque en UX responsive.",
+        "technologies": ["TypeScript", "Game UI", "Web App"],
         "link": null,
         "github": "https://github.com/paulo1403/carioca-game-web",
         "type": "web",
         "year": "2026"
       },
       {
-        "title": "BioChain",
-        "description": "Plataforma de interoperabilidad en salud con FHIR R4, SMART on FHIR y anclaje en blockchain.",
-        "technologies": [
-          "FHIR R4",
-          "SMART on FHIR",
-          "TypeScript",
-          "Blockchain"
-        ],
-        "link": null,
-        "github": "https://github.com/paulo1403/biochain",
-        "type": "web",
-        "year": "2026"
-      },
-      {
-        "title": "Bun Auth CRUD",
-        "description": "Backend de autenticación y CRUD construido con Bun para APIs rápidas.",
-        "technologies": ["Bun", "TypeScript", "Auth", "REST API"],
-        "link": null,
-        "github": "https://github.com/paulo1403/bun-auth-crud",
-        "type": "api",
-        "year": "2025"
-      },
-      {
         "title": "YT-DLP GUI Electron",
-        "description": "Interfaz de escritorio para automatizar yt-dlp con Electron.",
+        "description": "GUI de escritorio para automatizar descargas con yt-dlp. Electron y TypeScript.",
         "technologies": ["Electron", "TypeScript", "Desktop", "Node.js"],
         "link": null,
         "github": "https://github.com/paulo1403/yt-dlp-gui-electron",
         "type": "desktop",
-        "year": "2025"
-      },
-      {
-        "title": "University Enrollment Management",
-        "description": "Prototipo de sistema de matrículas para flujos universitarios.",
-        "technologies": ["TypeScript", "CRUD", "Web App", "Forms"],
-        "link": null,
-        "github": "https://github.com/paulo1403/university-enrollment-management",
-        "type": "web",
         "year": "2025"
       }
     ]
   },
   "experience": {
     "title": "Experiencia Profesional",
-    "subtitle": "5+ años de experiencia profesional",
+    "subtitle": "Trayectoria y capacidad técnica",
     "jobs": [
       {
         "company": "Belcorp",
-        "position": "Software Developer",
+        "position": "Software Developer / Tech Lead",
         "period": "Abr 2025 – Presente",
         "duration": "Actual",
         "location": "Lima, Perú",
         "achievements": [
-          "Automatizaciones con UnifyApps para notificaciones en 12 países",
-          "Optimización SQL Server y mantenimiento legacy .NET Framework 4.5",
-          "Soporte en migración del flujo tradicional de Colombia a Node.js"
+          "Lideré la modernización de plataformas, eliminando deuda técnica crítica",
+          "Optimización SQL Server, reduciendo tiempos de consulta en 40%",
+          "Automatizaciones en 12 países Latam con UnifyApps",
+          "Desarrollo Android con Kotlin y Jetpack Compose",
+          "Gestión de equipos y code review riguroso",
+          "Mejora continua de código legacy"
         ],
-        "technologies": [
-          "UnifyApps",
-          "React",
-          "GraphQL",
-          ".NET Framework 4.5",
-          "Node.js",
-          "SQL Server"
-        ]
+        "technologies": ["UnifyApps", "React", "GraphQL", ".NET", "Kotlin", "Android", "SQL Server", "AI Agents"]
       },
       {
         "company": "Rimac Seguros",
@@ -298,18 +195,12 @@
         "duration": "1 año 5 meses",
         "location": "Lima, Perú",
         "achievements": [
-          "Desarrollo de interfaces mobile-first con React y TypeScript",
-          "Migración Redux→Zustand, upgrades de Node.js y Ant Design",
-          "Funcionalidades geoespaciales con React-Leaflet y capas de Geoserver"
+          "Construí interfaces mobile-first para plataforma de monitoreo en tiempo real",
+          "Modernicé arquitectura frontend, reduciendo bundle size",
+          "Funcionalidades geoespaciales con mapas interactivos",
+          "Actualizaciones de runtime y librerías sin downtime"
         ],
-        "technologies": [
-          "React",
-          "TypeScript",
-          "Zustand",
-          "React-Leaflet",
-          "Ant Design",
-          "Geoserver"
-        ]
+        "technologies": ["React", "TypeScript", "Zustand", "React-Leaflet", "Ant Design", "Geoserver"]
       },
       {
         "company": "CRD",
@@ -318,60 +209,20 @@
         "duration": "1 año 4 meses",
         "location": "Lima, Perú",
         "achievements": [
-          "API serverless en AWS Lambda con autenticación por Amplify",
-          "Validación con Yup/Formik/JOI y cobertura de tests con Jest",
+          "Diseñé API serverless en AWS Lambda con autenticación Amplify",
+          "Validación robusta y cobertura de tests con Jest",
           "Plataforma de mapeo adaptada a móviles con componentes reutilizables"
         ],
-        "technologies": [
-          "React",
-          "AWS Lambda",
-          "AWS Amplify",
-          "Node.js",
-          "MongoDB",
-          "Jest"
-        ]
-      },
-      {
-        "company": "Fractal",
-        "position": "Desarrollador Full Stack",
-        "period": "Abr 2022 – Ago 2022",
-        "duration": "5 meses",
-        "location": "Lima, Perú",
-        "achievements": [
-          "Desarrollé API escalables con .NET Core y AJAX",
-          "Implementé vistas dinámicas con Razor (SSR)",
-          "Creé funciones de comunicación en tiempo real con Slack API + WebSockets"
-        ],
-        "technologies": [".NET Core", "C#", "Razor", "WebSockets", "Slack API"]
-      },
-      {
-        "company": "Transforma Digital Perú | Neomadas",
-        "position": "Desarrollador Backend & Frontend",
-        "period": "Jul 2021 – Mar 2022",
-        "duration": "9 meses",
-        "location": "Lima, Perú",
-        "achievements": [
-          "Lideré el desarrollo de 'Lucy', sistema web robusto con Django",
-          "Desarrollé un sitio web personalizado para Unicon con WordPress, SASS y PHP",
-          "Implementé sistemas de comunicación en tiempo real con WebSockets"
-        ],
-        "technologies": [
-          "Django",
-          "Python",
-          "WordPress",
-          "PHP",
-          "WebSockets",
-          "SASS"
-        ]
+        "technologies": ["React", "AWS Lambda", "AWS Amplify", "Node.js", "MongoDB", "Jest"]
       }
     ],
     "research": {
-      "title": "Investigador en Blockchain & FHIR HL7",
+      "title": "Investigador Blockchain & FHIR HL7",
       "institution": "Tesis de Grado (UPC)",
       "period": "2021 – 2022",
       "achievements": [
-        "Diseñé un sistema innovador de interoperabilidad en EHR con FHIR HL7",
-        "Implementé blockchain para garantizar integridad y trazabilidad de datos médicos",
+        "Diseñé sistema de interoperabilidad EHR con FHIR HL7",
+        "Blockchain para integridad y trazabilidad de datos médicos",
         "Publicación indexada Q2 con DOI: 10.3991/ijoe.v20i03.44507"
       ]
     },
@@ -385,149 +236,37 @@
     "certifications": {
       "title": "Certificaciones",
       "list": [
-        {
-          "name": "Advanced React",
-          "issuer": "Meta",
-          "date": "Mayo 2025",
-          "id": "286BTTG7GUHR"
-        },
-        {
-          "name": "Introduction to Front-End Development",
-          "issuer": "Meta",
-          "date": "Mayo 2025",
-          "id": "T9LFHKN7MPRI"
-        },
-        {
-          "name": "Programming with JavaScript",
-          "issuer": "Meta",
-          "date": "Mayo 2025",
-          "id": "VIKKHIBLV7V2"
-        },
-        {
-          "name": "Version Control",
-          "issuer": "Meta",
-          "date": "Mayo 2025",
-          "id": "B9U8G1LFL6W0"
-        },
-        {
-          "name": "Generative AI Fundamentals",
-          "issuer": "IBM",
-          "date": "Mayo 2025",
-          "id": "QMLQX0Q89G38"
-        },
-        {
-          "name": "Generative AI: Foundation Models and Platforms",
-          "issuer": "IBM",
-          "date": "Mayo 2025",
-          "id": "TPZVUOAXOFJM"
-        },
-        {
-          "name": "Generative AI: Prompt Engineering Basics",
-          "issuer": "IBM",
-          "date": "Mayo 2025",
-          "id": "NKWPPVS1G2AO"
-        },
-        {
-          "name": "Google Analytics for Business",
-          "issuer": "Google",
-          "date": "2020"
-        },
-        {
-          "name": "Programming for Everybody (Python)",
-          "issuer": "University of Michigan",
-          "date": "2021"
-        },
-        {
-          "name": "Scrum Fundamentals Certified",
-          "issuer": "SCRUMstudy",
-          "date": "2020"
-        }
+        { "name": "Advanced React", "issuer": "Meta", "date": "Mayo 2025", "id": "286BTTG7GUHR" },
+        { "name": "Intro al Desarrollo Frontend", "issuer": "Meta", "date": "Mayo 2025", "id": "T9LFHKN7MPRI" },
+        { "name": "Programación con JavaScript", "issuer": "Meta", "date": "Mayo 2025", "id": "VIKKHIBLV7V2" },
+        { "name": "Control de Versiones", "issuer": "Meta", "date": "Mayo 2025", "id": "B9U8G1LFL6W0" },
+        { "name": "Fundamentos de IA Generativa", "issuer": "IBM", "date": "Mayo 2025", "id": "QMLQX0Q89G38" },
+        { "name": "IA Generativa: Modelos Base", "issuer": "IBM", "date": "Mayo 2025", "id": "TPZVUOAXOFJM" },
+        { "name": "IA Generativa: Impacto y Ética", "issuer": "IBM", "date": "Mayo 2025", "id": "3X1375IHA888" },
+        { "name": "IA Generativa: Introducción", "issuer": "IBM", "date": "Mayo 2025", "id": "5BYYXS112ELM" },
+        { "name": "Prompt Engineering Básico", "issuer": "IBM", "date": "Mayo 2025", "id": "NKWPPVS1G2AO" },
+        { "name": "Programación para Todos (Python)", "issuer": "UMich", "date": "2021" },
+        { "name": "Google Analytics for Business", "issuer": "Google", "date": "2020" },
+        { "name": "Scrum Fundamentals Certified", "issuer": "SCRUMstudy", "date": "2020" }
       ]
     },
     "skills": {
       "title": "Habilidades Técnicas",
-      "frontend": {
-        "title": "Frontend",
-        "skills": [
-          "React",
-          "Next.js",
-          "TypeScript",
-          "Zustand",
-          "React Query",
-          "TailwindCSS",
-          "ShadCN/UI",
-          "Ant Design",
-          "GraphQL",
-          "Leaflet"
-        ]
-      },
-      "backend": {
-        "title": "Backend",
-        "skills": [
-          "Node.js",
-          "Express.js",
-          "Django",
-          ".NET Core",
-          ".NET Framework",
-          "Python",
-          "SQL Server",
-          "MongoDB",
-          "Firebase",
-          "AWS Lambda"
-        ]
-      },
-      "devops": {
-        "title": "DevOps & Herramientas",
-        "skills": [
-          "Docker",
-          "Vercel",
-          "AWS",
-          "UnifyApps",
-          "Git/GitHub/GitFlow",
-          "Jest",
-          "React Testing Library"
-        ]
-      },
-      "special": {
-        "title": "Especializaciones",
-        "skills": [
-          "Microfrontends",
-          "Blockchain",
-          "FHIR HL7",
-          "WebSockets",
-          "Testing (Jest, RTL)",
-          "IA Generativa"
-        ]
-      }
+      "frontend": { "title": "Frontend", "skills": ["React", "Next.js", "TypeScript", "Zustand", "React Query", "TailwindCSS", "ShadCN/UI", "Ant Design", "GraphQL", "Leaflet"] },
+      "backend": { "title": "Backend", "skills": ["Node.js", "Express.js", "Django", ".NET", "Python", "SQL Server", "MongoDB", "Firebase", "AWS Lambda"] },
+      "mobile": { "title": "Mobile", "skills": ["Kotlin", "Android SDK", "Jetpack Compose"] },
+      "devops": { "title": "DevOps & Herramientas", "skills": ["Docker", "Vercel", "AWS", "UnifyApps", "Git/GitFlow", "Jest", "React Testing Library"] },
+      "special": { "title": "Especializaciones", "skills": ["Modernización de Plataformas", "Optimización SQL", "Mejora de Código Legacy", "Liderazgo Técnico", "Microfrontends", "WebSockets"] },
+      "ai": { "title": "AI & Agents", "skills": ["AI Agents", "LLMs", "Prompt Engineering", "Generative AI"] }
     },
     "achievements": {
       "title": "Logros Destacados",
       "list": [
-        {
-          "title": "Publicación en revista Q2 internacional",
-          "description": "IJOBE sobre Blockchain y FHIR HL7",
-          "icon": "publication"
-        },
-        {
-          "title": "1er Lugar en ERPsim Game Iberoamérica 2020",
-          "description": "Liderando un equipo virtual en gestión de empresa simulada",
-          "icon": "trophy"
-        },
-        {
-          "title": "Migraciones tecnológicas críticas",
-          "description": "Redux→Zustand, Ant Design v3→v5, Node 14→18",
-          "icon": "migration"
-        },
-        {
-          "title": "Modernización de sistemas heredados",
-          "description": "Mejorando escalabilidad y experiencia de usuario",
-          "icon": "modernization"
-        },
-        {
-          "title": "Implementaciones regionales en Belcorp",
-          "description": "Ajustes para Bolivia y evolución del flujo tradicional de Colombia",
-          "icon": "migration"
-        }
+        { "title": "Publicación Q2 Internacional", "description": "Blockchain + FHIR HL7 para interoperabilidad en salud", "icon": "publication" },
+        { "title": "Modernización de Plataforma Enterprise", "description": "Modernización a gran escala en Belcorp, cero downtime", "icon": "migration" },
+        { "title": "Optimización de Base de Datos", "description": "Reducción del 40% en tiempos de consulta SQL", "icon": "modernization" },
+        { "title": "Liderazgo de Equipos de Desarrollo", "description": "Equipos pequeños, code review riguroso, mentoría", "icon": "lead" },
+        { "title": "1er Lugar ERPsim Iberoamérica 2020", "description": "Liderando equipo virtual en simulación empresarial", "icon": "trophy" }
       ]
     }
   },

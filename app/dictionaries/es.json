@@ -120,7 +120,7 @@
         "title": "Chicama Map",
         "description": "Mapa interactivo y directorio de lugares en Chicama. Flujo público y gestión de contenido admin.",
         "technologies": ["Vite", "React", "TypeScript", "Bun", "Elysia", "Prisma", "Leaflet"],
-        "link": null,
+        "link": "https://chicama.paulollanos.dev",
         "github": "https://github.com/paulo1403/chicama-map",
         "type": "web",
         "year": "2026"
@@ -187,16 +187,16 @@
     "jobs": [
       {
         "company": "Belcorp",
-        "position": "Software Developer / Tech Lead",
+        "position": "Software Developer",
         "period": "Abr 2025 – Presente",
         "duration": "Actual",
         "location": "Lima, Perú",
         "achievements": [
           "Lideré la modernización de plataformas, eliminando deuda técnica crítica",
           "Optimización SQL Server, reduciendo tiempos de consulta en 40%",
-          "Automatizaciones en 12 países Latam con UnifyApps",
+          "Automatizaciones de flujos completos con scripts JS en 12 países Latam",
           "Desarrollo Android con Kotlin y Jetpack Compose",
-          "Gestión de equipos y code review riguroso",
+          "Aprendizaje profundo de Kotlin — corrutinas, flows, internos de Jetpack Compose",
           "Mejora continua de código legacy"
         ],
         "technologies": ["UnifyApps", "React", "GraphQL", ".NET", "Kotlin", "Android", "SQL Server", "AI Agents"]

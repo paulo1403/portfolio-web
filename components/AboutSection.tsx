@@ -1,6 +1,7 @@
 "use client";
 
-import { Zap, Activity, Users, BookOpen, Terminal, Bike, Wrench, Cpu, Music, GitFork, Smartphone, Gamepad2 } from "lucide-react";
+import { Server, Zap, Activity, Users, BookOpen, Terminal, Bike, Wrench, Cpu, Music, GitFork, Smartphone, Gamepad2 } from "lucide-react";
+
 
 interface AboutSectionProps {
   dict: {
@@ -11,7 +12,7 @@ interface AboutSectionProps {
       paragraph2: string;
       paragraph3: string;
       technologies: string[];
-      highlights: { exp: string; expDesc: string; modern: string; modernDesc: string; lead: string; leadDesc: string; pub: string; pubDesc: string };
+      highlights: { exp: string; expDesc: string; modern: string; modernDesc: string; lead: string; leadDesc: string; pub: string; pubDesc: string; infra: string; infraDesc: string };
       highlightTitle: string;
       highlightDesc: string;
       passions?: {
@@ -32,6 +33,7 @@ const icons = [
   { Icon: Activity, color: "text-pink" },
   { Icon: Users, color: "text-blue" },
   { Icon: BookOpen, color: "text-teal" },
+  { Icon: Server, color: "text-green" },
 ];
 
 const passionIcons = [
@@ -46,9 +48,9 @@ const passionIcons = [
 ];
 
 export default function AboutSection({ dict, lang }: AboutSectionProps) {
-  const { title, subtitle, paragraph1, paragraph2, paragraph3, technologies, highlights, highlightTitle, highlightDesc } = dict.about;
-  const cards = [highlights.exp, highlights.modern, highlights.lead, highlights.pub];
-  const descs = [highlights.expDesc, highlights.modernDesc, highlights.leadDesc, highlights.pubDesc];
+  const { title, subtitle, paragraph1, paragraph2, paragraph3, paragraph4, technologies, highlights, highlightTitle, highlightDesc } = dict.about;
+  const cards = [highlights.exp, highlights.modern, highlights.lead, highlights.pub, highlights.infra];
+  const descs = [highlights.expDesc, highlights.modernDesc, highlights.leadDesc, highlights.pubDesc, highlights.infraDesc];
 
   return (
     <div className="mx-auto max-w-5xl">
@@ -62,6 +64,7 @@ export default function AboutSection({ dict, lang }: AboutSectionProps) {
           <p className="text-base leading-relaxed text-foreground/85">{paragraph1}</p>
           <p className="text-base leading-relaxed text-foreground/85">{paragraph2}</p>
           <p className="text-base leading-relaxed text-foreground/85">{paragraph3}</p>
+          {paragraph4 && <p className="text-base leading-relaxed text-foreground/85">{paragraph4}</p>}
           <div className="pt-4">
             <p className="ctp-eyebrow mb-3">{lang === "es" ? "Tecnologías" : "Technologies"}</p>
             <div className="flex flex-wrap gap-2">
@@ -79,7 +82,7 @@ export default function AboutSection({ dict, lang }: AboutSectionProps) {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            {[0, 1, 2, 3].map((i) => {
+            {[0, 1, 2, 3, 4].map((i) => {
               const { Icon, color } = icons[i];
               return (
                 <div key={i} className="ctp-card p-5">

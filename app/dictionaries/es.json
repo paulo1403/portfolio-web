@@ -17,6 +17,7 @@
     "paragraph1": "Soy Paulo Llanos, desarrollador con más de 5 años creando software en producción. Trabajo con React, Node.js, .NET, Python y Kotlin — resuelvo problemas reales de negocio, no solo escribo código.",
     "paragraph2": "En Belcorp lidero la modernización de plataformas, optimización de bases de datos y desarrollo Android. Gestiono equipos pequeños con code review riguroso y mentoreo a juniors hacia la autonomía.",
     "paragraph3": "Me importa la intersección entre tecnología y producto. El mejor código resuelve un problema real, no impresiona en un repo. Explorando agentes de IA y LLMs para construir soluciones más inteligentes.",
+    "paragraph4": "Más allá del código, administro mi propia infraestructura en producción — servidor auto-gestionado con Cloudflare tunnels, pipelines CI/CD, monitoreo automatizado con Uptime Kuma, y Linux como daily driver en CachyOS. Automatizo todo lo que se pueda automatizar.",
     "passions": {
       "title": "Más Allá del Teclado",
       "items": [
@@ -45,7 +46,8 @@
     "technologies": [
       "React", "Next.js", "Node.js", "TypeScript",
       "Kotlin", "Android", ".NET", "SQL Server",
-      "Python", "GraphQL", "AI Agents", "Jetpack Compose"
+      "Python", "GraphQL", "AI Agents", "Jetpack Compose",
+      "Docker", "Linux", "Cloudflare", "CI/CD"
     ],
     "highlights": {
       "exp": "5+ Años Entregando Software",
@@ -55,7 +57,9 @@
       "lead": "Liderazgo Técnico",
       "leadDesc": "Equipos pequeños, code review, decisiones que escalan",
       "pub": "Publicación Q2",
-      "pubDesc": "Blockchain + FHIR HL7 para interoperabilidad en salud"
+      "pubDesc": "Blockchain + FHIR HL7 para interoperabilidad en salud",
+      "infra": "Infraestructura Self-Hosted",
+      "infraDesc": "Servidor propio, Cloudflare tunnels, CI/CD, monitoreo automático"
     },
     "highlightTitle": "Publicación Internacional",
     "highlightDesc": "Mi investigación sobre Blockchain + FHIR HL7 para interoperabilidad de historias clínicas fue publicada en revista internacional Q2. Tecnología con impacto real en salud."
@@ -94,6 +98,15 @@
       }
     ],
     "personal": [
+      {
+        "title": "Portafolio",
+        "description": "Portafolio personal con Next.js, UI pulida, i18n, navegación con IntersectionObserver, y CI/CD auto-gestionado en archserver.",
+        "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Cloudflare", "CI/CD"],
+        "link": "https://portfolio.paulollanos.dev",
+        "github": "https://github.com/paulo1403/portfolio-web",
+        "type": "web",
+        "year": "2026"
+      },
       {
         "title": "MCA Makeup",
         "description": "Plataforma de reservas para maquilladora profesional. Calendario en tiempo real, testimonios y panel admin.",
@@ -255,8 +268,8 @@
       "frontend": { "title": "Frontend", "skills": ["React", "Next.js", "TypeScript", "Zustand", "React Query", "TailwindCSS", "ShadCN/UI", "Ant Design", "GraphQL", "Leaflet"] },
       "backend": { "title": "Backend", "skills": ["Node.js", "Express.js", "Django", ".NET", "Python", "SQL Server", "MongoDB", "Firebase", "AWS Lambda"] },
       "mobile": { "title": "Mobile", "skills": ["Kotlin", "Android SDK", "Jetpack Compose"] },
-      "devops": { "title": "DevOps & Herramientas", "skills": ["Docker", "Vercel", "AWS", "UnifyApps", "Git/GitFlow", "Jest", "React Testing Library"] },
-      "special": { "title": "Especializaciones", "skills": ["Modernización de Plataformas", "Optimización SQL", "Mejora de Código Legacy", "Liderazgo Técnico", "Microfrontends", "WebSockets"] },
+      "devops": { "title": "DevOps & Herramientas", "skills": ["Docker", "Vercel", "AWS", "Cloudflare", "Linux", "CI/CD", "Uptime Kuma", "UnifyApps", "Git/GitFlow", "Jest", "React Testing Library"] },
+      "special": { "title": "Especializaciones", "skills": ["Modernización de Plataformas", "Optimización SQL", "Mejora de Código Legacy", "Liderazgo Técnico", "Self-Hosting", "Infraestructura", "Microfrontends", "WebSockets"] },
       "ai": { "title": "AI & Agents", "skills": ["AI Agents", "LLMs", "Prompt Engineering", "Generative AI"] }
     },
     "achievements": {
@@ -266,6 +279,7 @@
         { "title": "Modernización de Plataforma Enterprise", "description": "Modernización a gran escala en Belcorp, cero downtime", "icon": "migration" },
         { "title": "Optimización de Base de Datos", "description": "Reducción del 40% en tiempos de consulta SQL", "icon": "modernization" },
         { "title": "Liderazgo de Equipos de Desarrollo", "description": "Equipos pequeños, code review riguroso, mentoría", "icon": "lead" },
+        { "title": "Infraestructura en Producción", "description": "Servidor propio con Cloudflare, CI/CD y monitoreo", "icon": "infra" },
         { "title": "1er Lugar ERPsim Iberoamérica 2020", "description": "Liderando equipo virtual en simulación empresarial", "icon": "trophy" }
       ]
     }

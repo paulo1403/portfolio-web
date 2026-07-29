@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono, Inter } from "next/font/google";
 import "../globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import Providers from "@/components/Providers";
 import BackToTop from "@/components/BackToTop";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -81,7 +87,7 @@ export default async function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="32x32" />
         <link rel="apple-touch-icon" href="/icon-tux-180.png" />
       </head>
-      <body className={`${jetbrainsMono.variable} font-sans antialiased bg-background text-foreground`}>
+      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-background text-foreground`}>
         <Providers>{children}</Providers>
         {process.env.VERCEL && <Analytics />}
         <BackToTop />

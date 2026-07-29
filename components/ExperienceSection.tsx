@@ -1,7 +1,7 @@
 "use client";
 
 import type { ComponentType } from "react";
-import { Trophy, ArrowUpRight, Gauge, Users2, BookOpen } from "lucide-react";
+import { Server, Trophy, ArrowUpRight, Gauge, Users2, BookOpen } from "lucide-react";
 
 interface ExperienceSectionProps {
   dict: {
@@ -25,6 +25,7 @@ const achievementIcons: Record<string, { Icon: ComponentType<{ className?: strin
   modernization: { Icon: Gauge, color: "text-blue" },
   lead: { Icon: Users2, color: "text-lavender" },
   trophy: { Icon: Trophy, color: "text-peach" },
+  infra: { Icon: Server, color: "text-green" },
 };
 
 const colors = ["text-mauve", "text-pink", "text-blue", "text-teal", "text-peach", "text-lavender"];

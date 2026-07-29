@@ -362,7 +362,7 @@ body {
 
   filter: drop-shadow(var(--shadow) 0.1rem #00000003) drop-shadow(var(--shadow) 0.2rem #00000003)
     drop-shadow(var(--shadow) 0.3rem #00000003) drop-shadow(var(--shadow) 0.4rem #00000003);
-  transition: filter ease-out 400ms;
+  transition: filter 300ms ease-out;
 }
 
 .hover-3d > :nth-child(n + 2) {
@@ -373,8 +373,8 @@ body {
 .hover-3d > :first-child {
   overflow: hidden;
   grid-area: 1/1/4/4;
-  transform: rotate3d(var(--transform), 0, 10deg);
-  transition: transform var(--ease) 500ms, scale var(--ease) 500ms, outline-color ease-out 500ms;
+  transform: rotate3d(var(--transform), 0, 4deg);
+  transition: transform var(--ease) 400ms, scale var(--ease) 400ms, outline-color ease-out 400ms;
   outline: 0.5px solid transparent;
   outline-offset: -1px;
 }
@@ -403,11 +403,11 @@ body {
 }
 
 .hover-3d:hover > :first-child {
-  scale: 1.03;
+  scale: 1.01;
 }
 
 .hover-3d > :nth-child(n + 2) {
-  scale: 1.2;
+  scale: 1.1;
 }
 
 .hover-3d > :nth-child(2) { grid-area: 1/1/2/2; }

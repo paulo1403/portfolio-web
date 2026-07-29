@@ -6,7 +6,7 @@
   "background_color": "#1e1e2e",
   "theme_color": "#cba6f7",
   "icons": [
-    { "src": "/icon-tux-64.png", "sizes": "64x64", "type": "image/png" },
-    { "src": "/icon-tux-180.png", "sizes": "180x180", "type": "image/png" }
+    { "src": "/icon-tux-64.png", "sizes": "43x64", "type": "image/png" },
+    { "src": "/icon-tux-180.png", "sizes": "120x180", "type": "image/png" }
   ]
 }

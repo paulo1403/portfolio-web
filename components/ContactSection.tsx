@@ -22,7 +22,7 @@ export default function ContactSection({ dict, lang }: Props) {
           <div className="space-y-3 text-sm">
             <p>
               <span className="text-[var(--text-soft)] text-xs uppercase tracking-wider">Email</span><br />
-              <a href="mailto:paulo@ollanos.dev" className="editorial-link">paulo@ollanos.dev</a>
+              <a href="mailto:paulollanosc@gmail.com" className="editorial-link">paulollanosc@gmail.com</a>
             </p>
             <p>
               <span className="text-[var(--text-soft)] text-xs uppercase tracking-wider">GitHub</span><br />

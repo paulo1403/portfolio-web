@@ -1,7 +1,8 @@
 "use client";
 
-import { Languages } from "lucide-react";
+import { Languages, Moon, Sun } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 interface Props {
   dict: { navigation: { home: string; about: string; projects: string; experience: string; contact: string } };
@@ -11,6 +12,18 @@ interface Props {
 export default function Header({ dict, lang }: Props) {
   const pathname = usePathname();
   const router = useRouter();
+  const [dark, setDark] = useState(false);
+
+  useEffect(() => {
+    const isDark = document.documentElement.classList.contains("dark");
+    setDark(isDark);
+  }, []);
+
+  const toggleTheme = () => {
+    const next = !dark;
+    setDark(next);
+    document.documentElement.classList.toggle("dark", next);
+  };
 
   const switchLang = () => {
     const newLang = lang === "es" ? "en" : "es";
@@ -39,14 +52,23 @@ export default function Header({ dict, lang }: Props) {
             </a>
           ))}
         </nav>
-        <button
-          onClick={switchLang}
-          className="text-xs text-[var(--text-soft)] hover:text-[var(--text)] transition-colors flex items-center gap-1"
-          aria-label="Switch language"
-        >
-          <Languages size={13} />
-          {lang === "es" ? "EN" : "ES"}
-        </button>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={toggleTheme}
+            className="text-[var(--text-soft)] hover:text-[var(--text)] transition-colors"
+            aria-label="Toggle theme"
+          >
+            {dark ? <Sun size={14} /> : <Moon size={14} />}
+          </button>
+          <button
+            onClick={switchLang}
+            className="text-xs text-[var(--text-soft)] hover:text-[var(--text)] transition-colors flex items-center gap-1"
+            aria-label="Switch language"
+          >
+            <Languages size={13} />
+            {lang === "es" ? "EN" : "ES"}
+          </button>
+        </div>
       </div>
     </header>
   );

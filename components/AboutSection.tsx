@@ -1,6 +1,7 @@
 "use client";
 
 import { Server, Zap, Activity, Users, BookOpen, Terminal, Bike, Wrench, Cpu, Music, GitFork, Smartphone, Gamepad2 } from "lucide-react";
+import Hover3D from "./Hover3D";
 
 
 interface AboutSectionProps {
@@ -86,11 +87,13 @@ export default function AboutSection({ dict, lang }: AboutSectionProps) {
             {[0, 1, 2, 3, 4].map((i) => {
               const { Icon, color } = icons[i];
               return (
-                <div key={i} className="ctp-card p-5">
-                  <Icon className={`h-5 w-5 ${color} mb-2`} />
-                  <p className="text-sm font-semibold text-foreground">{cards[i]}</p>
-                  <p className="mt-1 text-xs text-muted-foreground">{descs[i]}</p>
-                </div>
+                <Hover3D key={i}>
+                  <div className="ctp-card p-5">
+                    <Icon className={`h-5 w-5 ${color} mb-2`} />
+                    <p className="text-sm font-semibold text-foreground">{cards[i]}</p>
+                    <p className="mt-1 text-xs text-muted-foreground">{descs[i]}</p>
+                  </div>
+                </Hover3D>
               );
             })}
           </div>
@@ -104,11 +107,13 @@ export default function AboutSection({ dict, lang }: AboutSectionProps) {
             {dict.about.passions.items.map((item, i) => {
               const { Icon, color } = passionIcons[i] || passionIcons[0];
               return (
-                <div key={item.label} className="ctp-card p-5">
-                  <Icon className={`h-5 w-5 ${color} mb-2`} />
-                  <p className="text-sm font-semibold text-foreground">{item.label}</p>
-                  <p className="mt-1 text-xs text-muted-foreground">{item.desc}</p>
-                </div>
+                <Hover3D key={item.label}>
+                  <div className="ctp-card p-5">
+                    <Icon className={`h-5 w-5 ${color} mb-2`} />
+                    <p className="text-sm font-semibold text-foreground">{item.label}</p>
+                    <p className="mt-1 text-xs text-muted-foreground">{item.desc}</p>
+                  </div>
+                </Hover3D>
               );
             })}
           </div>

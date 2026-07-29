@@ -1,5 +1,7 @@
 "use client";
 
+import Hover3D from "./Hover3D";
+
 interface Project {
   title: string;
   company?: string;
@@ -26,35 +28,37 @@ interface ProjectsSectionProps {
 
 function ProjectCard({ project, lang }: { project: Project; lang: string }) {
   return (
-    <article className="ctp-card p-6 flex flex-col group">
-      <div className="flex items-start justify-between gap-3 mb-2">
-        <div>
-          <h4 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors">{project.title}</h4>
-          <p className="text-xs text-muted-foreground mt-0.5">{project.company} · {project.year}</p>
+    <Hover3D className="w-full">
+      <article className="ctp-card p-6 flex flex-col group">
+        <div className="flex items-start justify-between gap-3 mb-2">
+          <div>
+            <h4 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors">{project.title}</h4>
+            <p className="text-xs text-muted-foreground mt-0.5">{project.company} · {project.year}</p>
+          </div>
+          <span className="ctp-chip text-[0.65rem] px-2 py-0.5">{project.type}</span>
         </div>
-        <span className="ctp-chip text-[0.65rem] px-2 py-0.5">{project.type}</span>
-      </div>
-      <p className="text-sm text-foreground/75 leading-relaxed flex-1 mt-2">{project.description}</p>
-      <div className="mt-4 flex flex-wrap gap-1.5">
-        {project.technologies.slice(0, 6).map((tech) => (
-          <span key={tech} className="ctp-chip text-[0.65rem] px-2 py-0.5">{tech}</span>
-        ))}
-      </div>
-      {(project.link || project.github) && (
-        <div className="mt-4 flex gap-4">
-          {project.link && (
-            <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-primary hover:underline">
-              {lang === "es" ? "Ver proyecto" : "View project"} →
-            </a>
-          )}
-          {project.github && (
-            <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-muted-foreground hover:text-foreground hover:underline">
-              GitHub ↗
-            </a>
-          )}
+        <p className="text-sm text-foreground/75 leading-relaxed flex-1 mt-2">{project.description}</p>
+        <div className="mt-4 flex flex-wrap gap-1.5">
+          {project.technologies.slice(0, 6).map((tech) => (
+            <span key={tech} className="ctp-chip text-[0.65rem] px-2 py-0.5">{tech}</span>
+          ))}
         </div>
-      )}
-    </article>
+        {(project.link || project.github) && (
+          <div className="mt-4 flex gap-4">
+            {project.link && (
+              <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-primary hover:underline">
+                {lang === "es" ? "Ver proyecto" : "View project"} →
+              </a>
+            )}
+            {project.github && (
+              <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-muted-foreground hover:text-foreground hover:underline">
+                GitHub ↗
+              </a>
+            )}
+          </div>
+        )}
+      </article>
+    </Hover3D>
   );
 }
 

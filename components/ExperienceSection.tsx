@@ -2,6 +2,7 @@
 
 import type { ComponentType } from "react";
 import { Server, Trophy, ArrowUpRight, Gauge, Users2, BookOpen } from "lucide-react";
+import Hover3D from "./Hover3D";
 
 interface ExperienceSectionProps {
   dict: {
@@ -49,7 +50,8 @@ export default function ExperienceSection({ dict, lang }: ExperienceSectionProps
           </h3>
           <div className="space-y-6">
             {jobs.map((job) => (
-              <div key={job.company} className="ctp-card p-6 sm:p-8">
+              <Hover3D key={job.company} className="w-full">
+                <div className="ctp-card p-6 sm:p-8">
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
                   <div>
                     <p className={`${colors[jobs.indexOf(job) % colors.length]} text-sm font-bold`}>{job.company}</p>
@@ -79,6 +81,7 @@ export default function ExperienceSection({ dict, lang }: ExperienceSectionProps
                   </div>
                 </div>
               </div>
+            </Hover3D>
             ))}
           </div>
         </div>
@@ -125,7 +128,8 @@ export default function ExperienceSection({ dict, lang }: ExperienceSectionProps
           <h3 className="text-lg font-semibold text-foreground mb-6">{skills.title}</h3>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {skillCategories.map((cat, i) => (
-              <div key={cat.title} className="ctp-card p-6">
+              <Hover3D key={cat.title}>
+                <div className="ctp-card p-6">
                 <p className={`${colors[i % colors.length]} text-sm font-bold mb-3`}>{cat.title}</p>
                 <div className="flex flex-wrap gap-2">
                   {cat.skills.map((s) => (
@@ -133,6 +137,7 @@ export default function ExperienceSection({ dict, lang }: ExperienceSectionProps
                   ))}
                 </div>
               </div>
+            </Hover3D>
             ))}
           </div>
         </div>
@@ -145,11 +150,13 @@ export default function ExperienceSection({ dict, lang }: ExperienceSectionProps
               const iconDef = achievementIcons[a.icon] || achievementIcons.trophy;
               const { Icon, color } = iconDef;
               return (
-                <div key={a.title} className="ctp-card p-6">
+                <Hover3D key={a.title}>
+                  <div className="ctp-card p-6">
                   <Icon className={`h-6 w-6 ${color} mb-3`} />
                   <p className="text-sm font-semibold text-foreground">{a.title}</p>
                   <p className="mt-1 text-xs text-muted-foreground">{a.description}</p>
                 </div>
+              </Hover3D>
               );
             })}
           </div>

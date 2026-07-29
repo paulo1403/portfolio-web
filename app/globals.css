@@ -77,13 +77,18 @@ body {
 }
 .editorial-link:hover { border-color: var(--accent); color: var(--accent); }
 
-/* Project card — flat, no shadow */
-.project-entry {
-  border-top: 1px solid var(--rule);
-  padding-top: 1.5rem;
-  margin-top: 1.5rem;
+/* Project card — minimal, intentional */
+.project-card {
+  border: 1px solid var(--rule);
+  padding: 1.5rem;
+  transition: border-color 0.2s;
+  background: var(--bg);
 }
-.project-entry:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+.project-card:hover { border-color: var(--accent); }
+.project-card:first-child { margin-top: 0; }
+
+/* Alternate section tint */
+.section-tint { background: color-mix(in srgb, var(--accent) 3%, var(--bg)); }
 
 /* Tech tags */
 .tech-tag {

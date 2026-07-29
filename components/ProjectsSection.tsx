@@ -22,18 +22,20 @@ interface Props {
   lang: string;
 }
 
-function ProjectEntry({ p }: { p: Project }) {
+function ProjectCard({ p }: { p: Project }) {
   return (
-    <div className="project-entry">
-      <div className="flex items-baseline justify-between gap-3 mb-1">
-        <h3 className="font-semibold">{p.title}</h3>
-        <span className="text-[0.65rem] uppercase tracking-wider text-[var(--text-soft)] shrink-0">
-          {p.type} · {p.year}
+    <div className="project-card">
+      <div className="flex items-start justify-between gap-3 mb-2">
+        <div>
+          <h3 className="font-semibold">{p.title}</h3>
+          {p.company && (
+            <p className="text-xs text-[var(--text-soft)] mt-0.5">{p.company} · {p.year}</p>
+          )}
+        </div>
+        <span className="text-[0.6rem] uppercase tracking-wider text-[var(--accent)] shrink-0 border border-[var(--accent)] px-2 py-0.5">
+          {p.type}
         </span>
       </div>
-      {p.company && (
-        <p className="text-xs text-[var(--text-soft)] mb-2">{p.company}</p>
-      )}
       <p className="text-sm text-[var(--text-soft)] leading-relaxed">{p.description}</p>
       <div className="flex flex-wrap gap-1.5 mt-3">
         {p.technologies.slice(0, 8).map((t) => (
@@ -41,7 +43,7 @@ function ProjectEntry({ p }: { p: Project }) {
         ))}
       </div>
       {(p.link || p.github) && (
-        <div className="flex gap-4 mt-3">
+        <div className="mt-3 pt-3 border-t border-[var(--rule)]">
           {p.link && (
             <a href={p.link} target="_blank" rel="noopener noreferrer" className="editorial-link text-xs">
               {p.link.includes('github') ? 'GitHub →' : 'Ver proyecto →'}
@@ -61,27 +63,27 @@ export default function ProjectsSection({ dict }: Props) {
         <div>
           <h2 className="display">{dict.projects.title}</h2>
         </div>
-        <div>
+        <div className="space-y-4">
           {dict.projects.professional.length > 0 && (
             <>
-              <p className="text-xs tracking-[0.15em] uppercase text-[var(--text-soft)] mb-4">
+              <p className="text-xs tracking-[0.15em] uppercase text-[var(--text-soft)]">
                 {dict.projects.professionalTitle}
               </p>
-              <div>
+              <div className="space-y-4">
                 {dict.projects.professional.map((p) => (
-                  <ProjectEntry key={p.title} p={p} />
+                  <ProjectCard key={p.title} p={p} />
                 ))}
               </div>
             </>
           )}
           {dict.projects.personal.length > 0 && (
-            <div className="mt-10">
+            <div className="mt-8">
               <p className="text-xs tracking-[0.15em] uppercase text-[var(--text-soft)] mb-4">
                 {dict.projects.personalTitle}
               </p>
-              <div>
+              <div className="space-y-4">
                 {dict.projects.personal.map((p) => (
-                  <ProjectEntry key={p.title} p={p} />
+                  <ProjectCard key={p.title} p={p} />
                 ))}
               </div>
             </div>

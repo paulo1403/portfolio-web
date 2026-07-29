@@ -20,7 +20,7 @@ export default async function Home({
     <main>
       <Header dict={dict} lang={lang} />
       <HeroSection dict={dict} lang={lang} />
-      <section id="about" className="px-6 lg:px-8 pb-16">
+      <section id="about" className="section-tint px-6 lg:px-8 py-16">
         <AboutSection dict={dict} lang={lang} />
       </section>
       <section id="projects" className="px-6 lg:px-8 pb-16">
@@ -29,7 +29,7 @@ export default async function Home({
       <section id="experience" className="px-6 lg:px-8 pb-16">
         <ExperienceSection dict={dict} lang={lang} />
       </section>
-      <section id="contact" className="px-6 lg:px-8 pb-16">
+      <section id="contact" className="section-tint px-6 lg:px-8 py-16">
         <ContactSection dict={dict} lang={lang} />
       </section>
       <Footer lang={lang} dict={dict} />

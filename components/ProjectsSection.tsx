@@ -62,7 +62,7 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
   );
 }
 
-function ProjectCard({ p }: { p: Project }) {
+function ProjectCard({ p, showImage }: { p: Project; showImage: boolean }) {
   const imageName = slug(p.title);
   const imgSrc = `/projects/${imageName}.jpg`;
 
@@ -70,15 +70,17 @@ function ProjectCard({ p }: { p: Project }) {
     <FadeIn>
       <div className="project-card">
         <div className="flex flex-col sm:flex-row gap-4">
-          <div className="shrink-0 sm:w-48 aspect-video sm:aspect-auto sm:h-28 bg-[var(--rule)]/30 overflow-hidden rounded-sm">
-            <img
-              src={imgSrc}
-              alt={p.title}
-              className="w-full h-full object-cover"
-              loading="lazy"
-              onError={(e) => { (e.target as HTMLImageElement).style.display = "none" }}
-            />
-          </div>
+          {showImage && (
+            <div className="shrink-0 sm:w-48 aspect-video sm:aspect-auto sm:h-28 bg-[var(--rule)]/30 overflow-hidden rounded-sm">
+              <img
+                src={imgSrc}
+                alt={p.title}
+                className="w-full h-full object-cover"
+                loading="lazy"
+                onError={(e) => { (e.target as HTMLImageElement).style.display = "none" }}
+              />
+            </div>
+          )}
           <div className="flex-1 min-w-0">
             <div className="flex items-start justify-between gap-3 mb-1.5">
               <div>
@@ -113,6 +115,8 @@ function ProjectCard({ p }: { p: Project }) {
   );
 }
 
+const WITH_IMAGES = new Set(["quipumed", "chicama-map", "portafolio", "carioca-game-web", "mca-makeup"])
+
 export default function ProjectsSection({ dict }: Props) {
   return (
     <div className="mx-auto max-w-4xl">
@@ -130,7 +134,7 @@ export default function ProjectsSection({ dict }: Props) {
               </p>
               <div className="space-y-6">
                 {dict.projects.professional.map((p) => (
-                  <ProjectCard key={p.title} p={p} />
+                  <ProjectCard key={p.title} p={p} showImage={false} />
                 ))}
               </div>
             </>
@@ -142,7 +146,7 @@ export default function ProjectsSection({ dict }: Props) {
               </p>
               <div className="space-y-6">
                 {dict.projects.personal.map((p) => (
-                  <ProjectCard key={p.title} p={p} />
+                  <ProjectCard key={p.title} p={p} showImage={WITH_IMAGES.has(slug(p.title))} />
                 ))}
               </div>
             </div>

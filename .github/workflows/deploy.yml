@@ -1,0 +1,23 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    env:
+      DBUS_SESSION_BUS_ADDRESS: unix:path=/run/user/1000/bus
+      XDG_RUNTIME_DIR: /run/user/1000
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build & restart
+        run: |
+          cd /home/paulo/portfolio-web
+          git pull origin main
+          /home/paulo/.local/share/mise/installs/bun/latest/bin/bun install
+          /home/paulo/.local/share/mise/installs/bun/latest/bin/bun run build
+          systemctl --user restart portfolio-web
+          sleep 3
+          if curl -sf http://localhost:3000/en >/dev/null; then echo "::notice::Portfolio OK"; else echo "::error::Portfolio FAILED"; systemctl --user status portfolio-web --no-pager -n 10; fi

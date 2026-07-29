@@ -148,7 +148,7 @@
   --color-blue: var(--blue);
   --color-blue-rgb: var(--blue);
 
-  --font-sans: var(--font-jetbrains-mono);
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: var(--font-jetbrains-mono);
 
   --radius-sm: var(--radius-sm);

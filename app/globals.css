@@ -389,7 +389,7 @@ body {
   scale: 500%;
   opacity: 0;
   filter: blur(0.75rem);
-  background-image: radial-gradient(circle at 50%, rgba(255 255 255 / 0.2) 10%, transparent 50%);
+  background-image: radial-gradient(circle at 50%, rgb(var(--accent) / 0.15) 10%, transparent 50%);
   translate: var(--shine);
   transition: translate ease-out 400ms, opacity ease-out 400ms;
 }

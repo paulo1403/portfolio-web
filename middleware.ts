@@ -12,12 +12,14 @@ function getLocale(request: NextRequest): string {
     negotiatorHeaders[key] = value;
   });
 
-  const languages = new Negotiator({ headers: negotiatorHeaders }).languages();
+  const languages = new Negotiator({ headers: negotiatorHeaders })
+    .languages()
+    .filter((l) => l !== "*" && l.length <= 5);
 
   return match(languages, locales, defaultLocale);
 }
 
-export function proxy(request: NextRequest) {
+export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   const pathnameHasLocale = locales.some(
@@ -35,5 +37,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next|.*\\..*).*)"],
+  matcher: ["/((?!_next|.*\..*).*)"],
 };

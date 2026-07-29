@@ -3,7 +3,6 @@ import { JetBrains_Mono, Inter } from "next/font/google";
 import "../globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import Providers from "@/components/Providers";
-import BackToTop from "@/components/BackToTop";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -90,7 +89,7 @@ export default async function RootLayout({
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-background text-foreground`}>
         <Providers>{children}</Providers>
         {process.env.VERCEL && <Analytics />}
-        <BackToTop />
+  
       </body>
     </html>
   );

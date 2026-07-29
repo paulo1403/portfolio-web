@@ -1,7 +1,3 @@
-"use client";
-
-import Hover3D from "./Hover3D";
-
 interface Project {
   title: string;
   company?: string;
@@ -13,7 +9,7 @@ interface Project {
   year: string;
 }
 
-interface ProjectsSectionProps {
+interface Props {
   dict: {
     projects: {
       title: string;
@@ -26,64 +22,70 @@ interface ProjectsSectionProps {
   lang: string;
 }
 
-function ProjectCard({ project, lang }: { project: Project; lang: string }) {
+function ProjectEntry({ p }: { p: Project }) {
   return (
-    <Hover3D className="w-full">
-      <article className="ctp-card p-6 flex flex-col group">
-        <div className="flex items-start justify-between gap-3 mb-2">
-          <div>
-            <h4 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors">{project.title}</h4>
-            <p className="text-xs text-muted-foreground mt-0.5">{project.company} · {project.year}</p>
-          </div>
-          <span className="ctp-chip text-[0.65rem] px-2 py-0.5">{project.type}</span>
+    <div className="project-entry">
+      <div className="flex items-baseline justify-between gap-3 mb-1">
+        <h3 className="font-semibold">{p.title}</h3>
+        <span className="text-[0.65rem] uppercase tracking-wider text-[var(--text-soft)] shrink-0">
+          {p.type} · {p.year}
+        </span>
+      </div>
+      {p.company && (
+        <p className="text-xs text-[var(--text-soft)] mb-2">{p.company}</p>
+      )}
+      <p className="text-sm text-[var(--text-soft)] leading-relaxed">{p.description}</p>
+      <div className="flex flex-wrap gap-1.5 mt-3">
+        {p.technologies.slice(0, 8).map((t) => (
+          <span key={t} className="tech-tag">{t}</span>
+        ))}
+      </div>
+      {(p.link || p.github) && (
+        <div className="flex gap-4 mt-3">
+          {p.link && (
+            <a href={p.link} target="_blank" rel="noopener noreferrer" className="editorial-link text-xs">
+              {p.link.includes('github') ? 'GitHub →' : 'Ver proyecto →'}
+            </a>
+          )}
         </div>
-        <p className="text-sm text-foreground/75 leading-relaxed flex-1 mt-2">{project.description}</p>
-        <div className="mt-4 flex flex-wrap gap-1.5">
-          {project.technologies.slice(0, 6).map((tech) => (
-            <span key={tech} className="ctp-chip text-[0.65rem] px-2 py-0.5">{tech}</span>
-          ))}
-        </div>
-        {(project.link || project.github) && (
-          <div className="mt-4 flex gap-4">
-            {project.link && (
-              <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-primary hover:underline">
-                {lang === "es" ? "Ver proyecto" : "View project"} →
-              </a>
-            )}
-            {project.github && (
-              <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-muted-foreground hover:text-foreground hover:underline">
-                GitHub ↗
-              </a>
-            )}
-          </div>
-        )}
-      </article>
-    </Hover3D>
+      )}
+    </div>
   );
 }
 
-export default function ProjectsSection({ dict, lang }: ProjectsSectionProps) {
-  const { title, professionalTitle, personalTitle, professional, personal } = dict.projects;
-
+export default function ProjectsSection({ dict }: Props) {
   return (
-    <div className="mx-auto max-w-5xl">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold text-foreground sm:text-5xl">{title}</h2>
-      </div>
-
-      <div className="space-y-16">
+    <div className="mx-auto max-w-4xl">
+      <hr className="section-rule" />
+      <div className="magazine-grid">
         <div>
-          <h3 className="text-lg font-semibold text-foreground mb-6">{professionalTitle}</h3>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {professional.map((p) => <ProjectCard key={p.title} project={p} lang={lang} />)}
-          </div>
+          <h2 className="display">{dict.projects.title}</h2>
         </div>
-
         <div>
-          <h3 className="text-lg font-semibold text-foreground mb-6">{personalTitle}</h3>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {personal.map((p) => <ProjectCard key={p.title} project={p} lang={lang} />)}
-          </div>
+          {dict.projects.professional.length > 0 && (
+            <>
+              <p className="text-xs tracking-[0.15em] uppercase text-[var(--text-soft)] mb-4">
+                {dict.projects.professionalTitle}
+              </p>
+              <div>
+                {dict.projects.professional.map((p) => (
+                  <ProjectEntry key={p.title} p={p} />
+                ))}
+              </div>
+            </>
+          )}
+          {dict.projects.personal.length > 0 && (
+            <div className="mt-10">
+              <p className="text-xs tracking-[0.15em] uppercase text-[var(--text-soft)] mb-4">
+                {dict.projects.personalTitle}
+              </p>
+              <div>
+                {dict.projects.personal.map((p) => (
+                  <ProjectEntry key={p.title} p={p} />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

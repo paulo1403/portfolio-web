@@ -21,33 +21,85 @@
     "passions": {
       "title": "Más Allá del Teclado",
       "items": [
-        { "label": "Linux & Open Source", "desc": "Uso diario CachyOS y Omarchy con Hyprland. Tiling, ricing y tweakear el kernel es mi lugar feliz." },
-        { "label": "Ciclismo", "desc": "Ruta y montaña. Nada despeja la mente como una buena rodada." },
-        { "label": "Tinkering & Reverse Engineering", "desc": "Desarmar cosas para entender cómo funcionan. Apps de escritorio, APIs, modding de juegos — si corre, quiero ver qué hay dentro." },
-        { "label": "Obsesión Tech", "desc": "Construir herramientas, automatizar flujos y estar al borde de lo posible en software." },
-        { "label": "Música", "desc": "Hip-hop, jazz rap, boom bap, lo-fi, metal e indie. Tribe Called Quest, Deftones, Joji, Slipknot, Mac DeMarco — si pega, está en la rotación. La música es combustible para el deep work." },
-        { "label": "Open Source", "desc": "Creo en los ecosistemas abiertos. Contribuyendo, experimentando y defendiendo la libertad del software. Linux, herramientas FOSS y desarrollo impulsado por la comunidad." },
-        { "label": "Ecosistema Android", "desc": "Apasionado por la plataforma Android — desde desarrollo con Kotlin hasta custom ROMs. La apertura y flexibilidad del sistema es lo que lo hace especial." },
-        { "label": "Gaming", "desc": "Ranked en Apex Legends y Dota 2. El gaming competitivo enseña reconocimiento de patrones, decisiones rápidas y mantener la calma bajo presión." }
+        {
+          "label": "Linux & Open Source",
+          "desc": "Uso diario CachyOS y Omarchy con Hyprland. Tiling, ricing y tweakear el kernel es mi lugar feliz."
+        },
+        {
+          "label": "Ciclismo",
+          "desc": "Ruta y montaña. Nada despeja la mente como una buena rodada."
+        },
+        {
+          "label": "Tinkering & Reverse Engineering",
+          "desc": "Desarmar cosas para entender cómo funcionan. Apps de escritorio, APIs, modding de juegos — si corre, quiero ver qué hay dentro."
+        },
+        {
+          "label": "Obsesión Tech",
+          "desc": "Construir herramientas, automatizar flujos y estar al borde de lo posible en software."
+        },
+        {
+          "label": "Música",
+          "desc": "Hip-hop, jazz rap, boom bap, lo-fi, metal e indie. Tribe Called Quest, Deftones, Joji, Slipknot, Mac DeMarco — si pega, está en la rotación. La música es combustible para el deep work."
+        },
+        {
+          "label": "Open Source",
+          "desc": "Creo en los ecosistemas abiertos. Contribuyendo, experimentando y defendiendo la libertad del software. Linux, herramientas FOSS y desarrollo impulsado por la comunidad."
+        },
+        {
+          "label": "Ecosistema Android",
+          "desc": "Apasionado por la plataforma Android — desde desarrollo con Kotlin hasta custom ROMs. La apertura y flexibilidad del sistema es lo que lo hace especial."
+        },
+        {
+          "label": "Gaming",
+          "desc": "Ranked en Apex Legends y Dota 2. El gaming competitivo enseña reconocimiento de patrones, decisiones rápidas y mantener la calma bajo presión."
+        }
       ],
       "setup": {
         "title": "Mi Setup",
         "items": [
-          "CachyOS", "Arch Linux", "Hyprland", "Omarchy",
-          "zsh 5.9", "kitty", "neovim", "JetBrains", "Firefox",
-          "Docker 29.5", "Node 24", "pnpm 11.8", "Bun 1.3",
-          "Git", "GitHub CLI", "btrfs",
-          "i7-14700KF", "28 cores @ 5.6GHz", "32GB RAM",
-          "RTX 5070 12GB", "928GB SSD",
-          "27\" 1080p 165Hz", "27\" 1440p 120Hz"
+          "CachyOS",
+          "Arch Linux",
+          "Hyprland",
+          "Omarchy",
+          "zsh 5.9",
+          "kitty",
+          "neovim",
+          "JetBrains",
+          "Firefox",
+          "Docker 29.5",
+          "Node 24",
+          "pnpm 11.8",
+          "Bun 1.3",
+          "Git",
+          "GitHub CLI",
+          "btrfs",
+          "i7-14700KF",
+          "28 cores @ 5.6GHz",
+          "32GB RAM",
+          "RTX 5070 12GB",
+          "928GB SSD",
+          "27\" 1080p 165Hz",
+          "27\" 1440p 120Hz"
         ]
       }
     },
     "technologies": [
-      "React", "Next.js", "Node.js", "TypeScript",
-      "Kotlin", "Android", ".NET", "SQL Server",
-      "Python", "GraphQL", "AI Agents", "Jetpack Compose",
-      "Docker", "Linux", "Cloudflare", "CI/CD"
+      "React",
+      "Next.js",
+      "Node.js",
+      "TypeScript",
+      "Kotlin",
+      "Android",
+      ".NET",
+      "SQL Server",
+      "Python",
+      "GraphQL",
+      "AI Agents",
+      "Jetpack Compose",
+      "Docker",
+      "Linux",
+      "Cloudflare",
+      "CI/CD"
     ],
     "highlights": {
       "exp": "5+ Años Entregando Software",
@@ -73,7 +125,15 @@
         "title": "Únete a Belcorp",
         "company": "Belcorp",
         "description": "Plataforma de inscripción de consultoras con operaciones en 12 países. Modernicé el stack backend, optimicé la base de datos y desarrollé funcionalidades Android con Kotlin.",
-        "technologies": ["React", "GraphQL", "Kotlin", "Android", ".NET", "SQL Server", "UnifyApps"],
+        "technologies": [
+          "React",
+          "GraphQL",
+          "Kotlin",
+          "Android",
+          ".NET",
+          "SQL Server",
+          "UnifyApps"
+        ],
         "link": "https://uneteabelcorp.com/pe",
         "type": "web",
         "year": "2025"
@@ -82,7 +142,14 @@
         "title": "Centro de Monitoreo Rimac",
         "company": "Rimac Seguros",
         "description": "Plataforma de monitoreo de seguros en tiempo real. Modernicé la arquitectura frontend, actualicé el runtime y construí funcionalidades geoespaciales con mapas interactivos.",
-        "technologies": ["React", "TypeScript", "React-Leaflet", "Zustand", "Ant Design", "Geoserver"],
+        "technologies": [
+          "React",
+          "TypeScript",
+          "React-Leaflet",
+          "Zustand",
+          "Ant Design",
+          "Geoserver"
+        ],
         "link": "https://centrodemonitoreo.rimac.com/",
         "type": "web",
         "year": "2024"
@@ -91,7 +158,14 @@
         "title": "HolaLink",
         "company": "CRD",
         "description": "Plataforma serverless en AWS Lambda con autenticación Amplify. UI mobile-first y cobertura de tests completa con Jest.",
-        "technologies": ["React", "AWS Lambda", "AWS Amplify", "Node.js", "MongoDB", "Jest"],
+        "technologies": [
+          "React",
+          "AWS Lambda",
+          "AWS Amplify",
+          "Node.js",
+          "MongoDB",
+          "Jest"
+        ],
         "link": "https://hola.link",
         "type": "web",
         "year": "2023"
@@ -99,9 +173,35 @@
     ],
     "personal": [
       {
+        "title": "QuipuMed",
+        "company": "Personal",
+        "description": "Historia clínica electrónica para el consultorio peruano. SOAP, recetas, certificados, laboratorio, firma digital y agenda. Next.js + Bun + PostgreSQL + MinIO S3.",
+        "technologies": [
+          "React",
+          "TypeScript",
+          "Bun",
+          "PostgreSQL",
+          "MinIO S3",
+          "Elysia",
+          "Prisma",
+          "Tailwind"
+        ],
+        "link": "https://quipumed.paulollanos.dev",
+        "github": "https://github.com/paulo1403/quipumed",
+        "type": "Full Stack",
+        "year": "2025"
+      },
+      {
         "title": "Portafolio",
         "description": "Portafolio personal con Next.js, UI pulida, i18n, navegación con IntersectionObserver, y CI/CD auto-gestionado en archserver.",
-        "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Cloudflare", "CI/CD"],
+        "technologies": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "Cloudflare",
+          "CI/CD"
+        ],
         "link": "https://portfolio.paulollanos.dev",
         "github": "https://github.com/paulo1403/portfolio-web",
         "type": "web",
@@ -110,7 +210,13 @@
       {
         "title": "MCA Makeup",
         "description": "Plataforma de reservas para maquilladora profesional. Calendario en tiempo real, testimonios y panel admin.",
-        "technologies": ["Next.js", "React", "TypeScript", "Prisma", "Tailwind CSS"],
+        "technologies": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Prisma",
+          "Tailwind CSS"
+        ],
         "link": "https://mca-makeup.vercel.app/",
         "github": "https://github.com/paulo1403/mca-makeup",
         "type": "web",
@@ -119,7 +225,15 @@
       {
         "title": "Chicama Map",
         "description": "Mapa interactivo y directorio de lugares en Chicama. Flujo público y gestión de contenido admin.",
-        "technologies": ["Vite", "React", "TypeScript", "Bun", "Elysia", "Prisma", "Leaflet"],
+        "technologies": [
+          "Vite",
+          "React",
+          "TypeScript",
+          "Bun",
+          "Elysia",
+          "Prisma",
+          "Leaflet"
+        ],
         "link": "https://chicama.paulollanos.dev",
         "github": "https://github.com/paulo1403/chicama-map",
         "type": "web",
@@ -128,7 +242,12 @@
       {
         "title": "BioChain",
         "description": "Plataforma de interoperabilidad en salud con FHIR R4 y SMART on FHIR. Blockchain para integridad de datos.",
-        "technologies": ["FHIR R4", "SMART on FHIR", "TypeScript", "Blockchain"],
+        "technologies": [
+          "FHIR R4",
+          "SMART on FHIR",
+          "TypeScript",
+          "Blockchain"
+        ],
         "link": null,
         "github": "https://github.com/paulo1403/biochain",
         "type": "web",
@@ -137,7 +256,15 @@
       {
         "title": "Personal Finances",
         "description": "Tracker de finanzas personales con dashboard de gastos, categorías y presupuestos. API Bun + Elysia.",
-        "technologies": ["React", "TypeScript", "TanStack Query", "Bun", "Elysia", "Prisma", "SQLite"],
+        "technologies": [
+          "React",
+          "TypeScript",
+          "TanStack Query",
+          "Bun",
+          "Elysia",
+          "Prisma",
+          "SQLite"
+        ],
         "link": null,
         "github": "https://github.com/paulo1403/personal-finances",
         "type": "web",
@@ -146,7 +273,15 @@
       {
         "title": "Peru in Map",
         "description": "App de descubrimiento de lugares en Perú. Frontend Astro, backend Hono, PWA offline.",
-        "technologies": ["Astro", "React", "TypeScript", "Hono", "Prisma", "PostgreSQL", "PWA"],
+        "technologies": [
+          "Astro",
+          "React",
+          "TypeScript",
+          "Hono",
+          "Prisma",
+          "PostgreSQL",
+          "PWA"
+        ],
         "link": null,
         "github": "https://github.com/paulo1403/peru-in-map",
         "type": "web",
@@ -155,7 +290,14 @@
       {
         "title": "GitHub Profile Fetcher",
         "description": "API con Bun y Elysia para consultar perfiles públicos de GitHub. Caché en memoria y logging.",
-        "technologies": ["Bun", "Elysia", "TypeScript", "GitHub API", "Caching", "Logging"],
+        "technologies": [
+          "Bun",
+          "Elysia",
+          "TypeScript",
+          "GitHub API",
+          "Caching",
+          "Logging"
+        ],
         "link": null,
         "github": "https://github.com/paulo1403/github-profile-fetcher",
         "type": "api",
@@ -164,7 +306,11 @@
       {
         "title": "Carioca Game Web",
         "description": "Experimento de juego de cartas en navegador. TypeScript con enfoque en UX responsive.",
-        "technologies": ["TypeScript", "Game UI", "Web App"],
+        "technologies": [
+          "TypeScript",
+          "Game UI",
+          "Web App"
+        ],
         "link": null,
         "github": "https://github.com/paulo1403/carioca-game-web",
         "type": "web",
@@ -173,7 +319,12 @@
       {
         "title": "YT-DLP GUI Electron",
         "description": "GUI de escritorio para automatizar descargas con yt-dlp. Electron y TypeScript.",
-        "technologies": ["Electron", "TypeScript", "Desktop", "Node.js"],
+        "technologies": [
+          "Electron",
+          "TypeScript",
+          "Desktop",
+          "Node.js"
+        ],
         "link": null,
         "github": "https://github.com/paulo1403/yt-dlp-gui-electron",
         "type": "desktop",
@@ -199,7 +350,16 @@
           "Aprendizaje profundo de Kotlin — corrutinas, flows, internos de Jetpack Compose",
           "Mejora continua de código legacy"
         ],
-        "technologies": ["UnifyApps", "React", "GraphQL", ".NET", "Kotlin", "Android", "SQL Server", "AI Agents"]
+        "technologies": [
+          "UnifyApps",
+          "React",
+          "GraphQL",
+          ".NET",
+          "Kotlin",
+          "Android",
+          "SQL Server",
+          "AI Agents"
+        ]
       },
       {
         "company": "Rimac Seguros",
@@ -213,7 +373,14 @@
           "Funcionalidades geoespaciales con mapas interactivos",
           "Actualizaciones de runtime y librerías sin downtime"
         ],
-        "technologies": ["React", "TypeScript", "Zustand", "React-Leaflet", "Ant Design", "Geoserver"]
+        "technologies": [
+          "React",
+          "TypeScript",
+          "Zustand",
+          "React-Leaflet",
+          "Ant Design",
+          "Geoserver"
+        ]
       },
       {
         "company": "CRD",
@@ -226,7 +393,14 @@
           "Validación robusta y cobertura de tests con Jest",
           "Plataforma de mapeo adaptada a móviles con componentes reutilizables"
         ],
-        "technologies": ["React", "AWS Lambda", "AWS Amplify", "Node.js", "MongoDB", "Jest"]
+        "technologies": [
+          "React",
+          "AWS Lambda",
+          "AWS Amplify",
+          "Node.js",
+          "MongoDB",
+          "Jest"
+        ]
       }
     ],
     "research": {
@@ -249,38 +423,188 @@
     "certifications": {
       "title": "Certificaciones",
       "list": [
-        { "name": "Advanced React", "issuer": "Meta", "date": "Mayo 2025", "id": "286BTTG7GUHR" },
-        { "name": "Intro al Desarrollo Frontend", "issuer": "Meta", "date": "Mayo 2025", "id": "T9LFHKN7MPRI" },
-        { "name": "Programación con JavaScript", "issuer": "Meta", "date": "Mayo 2025", "id": "VIKKHIBLV7V2" },
-        { "name": "Control de Versiones", "issuer": "Meta", "date": "Mayo 2025", "id": "B9U8G1LFL6W0" },
-        { "name": "Fundamentos de IA Generativa", "issuer": "IBM", "date": "Mayo 2025", "id": "QMLQX0Q89G38" },
-        { "name": "IA Generativa: Modelos Base", "issuer": "IBM", "date": "Mayo 2025", "id": "TPZVUOAXOFJM" },
-        { "name": "IA Generativa: Impacto y Ética", "issuer": "IBM", "date": "Mayo 2025", "id": "3X1375IHA888" },
-        { "name": "IA Generativa: Introducción", "issuer": "IBM", "date": "Mayo 2025", "id": "5BYYXS112ELM" },
-        { "name": "Prompt Engineering Básico", "issuer": "IBM", "date": "Mayo 2025", "id": "NKWPPVS1G2AO" },
-        { "name": "Programación para Todos (Python)", "issuer": "UMich", "date": "2021" },
-        { "name": "Google Analytics for Business", "issuer": "Google", "date": "2020" },
-        { "name": "Scrum Fundamentals Certified", "issuer": "SCRUMstudy", "date": "2020" }
+        {
+          "name": "Advanced React",
+          "issuer": "Meta",
+          "date": "Mayo 2025",
+          "id": "286BTTG7GUHR"
+        },
+        {
+          "name": "Intro al Desarrollo Frontend",
+          "issuer": "Meta",
+          "date": "Mayo 2025",
+          "id": "T9LFHKN7MPRI"
+        },
+        {
+          "name": "Programación con JavaScript",
+          "issuer": "Meta",
+          "date": "Mayo 2025",
+          "id": "VIKKHIBLV7V2"
+        },
+        {
+          "name": "Control de Versiones",
+          "issuer": "Meta",
+          "date": "Mayo 2025",
+          "id": "B9U8G1LFL6W0"
+        },
+        {
+          "name": "Fundamentos de IA Generativa",
+          "issuer": "IBM",
+          "date": "Mayo 2025",
+          "id": "QMLQX0Q89G38"
+        },
+        {
+          "name": "IA Generativa: Modelos Base",
+          "issuer": "IBM",
+          "date": "Mayo 2025",
+          "id": "TPZVUOAXOFJM"
+        },
+        {
+          "name": "IA Generativa: Impacto y Ética",
+          "issuer": "IBM",
+          "date": "Mayo 2025",
+          "id": "3X1375IHA888"
+        },
+        {
+          "name": "IA Generativa: Introducción",
+          "issuer": "IBM",
+          "date": "Mayo 2025",
+          "id": "5BYYXS112ELM"
+        },
+        {
+          "name": "Prompt Engineering Básico",
+          "issuer": "IBM",
+          "date": "Mayo 2025",
+          "id": "NKWPPVS1G2AO"
+        },
+        {
+          "name": "Programación para Todos (Python)",
+          "issuer": "UMich",
+          "date": "2021"
+        },
+        {
+          "name": "Google Analytics for Business",
+          "issuer": "Google",
+          "date": "2020"
+        },
+        {
+          "name": "Scrum Fundamentals Certified",
+          "issuer": "SCRUMstudy",
+          "date": "2020"
+        }
       ]
     },
     "skills": {
       "title": "Habilidades Técnicas",
-      "frontend": { "title": "Frontend", "skills": ["React", "Next.js", "TypeScript", "Zustand", "React Query", "TailwindCSS", "ShadCN/UI", "Ant Design", "GraphQL", "Leaflet"] },
-      "backend": { "title": "Backend", "skills": ["Node.js", "Express.js", "Django", ".NET", "Python", "SQL Server", "MongoDB", "Firebase", "AWS Lambda"] },
-      "mobile": { "title": "Mobile", "skills": ["Kotlin", "Android SDK", "Jetpack Compose"] },
-      "devops": { "title": "DevOps & Herramientas", "skills": ["Docker", "Vercel", "AWS", "Cloudflare", "Linux", "CI/CD", "Uptime Kuma", "UnifyApps", "Git/GitFlow", "Jest", "React Testing Library"] },
-      "special": { "title": "Especializaciones", "skills": ["Modernización de Plataformas", "Optimización SQL", "Mejora de Código Legacy", "Liderazgo Técnico", "Self-Hosting", "Infraestructura", "Microfrontends", "WebSockets"] },
-      "ai": { "title": "AI & Agents", "skills": ["AI Agents", "LLMs", "Prompt Engineering", "Generative AI"] }
+      "frontend": {
+        "title": "Frontend",
+        "skills": [
+          "React",
+          "Next.js",
+          "TypeScript",
+          "Zustand",
+          "React Query",
+          "TailwindCSS",
+          "ShadCN/UI",
+          "Ant Design",
+          "GraphQL",
+          "Leaflet"
+        ]
+      },
+      "backend": {
+        "title": "Backend",
+        "skills": [
+          "Node.js",
+          "Express.js",
+          "Django",
+          ".NET",
+          "Python",
+          "SQL Server",
+          "MongoDB",
+          "Firebase",
+          "AWS Lambda"
+        ]
+      },
+      "mobile": {
+        "title": "Mobile",
+        "skills": [
+          "Kotlin",
+          "Android SDK",
+          "Jetpack Compose"
+        ]
+      },
+      "devops": {
+        "title": "DevOps & Herramientas",
+        "skills": [
+          "Docker",
+          "Vercel",
+          "AWS",
+          "Cloudflare",
+          "Linux",
+          "CI/CD",
+          "Uptime Kuma",
+          "UnifyApps",
+          "Git/GitFlow",
+          "Jest",
+          "React Testing Library"
+        ]
+      },
+      "special": {
+        "title": "Especializaciones",
+        "skills": [
+          "Modernización de Plataformas",
+          "Optimización SQL",
+          "Mejora de Código Legacy",
+          "Liderazgo Técnico",
+          "Self-Hosting",
+          "Infraestructura",
+          "Microfrontends",
+          "WebSockets"
+        ]
+      },
+      "ai": {
+        "title": "AI & Agents",
+        "skills": [
+          "AI Agents",
+          "LLMs",
+          "Prompt Engineering",
+          "Generative AI"
+        ]
+      }
     },
     "achievements": {
       "title": "Logros Destacados",
       "list": [
-        { "title": "Publicación Q2 Internacional", "description": "Blockchain + FHIR HL7 para interoperabilidad en salud", "icon": "publication" },
-        { "title": "Modernización de Plataforma Enterprise", "description": "Modernización a gran escala en Belcorp, cero downtime", "icon": "migration" },
-        { "title": "Optimización de Base de Datos", "description": "Reducción del 40% en tiempos de consulta SQL", "icon": "modernization" },
-        { "title": "Liderazgo de Equipos de Desarrollo", "description": "Equipos pequeños, code review riguroso, mentoría", "icon": "lead" },
-        { "title": "Infraestructura en Producción", "description": "Servidor propio con Cloudflare, CI/CD y monitoreo", "icon": "infra" },
-        { "title": "1er Lugar ERPsim Iberoamérica 2020", "description": "Liderando equipo virtual en simulación empresarial", "icon": "trophy" }
+        {
+          "title": "Publicación Q2 Internacional",
+          "description": "Blockchain + FHIR HL7 para interoperabilidad en salud",
+          "icon": "publication"
+        },
+        {
+          "title": "Modernización de Plataforma Enterprise",
+          "description": "Modernización a gran escala en Belcorp, cero downtime",
+          "icon": "migration"
+        },
+        {
+          "title": "Optimización de Base de Datos",
+          "description": "Reducción del 40% en tiempos de consulta SQL",
+          "icon": "modernization"
+        },
+        {
+          "title": "Liderazgo de Equipos de Desarrollo",
+          "description": "Equipos pequeños, code review riguroso, mentoría",
+          "icon": "lead"
+        },
+        {
+          "title": "Infraestructura en Producción",
+          "description": "Servidor propio con Cloudflare, CI/CD y monitoreo",
+          "icon": "infra"
+        },
+        {
+          "title": "1er Lugar ERPsim Iberoamérica 2020",
+          "description": "Liderando equipo virtual en simulación empresarial",
+          "icon": "trophy"
+        }
       ]
     }
   },

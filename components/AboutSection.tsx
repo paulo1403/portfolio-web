@@ -11,6 +11,7 @@ interface AboutSectionProps {
       paragraph1: string;
       paragraph2: string;
       paragraph3: string;
+      paragraph4?: string;
       technologies: string[];
       highlights: { exp: string; expDesc: string; modern: string; modernDesc: string; lead: string; leadDesc: string; pub: string; pubDesc: string; infra: string; infraDesc: string };
       highlightTitle: string;

@@ -1,6 +1,11 @@
-interface FooterProps { lang: string }
+interface FooterProps {
+  lang: string;
+  dict: { navigation: { home: string; about: string; projects: string; experience: string; contact: string } };
+}
 
-export default function Footer({ lang }: FooterProps) {
+const navItems = ["home", "about", "projects", "experience", "contact"];
+
+export default function Footer({ lang, dict }: FooterProps) {
   return (
     <footer className="border-t border-border/30 bg-muted/30 mt-auto">
       <div className="mx-auto max-w-5xl px-6 py-12">
@@ -19,10 +24,10 @@ export default function Footer({ lang }: FooterProps) {
           <nav>
             <p className="text-xs font-bold text-foreground uppercase tracking-[0.15em] mb-4">{lang === "es" ? "Navegación" : "Navigation"}</p>
             <ul className="space-y-2">
-              {["home", "about", "projects", "experience", "contact"].map((item) => (
+              {navItems.map((item) => (
                 <li key={item}>
                   <a href={`#${item}`} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    {item.charAt(0).toUpperCase() + item.slice(1)}
+                    {dict.navigation[item as keyof typeof dict.navigation]}
                   </a>
                 </li>
               ))}

@@ -22,10 +22,39 @@ const navItems = [
 export default function Header({ dict, lang }: HeaderProps) {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, []);
+
+  useEffect(() => {
+    const ids = navItems.map((i) => i.href.slice(1));
+    const observers: IntersectionObserver[] = [];
+
+    for (const id of ids) {
+      const el = document.getElementById(id);
+      if (!el) continue;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveSection(id);
+        },
+        { rootMargin: "-40% 0px -55% 0px" },
+      );
+      observer.observe(el);
+      observers.push(observer);
+    }
+
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/30">
@@ -40,7 +69,7 @@ export default function Header({ dict, lang }: HeaderProps) {
             <a
               key={item.href}
               href={`${pathname}${item.href}`}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className={`text-sm font-medium transition-colors ${activeSection === item.href.slice(1) ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`}
             >
               {dict.navigation[item.label as keyof typeof dict.navigation]}
             </a>
@@ -79,7 +108,7 @@ export default function Header({ dict, lang }: HeaderProps) {
                 key={item.href}
                 href={`${pathname}${item.href}`}
                 onClick={() => setMobileOpen(false)}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
+                className={`text-sm font-medium transition-colors py-2 ${activeSection === item.href.slice(1) ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`}
               >
                 {dict.navigation[item.label as keyof typeof dict.navigation]}
               </a>

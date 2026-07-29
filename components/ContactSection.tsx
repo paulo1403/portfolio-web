@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, MapPin, Github, Linkedin, Send, Download } from "lucide-react";
+import { Mail, MapPin, Github, Linkedin, Send, Download, Loader2 } from "lucide-react";
 
 interface ContactSectionProps {
   dict: { contact: { title: string; form: { name: string; email: string; message: string; submit: string } } };
@@ -11,11 +11,11 @@ interface ContactSectionProps {
 export default function ContactSection({ dict, lang }: ContactSectionProps) {
   const { title, form } = dict.contact;
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("idle");
+    setStatus("sending");
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -39,18 +39,18 @@ export default function ContactSection({ dict, lang }: ContactSectionProps) {
             <div>
               <label htmlFor="name" className="block text-sm font-semibold text-foreground mb-2">{form.name}</label>
               <input
-                type="text" id="name" name="name" required
+                type="text" id="name" name="name" required disabled={status === "sending"}
                 value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full rounded-full border border-border/50 bg-secondary/30 px-5 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                className="w-full rounded-full border border-border/50 bg-secondary/30 px-5 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all disabled:opacity-50"
                 placeholder={lang === "es" ? "Tu nombre" : "Your name"}
               />
             </div>
             <div>
               <label htmlFor="email" className="block text-sm font-semibold text-foreground mb-2">{form.email}</label>
               <input
-                type="email" id="email" name="email" required
+                type="email" id="email" name="email" required disabled={status === "sending"}
                 value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full rounded-full border border-border/50 bg-secondary/30 px-5 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                className="w-full rounded-full border border-border/50 bg-secondary/30 px-5 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all disabled:opacity-50"
                 placeholder={lang === "es" ? "tu@email.com" : "you@email.com"}
               />
             </div>
@@ -58,17 +58,20 @@ export default function ContactSection({ dict, lang }: ContactSectionProps) {
           <div>
             <label htmlFor="message" className="block text-sm font-semibold text-foreground mb-2">{form.message}</label>
             <textarea
-              id="message" name="message" required rows={5}
+              id="message" name="message" required rows={5} disabled={status === "sending"}
               value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              className="w-full rounded-xl border border-border/50 bg-secondary/30 px-5 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all resize-none"
+              className="w-full rounded-xl border border-border/50 bg-secondary/30 px-5 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all resize-none disabled:opacity-50"
               placeholder={lang === "es" ? "Cuéntame en qué estás trabajando..." : "Tell me what you're working on..."}
             />
           </div>
-          <button type="submit" disabled={status === "success"} className="ctp-btn ctp-btn--primary w-full group">
-            {status === "success"
-              ? lang === "es" ? "¡Enviado!" : "Sent!"
-              : <><Send className="h-4 w-4" /> {form.submit}</>
-            }
+          <button type="submit" disabled={status === "sending" || status === "success"} className="ctp-btn ctp-btn--primary w-full group">
+            {status === "sending" ? (
+              <><Loader2 className="h-4 w-4 animate-spin" /> {lang === "es" ? "Enviando..." : "Sending..."}</>
+            ) : status === "success" ? (
+              lang === "es" ? "¡Enviado!" : "Sent!"
+            ) : (
+              <><Send className="h-4 w-4" /> {form.submit}</>
+            )}
           </button>
           {status === "success" && <p className="text-center text-green text-sm font-medium">{lang === "es" ? "¡Mensaje enviado! Te responderé pronto." : "Message sent! I'll get back to you soon."}</p>}
           {status === "error" && <p className="text-center text-red text-sm font-medium">{lang === "es" ? "Error. Intenta de nuevo o escríbeme directo." : "Failed to send. Try again or email me directly."}</p>}

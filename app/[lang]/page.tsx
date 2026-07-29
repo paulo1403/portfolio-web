@@ -49,7 +49,7 @@ export default async function Home({
         </ScrollReveal>
       </section>
 
-      <Footer lang={lang} />
+      <Footer lang={lang} dict={dict} />
     </main>
   );
 }

@@ -3,12 +3,15 @@ import { JetBrains_Mono } from "next/font/google";
 import "../globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import Providers from "@/components/Providers";
+import BackToTop from "@/components/BackToTop";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jetbrains-mono",
   display: "swap",
 });
+
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://paulo-llanos.vercel.app";
 
 export const metadata: Metadata = {
   title: {
@@ -24,8 +27,8 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Paulo Llanos", url: "https://paulollanos.dev" }],
   creator: "Paulo Llanos",
-  metadataBase: new URL("https://paulo-llanos.vercel.app"),
-  alternates: { canonical: "https://paulo-llanos.vercel.app" },
+  metadataBase: new URL(baseUrl),
+  alternates: { canonical: baseUrl },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "32x32" },
@@ -40,13 +43,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "es_ES",
-    url: "https://paulo-llanos.vercel.app",
+    url: baseUrl,
     title: "Paulo Llanos | Full Stack, Mobile & AI Developer",
     description: "Software Developer y Tech Lead con +5 años. React, Kotlin, Android, AI Agents. Líder en Belcorp.",
     siteName: "Portfolio Paulo Llanos",
     images: [
-      { url: "https://paulo-llanos.vercel.app/og-image.png", width: 1200, height: 630, alt: "Paulo Llanos — Developer" },
-      { url: "https://paulo-llanos.vercel.app/avatar.jpeg", width: 400, height: 400, alt: "Paulo Llanos" },
+      { url: `${baseUrl}/og-image.png`, width: 1200, height: 630, alt: "Paulo Llanos — Developer" },
+      { url: `${baseUrl}/avatar.jpeg`, width: 400, height: 400, alt: "Paulo Llanos" },
     ],
   },
   twitter: {
@@ -54,7 +57,7 @@ export const metadata: Metadata = {
     title: "Paulo Llanos | Full Stack, Mobile & AI Developer",
     description: "Software Developer y Tech Lead con +5 años. React, Kotlin, Android, AI Agents.",
     creator: "@paulo1403",
-    images: ["https://paulo-llanos.vercel.app/og-image.png"],
+    images: [`${baseUrl}/og-image.png`],
   },
 };
 
@@ -80,7 +83,8 @@ export default async function RootLayout({
       </head>
       <body className={`${jetbrainsMono.variable} font-sans antialiased bg-background text-foreground`}>
         <Providers>{children}</Providers>
-        <Analytics />
+        {process.env.VERCEL && <Analytics />}
+        <BackToTop />
       </body>
     </html>
   );

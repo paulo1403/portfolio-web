@@ -173,6 +173,25 @@
     ],
     "personal": [
       {
+        "title": "Voting System",
+        "company": "Personal",
+        "description": "Sistema de votaciones que replica el proceso electoral peruano: padrón electoral, mesas de sufragio, cédula digital, escrutinio por actas con votos en blanco/nulos/impugnados, cómputo público en vivo, auditoría de consistencia y verificación por QR. Self-hosted con Docker y Cloudflare Tunnel.",
+        "technologies": [
+          "React",
+          "TypeScript",
+          "FastAPI",
+          "PostgreSQL",
+          "Docker",
+          "Cloudflare",
+          "TanStack Query",
+          "zod"
+        ],
+        "link": "https://votaciones.paulollanos.dev",
+        "github": "https://github.com/paulo1403/voting-system",
+        "type": "Full Stack",
+        "year": "2026"
+      },
+      {
         "title": "QuipuMed",
         "company": "Personal",
         "description": "Historia clínica electrónica para el consultorio peruano. SOAP, recetas, certificados, laboratorio, firma digital y agenda. Next.js + Bun + PostgreSQL + MinIO S3.",
@@ -190,6 +209,24 @@
         "github": "https://github.com/paulo1403/quipumed",
         "type": "Full Stack",
         "year": "2025"
+      },
+      {
+        "title": "Notes",
+        "description": "App de notas Markdown con autenticación, enlaces compartidos en tiempo real, conteo de visitas y adjuntos S3. Self-hosted en archserver con Cloudflare Tunnel.",
+        "technologies": [
+          "React",
+          "TypeScript",
+          "Bun",
+          "Elysia",
+          "PostgreSQL",
+          "Prisma",
+          "Tailwind",
+          "Cloudflare"
+        ],
+        "link": "https://notes.paulollanos.dev",
+        "github": "https://github.com/paulo1403/notes",
+        "type": "Full Stack",
+        "year": "2026"
       },
       {
         "title": "Portafolio",

@@ -36,12 +36,12 @@ export const metadata: Metadata = {
   alternates: { canonical: baseUrl },
   icons: {
     icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
       { url: "/favicon.ico", sizes: "32x32" },
-      { url: "/icon-tux-64.png", type: "image/png", sizes: "64x64" },
     ],
-    shortcut: "/favicon.ico",
+    shortcut: "/icon.svg",
     apple: [
-      { url: "/icon-tux-180.png", sizes: "180x180", type: "image/png" },
+      { url: "/icon.svg", sizes: "180x180", type: "image/svg+xml" },
     ],
   },
   manifest: "/site.webmanifest",
@@ -83,8 +83,8 @@ export default async function RootLayout({
   return (
     <html lang={lang} suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="32x32" />
-        <link rel="apple-touch-icon" href="/icon-tux-180.png" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/icon.svg" />
       </head>
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-background text-foreground`}>
         <Providers>{children}</Providers>

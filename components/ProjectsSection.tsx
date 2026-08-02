@@ -115,7 +115,7 @@ function ProjectCard({ p, showImage }: { p: Project; showImage: boolean }) {
   );
 }
 
-const WITH_IMAGES = new Set(["quipumed", "chicama-map", "portafolio", "carioca-game-web", "mca-makeup"])
+const WITH_IMAGES = new Set(["quipumed", "chicama-map", "portafolio", "carioca-game-web", "mca-makeup", "voting-system"])
 
 export default function ProjectsSection({ dict }: Props) {
   return (

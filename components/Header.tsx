@@ -2,27 +2,33 @@
 
 import { Languages, Moon, Sun } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
+import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 interface Props {
-  dict: { navigation: { home: string; about: string; projects: string; experience: string; contact: string } };
+  dict: {
+    navigation: {
+      home: string;
+      about: string;
+      projects: string;
+      experience: string;
+      contact: string;
+    };
+  };
   lang: string;
 }
 
 export default function Header({ dict, lang }: Props) {
   const pathname = usePathname();
   const router = useRouter();
-  const [dark, setDark] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const dark = mounted && resolvedTheme === "dark";
 
-  useEffect(() => {
-    const isDark = document.documentElement.classList.contains("dark");
-    setDark(isDark);
-  }, []);
+  useEffect(() => setMounted(true), []);
 
   const toggleTheme = () => {
-    const next = !dark;
-    setDark(next);
-    document.documentElement.classList.toggle("dark", next);
+    setTheme(dark ? "light" : "dark");
   };
 
   const switchLang = () => {
@@ -40,7 +46,9 @@ export default function Header({ dict, lang }: Props) {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--bg)]/90 backdrop-blur-sm">
       <div className="mx-auto max-w-4xl px-6 lg:px-8 flex items-center justify-between h-14">
-        <a href="#" className="display text-sm tracking-tight">PL</a>
+        <a href="#" className="display text-sm tracking-tight">
+          PL
+        </a>
         <nav className="hidden sm:flex items-center gap-6">
           {items.map((item) => (
             <a
